@@ -1,0 +1,909 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>A Neon Grave — QuestForge Twine Edition</title>
+  <style id="twine-user-stylesheet" type="text/twine-css">
+    :root {
+      --bg-dark: #07090e;
+      --card-bg: rgba(18, 23, 37, 0.85);
+      --border-color: rgba(66, 82, 110, 0.4);
+      --accent: #3b82f6;
+      --text-main: #f1f5f9;
+      --text-muted: #94a3b8;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      background: var(--bg-dark);
+      background-image: radial-gradient(circle at 50% 10%, rgba(30, 58, 138, 0.18) 0%, transparent 60%);
+      color: var(--text-main);
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+    header.qf-runner-nav {
+      border-bottom: 1px solid var(--border-color);
+      background: rgba(10, 14, 26, 0.8);
+      backdrop-filter: blur(12px);
+      padding: 12px 24px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      position: sticky;
+      top: 0;
+      z-index: 50;
+    }
+    .qf-logo {
+      font-weight: 700;
+      font-size: 0.95rem;
+      letter-spacing: 0.05em;
+      color: #60a5fa;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .qf-trait-meters {
+      display: flex;
+      gap: 16px;
+      align-items: center;
+    }
+    .qf-trait-badge {
+      font-size: 0.8rem;
+      padding: 4px 12px;
+      border-radius: 9999px;
+      background: rgba(30, 41, 59, 0.8);
+      border: 1px solid var(--border-color);
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+    .qf-score-val {
+      font-weight: bold;
+      color: #93c5fd;
+    }
+    main.qf-stage {
+      flex: 1;
+      max-width: 860px;
+      width: 100%;
+      margin: 32px auto;
+      padding: 0 20px;
+      display: flex;
+      flex-direction: column;
+    }
+    .qf-card {
+      background: var(--card-bg);
+      border: 1px solid var(--border-color);
+      border-radius: 16px;
+      padding: 36px 40px;
+      box-shadow: 0 20px 40px -15px rgba(0, 0, 0, 0.7);
+      backdrop-filter: blur(16px);
+      animation: fadeIn 0.25s ease-out;
+    }
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(6px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    .qf-passage-title {
+      font-size: 1.5rem;
+      font-weight: 700;
+      margin-bottom: 20px;
+      color: #e2e8f0;
+      border-bottom: 1px solid rgba(255,255,255,0.08);
+      padding-bottom: 12px;
+    }
+    .qf-passage-content {
+      font-size: 1.05rem;
+      line-height: 1.75;
+      color: #cbd5e1;
+    }
+    .qf-passage-content p {
+      margin-bottom: 1.25rem;
+    }
+    .qf-passage-content blockquote {
+      border-left: 3px solid #3b82f6;
+      padding: 10px 18px;
+      margin: 16px 0;
+      background: rgba(59, 130, 246, 0.08);
+      border-radius: 0 8px 8px 0;
+      font-style: italic;
+    }
+    .qf-passage-content h1, .qf-passage-content h2, .qf-passage-content h3 {
+      margin: 20px 0 12px 0;
+      color: #f8fafc;
+    }
+    .qf-passage-content hr {
+      border: 0;
+      height: 1px;
+      background: var(--border-color);
+      margin: 24px 0;
+    }
+    .qf-choices {
+      margin-top: 28px;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+    .qf-btn-choice {
+      background: rgba(30, 41, 59, 0.7);
+      border: 1px solid rgba(148, 163, 184, 0.25);
+      border-radius: 12px;
+      padding: 14px 20px;
+      color: #f1f5f9;
+      font-size: 0.95rem;
+      text-align: left;
+      cursor: pointer;
+      transition: all 0.2s ease;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+    .qf-btn-choice:hover {
+      background: rgba(59, 130, 246, 0.25);
+      border-color: #3b82f6;
+      transform: translateX(4px);
+    }
+    .qf-choice-arrow {
+      color: #60a5fa;
+      font-weight: bold;
+    }
+    footer.qf-footer {
+      padding: 16px;
+      text-align: center;
+      font-size: 0.75rem;
+      color: var(--text-muted);
+      border-top: 1px solid rgba(255,255,255,0.05);
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Twine 2 Canonical Specification Data Root -->
+  <tw-storydata name="A Neon Grave" startnode="3" creator="QuestForge" creator-version="1.0.0" format="Harlowe" format-version="3.3.8" ifid="676BE3E6-0B87-53F7-8A83-1B1401026052" zoom="1" options="">
+  <style role="stylesheet" id="twine-user-stylesheet" type="text/twine-css"></style>
+  <script role="script" id="twine-user-script" type="text/twine-javascript"></script>
+  <tw-passagedata pid="1" name="StoryInit" tags="" pos="20,20" size="100,100">(set: $flags to (a:))
+(set: $completed_quests to (a:))
+(set: $inventory to (a:))
+(set: $current_chapter to 1)
+(set: $cunning to 0)
+(set: $empathy to 0)</tw-passagedata>
+  <tw-passagedata pid="2" name="StoryHeader" tags="header" pos="140,20" size="100,100">&lt;div class=&quot;qf-status-bar&quot;&gt;
+  &lt;span class=&quot;qf-badge-title&quot;&gt;📖 A Neon Grave&lt;/span&gt;
+  &lt;span class=&quot;qf-badge-traits&quot;&gt;🎭 Cunning: &lt;b&gt;($cunning)&lt;/b&gt; | Empathy: &lt;b&gt;($empathy)&lt;/b&gt;&lt;/span&gt;
+  &lt;span class=&quot;qf-badge-quests&quot;&gt;⚔️ Quests: &lt;b&gt;(count: $completed_quests)&lt;/b&gt;&lt;/span&gt;
+  &lt;span class=&quot;qf-links&quot;&gt;[[Menu-&gt;Codex_Menu]]&lt;/span&gt;
+&lt;/div&gt;
+---</tw-passagedata>
+  <tw-passagedata pid="3" name="Title_Screen" tags="title" pos="300,100" size="100,100"># A Neon Grave
+*Cyber-Noir Mystery* • *Gritty, melancholic, suspenseful*
+
+**The Conflict:** A serial cipher killer targets the syndicate that Cross investigated before her memory was wiped.
+
+**Themes:** Institutional corruption, The burden of memory, Redemption through truth
+
+**Protagonist:** Detective Elena Cross, an investigator plagued by neural glitches from an unsolved case.
+
+**Antagonist:** Councilman Julian Sterling, a wealthy civic leader who buried his criminal origins.
+
+### Emergent Character Traits
+* **&lt;span style=&#x27;color:#E0A82E&#x27;&gt;Cunning&lt;/span&gt;**: Deceptive problem solving and electronic intrusion
+* **&lt;span style=&#x27;color:#2EA8E0&#x27;&gt;Empathy&lt;/span&gt;**: Reading emotional tells and forging loyal human alliances
+
+---
+### Begin Experience
+[[▶ Begin Story-&gt;Chapter_01_Intro]]
+[[📑 Chapter Jump / Selection-&gt;Chapter_Select]]
+[[👥 Dramatis Personae (Cast)-&gt;Dramatis_Personae]]
+[[🗺️ World Codex-&gt;World_Codex]]
+[[🏆 Quest &amp; Achievement Tracker-&gt;Quest_Log]]</tw-passagedata>
+  <tw-passagedata pid="4" name="Codex_Menu" tags="codex" pos="100,240" size="100,100">## 📖 Story Codex &amp; Archives
+Access detailed world intelligence, cast files, and quest progression records.
+
+* [[👥 Cast &amp; Dramatis Personae-&gt;Dramatis_Personae]]
+* [[🗺️ Locations &amp; Lore Codex-&gt;World_Codex]]
+* [[⚔️ Active &amp; Completed Quests-&gt;Quest_Log]]
+* [[🏆 Achievements-&gt;Achievements_List]]
+* [[📑 Jump to Specific Chapter-&gt;Chapter_Select]]
+* [[🔙 Return to Title Screen-&gt;Title_Screen]]</tw-passagedata>
+  <tw-passagedata pid="5" name="Dramatis_Personae" tags="codex" pos="260,240" size="100,100">## 👥 Dramatis Personae (Cast of Characters)
+
+### Elena Cross *(CharacterRole.PROTAGONIST)*
+Former Spire cipher analyst whose memory was selectively erased after stumbling upon Council corruption.
+
+### Julian Sterling *(CharacterRole.ANTAGONIST)*
+Architect of the city&#x27;s memory-scrubbing registry who rose to Councilman through orchestrated amnesia.
+
+### Orin Vance *(CharacterRole.ALLY)*
+Black-market data slicer operating out of the drainage conduits.
+
+### Dr. Maya Lin *(CharacterRole.ALLY)*
+Neuro-archivist secretly cataloguing suppressed neural backups in the lower city.
+
+### Commander Varek Kane *(CharacterRole.ANTAGONIST_ALLY)*
+Spire security director tasked with cleaning up loose cipher fragments.
+
+### Tariq &#x27;The Broker&#x27; Chen *(CharacterRole.NEUTRAL)*
+Underworld broker trading in erased identity chips and black market permits.
+
+### Orin Vance *(Black-market data slicer)*
+### Tariq Chen *(Contraband Broker)*
+
+---
+[[🔙 Return to Codex Menu-&gt;Codex_Menu]] | [[Return to Story-&gt;Title_Screen]]</tw-passagedata>
+  <tw-passagedata pid="6" name="World_Codex" tags="codex" pos="420,240" size="100,100">## 🗺️ World Codex &amp; Setting
+
+### Locations
+* **Spire Precinct 07 Archive Division**: Perpetually rain-soaked neon corridor riddled with decommissioned cipher terminals and buzzing fluorescent lights.
+* **Lower Conduit District**: Dense industrial maze beneath the high-rise bridges where exhaust plumes and dripping condensate blanket street stalls.
+* **The Sunken Bazaar**: Flooded subterranean concourse operating under black-market frequency dampeners where illicit data chips are auctioned.
+* **Old City Sub-Level Archives**: Decommissioned subterranean data vault overgrown with synthetic moss, containing pre-purge paper records and optical drives.
+* **Aegis Enforcement Bastion**: Fortified ferro-concrete command outpost bristling with surveillance uplinks and tactical drone docking bays.
+* **Spire Peak Executive Sanctum**: Pristine, temperature-controlled monolithic sky-gardens overseeing the smog canopy, bathed in artificial daylight.
+
+### Factions &amp; Organizations
+* **Spire Executive Council**: 
+* **The Undergrid Syndicate**: 
+* **The Memory Keepers**: 
+
+
+---
+[[🔙 Return to Codex Menu-&gt;Codex_Menu]] | [[Return to Story-&gt;Title_Screen]]</tw-passagedata>
+  <tw-passagedata pid="7" name="Quest_Log" tags="codex" pos="580,240" size="100,100">## ⚔️ Quest Log &amp; Progression
+
+### [MAIN_BLOCKING] Decipher the Precinct Archive Backup
+* **Objective:** Access the decommissioned terminal and extract the encrypted memory log before the purge sweep.
+(if: $flags contains &quot;ch_01_started&quot;)[**Status:** ✅ Completed](else:)[**Status:** ⏳ In Progress]
+
+### [LATENT_ADVANTAGE] Distract the Shift Sergeant
+* **Objective:** Trigger a false power surge in the evidence locker to clear the hallway.
+(if: $flags contains &quot;ch_01_started&quot;)[**Status:** ✅ Completed](else:)[**Status:** ⏳ In Progress]
+
+### [MAIN_BLOCKING] Infiltrate the Sunken Bazaar
+* **Objective:** Locate Orin Vance in the drainage conduits and establish an encrypted frequency.
+(if: $flags contains &quot;ch_02_started&quot;)[**Status:** ✅ Completed](else:)[**Status:** ⏳ In Progress]
+
+### [LATENT_ADVANTAGE] Recover the Smuggler&#x27;s Ledger
+* **Objective:** Retrieve Tariq&#x27;s hidden identity ledger behind the conduit floodgate.
+(if: $flags contains &quot;ch_02_started&quot;)[**Status:** ✅ Completed](else:)[**Status:** ⏳ In Progress]
+
+### [MAIN_BLOCKING] Breach the Sub-Level Archives
+* **Objective:** Work with Dr. Maya Lin to decrypt the neural backup cylinders.
+(if: $flags contains &quot;ch_03_started&quot;)[**Status:** ✅ Completed](else:)[**Status:** ⏳ In Progress]
+
+### [NEUTRAL] Sabotage Sentinel Relay
+* **Objective:** Cut the primary signal cable to prevent Aegis drones from pinpointing Maya&#x27;s laboratory.
+(if: $flags contains &quot;ch_03_started&quot;)[**Status:** ✅ Completed](else:)[**Status:** ⏳ In Progress]
+
+
+---
+[[🔙 Return to Codex Menu-&gt;Codex_Menu]] | [[Return to Story-&gt;Title_Screen]]</tw-passagedata>
+  <tw-passagedata pid="8" name="Achievements_List" tags="codex" pos="740,240" size="100,100">## 🏆 Story Achievements
+
+### 🎖️ Ghost Protocol
+* Escape Precinct 07 without alerting surveillance or triggering emergency locks.
+(if: $flags contains &quot;stealth_exit_unflagged&quot;)[**Status:** 🌟 UNLOCKED!](else:)[**Status:** 🔒 Locked]
+
+### 🎖️ Memory Keeper
+* Decrypt the historical archive cylinders in the Old City Sub-Levels.
+(if: $flags contains &quot;archives_decrypted&quot;)[**Status:** 🌟 UNLOCKED!](else:)[**Status:** 🔒 Locked]
+
+### 🎖️ Debt Settler
+* Secure Tariq Chen&#x27;s ledger and earn the underworld&#x27;s trust.
+(if: $flags contains &quot;has_broker_ledger&quot;)[**Status:** 🌟 UNLOCKED!](else:)[**Status:** 🔒 Locked]
+
+
+---
+[[🔙 Return to Codex Menu-&gt;Codex_Menu]] | [[Return to Story-&gt;Title_Screen]]</tw-passagedata>
+  <tw-passagedata pid="9" name="Chapter_Select" tags="menu" pos="900,240" size="100,100">## 📑 Chapter Select
+Select any chapter to begin or jump directly into its sequence:
+
+* **[[Chapter 1: Chapter 1: The Trail of Wire-&gt;Chapter_01_Intro]]**
+  *Elena Cross navigates district 1 uncovering evidence against Sterling....*
+* **[[Chapter 2: Chapter 2: The Trail of Wire-&gt;Chapter_02_Intro]]**
+  *Elena Cross navigates district 2 uncovering evidence against Sterling....*
+* **[[Chapter 3: Chapter 3: The Trail of Wire-&gt;Chapter_03_Intro]]**
+  *Elena Cross navigates district 3 uncovering evidence against Sterling....*
+* **[[Chapter 4: Chapter 4: The Trail of Wire-&gt;Chapter_04_Intro]]**
+  *Elena Cross navigates district 4 uncovering evidence against Sterling....*
+* **[[Chapter 5: Chapter 5: The Trail of Wire-&gt;Chapter_05_Intro]]**
+  *Elena Cross navigates district 5 uncovering evidence against Sterling....*
+* **[[Chapter 6: Chapter 6: The Trail of Wire-&gt;Chapter_06_Intro]]**
+  *Elena Cross navigates district 6 uncovering evidence against Sterling....*
+
+---
+[[🔙 Return to Title Screen-&gt;Title_Screen]]</tw-passagedata>
+  <tw-passagedata pid="10" name="Chapter_01_Intro" tags="chapter ch_01" pos="100,420" size="100,100">(set: $current_chapter to 1)
+## Chapter 1: Chapter 1: The Trail of Wire
+
+&gt; *Elena Cross navigates district 1 uncovering evidence against Sterling.*
+
+**Setting:** `loc_district_01`
+**Key Assets Required:** detective_badge, service_pistol
+
+---
+[[▶ Proceed into Chapter 1-&gt;Chapter_01_Scene_01]]
+[[📑 Chapter Select-&gt;Chapter_Select]]</tw-passagedata>
+  <tw-passagedata pid="11" name="Chapter_01_Scene_01" tags="scene ch_01" pos="280,420" size="100,100">### Chapter 1, Scene 1: Arrival at loc_district_01
+
+&lt;small&gt;📍 Location: `loc_district_01` | 👥 Present: char_cross | 💓 Beat: *Isolation and persistent cerebral unease*&lt;/small&gt;
+
+The acid precipitation hissed relentlessly against the corrugated steel shutters of the precinct. Elena Cross stepped past the perimeter security cordon into loc_district_01, her coat soaked through with neon-tinted rainwater. Her neural implant vibrated with a jagged harmonic—a phantom sensory echo of an erased archive key trying to complete a forgotten handshake. Around her, the city muttered in the low hum of cooling towers and flickering transit signs. Every terminal in the sector had been rebooted under emergency protocols, wiping today&#x27;s registry logs before the shift change.
+
+---
+[[Continue to Next Scene ➔-&gt;Chapter_01_Scene_02]]</tw-passagedata>
+  <tw-passagedata pid="12" name="Chapter_01_Scene_02" tags="scene ch_01" pos="460,420" size="100,100">### Chapter 1, Scene 2: Investigation and Contact
+
+&lt;small&gt;📍 Location: `loc_district_01` | 👥 Present: char_cross, char_orin | 💓 Beat: *Wary collaboration under tactical pressure*&lt;/small&gt;
+
+Deep within the labyrinth of steam lines, shadows detached from the damp concrete. Orin Vance leaned against a buzzing junction box, a pair of modified optic lenses whirring into focus. &#x27;You&#x27;re late, Elena,&#x27; he muttered, tossing a magnetic data cartridge between his gloved fingers. &#x27;Spire drones have been sweeping the drainage canals since third bell. If Kane catches wind that we&#x27;re pulling cold backups, we won&#x27;t make it to morning.&#x27; Cross caught the cartridge, feeling the residual heat of a fresh decrypt pass. &#x27;Sterling wiped my records, Orin. But he didn&#x27;t wipe what was etched on the physical copper.&#x27;
+
+---
+[[Continue to Next Scene ➔-&gt;Chapter_01_Scene_03]]</tw-passagedata>
+  <tw-passagedata pid="13" name="Chapter_01_Scene_03" tags="scene ch_01" pos="640,420" size="100,100">### Chapter 1, Scene 3: Confrontation and Breach to loc_district_01_exit
+
+&lt;small&gt;📍 Location: `loc_district_01_exit` | 👥 Present: char_cross, char_orin, char_kane | 💓 Beat: *High stakes confrontation and sudden realization*&lt;/small&gt;
+
+The breach siren echoed across the flooded conduit as searchlights carved paths through the swirling mist. Footsteps echoed above on the catwalks—Aegis enforcers moving into sweep formation. Elena thumbed the charge selector on her sidearm, her heartbeat syncing with the pulsing alarm strobe. Together with Orin, she forced open the heavy hydraulic floodgate leading into loc_district_01_exit. As the door sealed shut behind them, locking out the pursuit drones, Elena examined the decrypted data fragment in the pale green emergency light. The conspiracy didn&#x27;t just touch the Council—it began on the very day her own memory was erased.
+
+---
+[[Engage in Dialogue 💬-&gt;Chapter_01_Dialogue_node_chapter_01_01]]</tw-passagedata>
+  <tw-passagedata pid="14" name="Chapter_01_Dialogue_node_chapter_01_01" tags="dialogue ch_01" pos="820,420" size="100,100">**[CHAR_ORIN]**
+&gt; &quot;The precinct drones are already circling the perimeter, Elena. What do you want to do with the courier&#x27;s chip?&quot;
+
+---
+### Choices:
+* (link: &quot;Hook it up to your deck. I need to bypass the security header right now.&quot;)[(set: $cunning to $cunning + 1)(set: $flags to $flags + (a: &quot;chose_cunning_approach&quot;))(go-to: &quot;Chapter_01_Dialogue_node_chapter_01_02a&quot;)]
+* (link: &quot;Tell me who delivered it, Orin. What happened to the courier?&quot;)[(set: $empathy to $empathy + 1)(set: $flags to $flags + (a: &quot;chose_empathy_approach&quot;))(go-to: &quot;Chapter_01_Dialogue_node_chapter_01_02b&quot;)]</tw-passagedata>
+  <tw-passagedata pid="15" name="Chapter_01_Dialogue_node_chapter_01_02a" tags="dialogue ch_01" pos="980,420" size="100,100">**[CHAR_ORIN]**
+&gt; &quot;Header cracked. The cipher points straight to the Spire Archives.&quot;
+
+---
+[[Continue...-&gt;Chapter_01_Dialogue_node_chapter_01_end]]</tw-passagedata>
+  <tw-passagedata pid="16" name="Chapter_01_Dialogue_node_chapter_01_02b" tags="dialogue ch_01" pos="1140,420" size="100,100">**[CHAR_ORIN]**
+&gt; &quot;His name was Felix. They took him in the third sweep. But he left the access codes behind for us.&quot;
+
+---
+[[Continue...-&gt;Chapter_01_Dialogue_node_chapter_01_end]]</tw-passagedata>
+  <tw-passagedata pid="17" name="Chapter_01_Dialogue_node_chapter_01_end" tags="dialogue ch_01" pos="1300,420" size="100,100">*The rain outside redoubles as the terminal screen displays the decoded coordinates.*
+
+---
+[[Chapter 1 Completed. Continue ➔-&gt;Chapter_01_Transition]]</tw-passagedata>
+  <tw-passagedata pid="18" name="Chapter_01_Transition" tags="transition ch_01" pos="1460,420" size="100,100">## Passage: Transition from Chapter 1 to Chapter 2
+
+Cross leaves district 1 under heavy acid rain, heading towards district 2.
+
+&gt; &quot;The sirens in district 2 echo through the concrete canyons.&quot;
+
+**State Shift:** `{&quot;active_flags_added&quot;: [&quot;transit_to_ch02&quot;]}`
+
+---
+[[Enter Chapter 2 ➔-&gt;Chapter_02_Intro]]
+[[📑 Chapter Select-&gt;Chapter_Select]]</tw-passagedata>
+  <tw-passagedata pid="19" name="Chapter_02_Intro" tags="chapter ch_02" pos="100,600" size="100,100">(set: $current_chapter to 2)
+## Chapter 2: Chapter 2: The Trail of Wire
+
+&gt; *Elena Cross navigates district 2 uncovering evidence against Sterling.*
+
+**Setting:** `loc_district_02`
+**Key Assets Required:** detective_badge, service_pistol
+
+---
+[[▶ Proceed into Chapter 2-&gt;Chapter_02_Scene_01]]
+[[📑 Chapter Select-&gt;Chapter_Select]]</tw-passagedata>
+  <tw-passagedata pid="20" name="Chapter_02_Scene_01" tags="scene ch_02" pos="280,600" size="100,100">### Chapter 2, Scene 1: Arrival at loc_district_02
+
+&lt;small&gt;📍 Location: `loc_district_02` | 👥 Present: char_cross | 💓 Beat: *Isolation and persistent cerebral unease*&lt;/small&gt;
+
+The acid precipitation hissed relentlessly against the corrugated steel shutters of the precinct. Elena Cross stepped past the perimeter security cordon into loc_district_02, her coat soaked through with neon-tinted rainwater. Her neural implant vibrated with a jagged harmonic—a phantom sensory echo of an erased archive key trying to complete a forgotten handshake. Around her, the city muttered in the low hum of cooling towers and flickering transit signs. Every terminal in the sector had been rebooted under emergency protocols, wiping today&#x27;s registry logs before the shift change.
+
+---
+[[Continue to Next Scene ➔-&gt;Chapter_02_Scene_02]]</tw-passagedata>
+  <tw-passagedata pid="21" name="Chapter_02_Scene_02" tags="scene ch_02" pos="460,600" size="100,100">### Chapter 2, Scene 2: Investigation and Contact
+
+&lt;small&gt;📍 Location: `loc_district_02` | 👥 Present: char_cross, char_orin | 💓 Beat: *Wary collaboration under tactical pressure*&lt;/small&gt;
+
+Deep within the labyrinth of steam lines, shadows detached from the damp concrete. Orin Vance leaned against a buzzing junction box, a pair of modified optic lenses whirring into focus. &#x27;You&#x27;re late, Elena,&#x27; he muttered, tossing a magnetic data cartridge between his gloved fingers. &#x27;Spire drones have been sweeping the drainage canals since third bell. If Kane catches wind that we&#x27;re pulling cold backups, we won&#x27;t make it to morning.&#x27; Cross caught the cartridge, feeling the residual heat of a fresh decrypt pass. &#x27;Sterling wiped my records, Orin. But he didn&#x27;t wipe what was etched on the physical copper.&#x27;
+
+---
+[[Continue to Next Scene ➔-&gt;Chapter_02_Scene_03]]</tw-passagedata>
+  <tw-passagedata pid="22" name="Chapter_02_Scene_03" tags="scene ch_02" pos="640,600" size="100,100">### Chapter 2, Scene 3: Confrontation and Breach to loc_district_02_exit
+
+&lt;small&gt;📍 Location: `loc_district_02_exit` | 👥 Present: char_cross, char_orin, char_kane | 💓 Beat: *High stakes confrontation and sudden realization*&lt;/small&gt;
+
+The breach siren echoed across the flooded conduit as searchlights carved paths through the swirling mist. Footsteps echoed above on the catwalks—Aegis enforcers moving into sweep formation. Elena thumbed the charge selector on her sidearm, her heartbeat syncing with the pulsing alarm strobe. Together with Orin, she forced open the heavy hydraulic floodgate leading into loc_district_02_exit. As the door sealed shut behind them, locking out the pursuit drones, Elena examined the decrypted data fragment in the pale green emergency light. The conspiracy didn&#x27;t just touch the Council—it began on the very day her own memory was erased.
+
+---
+[[Engage in Dialogue 💬-&gt;Chapter_02_Dialogue_node_chapter_02_01]]</tw-passagedata>
+  <tw-passagedata pid="23" name="Chapter_02_Dialogue_node_chapter_02_01" tags="dialogue ch_02" pos="820,600" size="100,100">**[CHAR_ORIN]**
+&gt; &quot;The precinct drones are already circling the perimeter, Elena. What do you want to do with the courier&#x27;s chip?&quot;
+
+---
+### Choices:
+* (link: &quot;Hook it up to your deck. I need to bypass the security header right now.&quot;)[(set: $cunning to $cunning + 1)(set: $flags to $flags + (a: &quot;chose_cunning_approach&quot;))(go-to: &quot;Chapter_02_Dialogue_node_chapter_02_02a&quot;)]
+* (link: &quot;Tell me who delivered it, Orin. What happened to the courier?&quot;)[(set: $empathy to $empathy + 1)(set: $flags to $flags + (a: &quot;chose_empathy_approach&quot;))(go-to: &quot;Chapter_02_Dialogue_node_chapter_02_02b&quot;)]</tw-passagedata>
+  <tw-passagedata pid="24" name="Chapter_02_Dialogue_node_chapter_02_02a" tags="dialogue ch_02" pos="980,600" size="100,100">**[CHAR_ORIN]**
+&gt; &quot;Header cracked. The cipher points straight to the Spire Archives.&quot;
+
+---
+[[Continue...-&gt;Chapter_02_Dialogue_node_chapter_02_end]]</tw-passagedata>
+  <tw-passagedata pid="25" name="Chapter_02_Dialogue_node_chapter_02_02b" tags="dialogue ch_02" pos="1140,600" size="100,100">**[CHAR_ORIN]**
+&gt; &quot;His name was Felix. They took him in the third sweep. But he left the access codes behind for us.&quot;
+
+---
+[[Continue...-&gt;Chapter_02_Dialogue_node_chapter_02_end]]</tw-passagedata>
+  <tw-passagedata pid="26" name="Chapter_02_Dialogue_node_chapter_02_end" tags="dialogue ch_02" pos="1300,600" size="100,100">*The rain outside redoubles as the terminal screen displays the decoded coordinates.*
+
+---
+[[Chapter 2 Completed. Continue ➔-&gt;Chapter_02_Transition]]</tw-passagedata>
+  <tw-passagedata pid="27" name="Chapter_02_Transition" tags="transition ch_02" pos="1460,600" size="100,100">## Passage: Transition from Chapter 2 to Chapter 3
+
+Cross leaves district 2 under heavy acid rain, heading towards district 3.
+
+&gt; &quot;The sirens in district 3 echo through the concrete canyons.&quot;
+
+**State Shift:** `{&quot;active_flags_added&quot;: [&quot;transit_to_ch03&quot;]}`
+
+---
+[[Enter Chapter 3 ➔-&gt;Chapter_03_Intro]]
+[[📑 Chapter Select-&gt;Chapter_Select]]</tw-passagedata>
+  <tw-passagedata pid="28" name="Chapter_03_Intro" tags="chapter ch_03" pos="100,780" size="100,100">(set: $current_chapter to 3)
+## Chapter 3: Chapter 3: The Trail of Wire
+
+&gt; *Elena Cross navigates district 3 uncovering evidence against Sterling.*
+
+**Setting:** `loc_district_03`
+**Key Assets Required:** detective_badge, service_pistol
+
+---
+[[▶ Proceed into Chapter 3-&gt;Chapter_03_Scene_01]]
+[[📑 Chapter Select-&gt;Chapter_Select]]</tw-passagedata>
+  <tw-passagedata pid="29" name="Chapter_03_Scene_01" tags="scene ch_03" pos="280,780" size="100,100">### Chapter 3, Scene 1: Arrival at loc_district_03
+
+&lt;small&gt;📍 Location: `loc_district_03` | 👥 Present: char_cross | 💓 Beat: *Isolation and persistent cerebral unease*&lt;/small&gt;
+
+The acid precipitation hissed relentlessly against the corrugated steel shutters of the precinct. Elena Cross stepped past the perimeter security cordon into loc_district_03, her coat soaked through with neon-tinted rainwater. Her neural implant vibrated with a jagged harmonic—a phantom sensory echo of an erased archive key trying to complete a forgotten handshake. Around her, the city muttered in the low hum of cooling towers and flickering transit signs. Every terminal in the sector had been rebooted under emergency protocols, wiping today&#x27;s registry logs before the shift change.
+
+---
+[[Continue to Next Scene ➔-&gt;Chapter_03_Scene_02]]</tw-passagedata>
+  <tw-passagedata pid="30" name="Chapter_03_Scene_02" tags="scene ch_03" pos="460,780" size="100,100">### Chapter 3, Scene 2: Investigation and Contact
+
+&lt;small&gt;📍 Location: `loc_district_03` | 👥 Present: char_cross, char_orin | 💓 Beat: *Wary collaboration under tactical pressure*&lt;/small&gt;
+
+Deep within the labyrinth of steam lines, shadows detached from the damp concrete. Orin Vance leaned against a buzzing junction box, a pair of modified optic lenses whirring into focus. &#x27;You&#x27;re late, Elena,&#x27; he muttered, tossing a magnetic data cartridge between his gloved fingers. &#x27;Spire drones have been sweeping the drainage canals since third bell. If Kane catches wind that we&#x27;re pulling cold backups, we won&#x27;t make it to morning.&#x27; Cross caught the cartridge, feeling the residual heat of a fresh decrypt pass. &#x27;Sterling wiped my records, Orin. But he didn&#x27;t wipe what was etched on the physical copper.&#x27;
+
+---
+[[Continue to Next Scene ➔-&gt;Chapter_03_Scene_03]]</tw-passagedata>
+  <tw-passagedata pid="31" name="Chapter_03_Scene_03" tags="scene ch_03" pos="640,780" size="100,100">### Chapter 3, Scene 3: Confrontation and Breach to loc_district_03_exit
+
+&lt;small&gt;📍 Location: `loc_district_03_exit` | 👥 Present: char_cross, char_orin, char_kane | 💓 Beat: *High stakes confrontation and sudden realization*&lt;/small&gt;
+
+The breach siren echoed across the flooded conduit as searchlights carved paths through the swirling mist. Footsteps echoed above on the catwalks—Aegis enforcers moving into sweep formation. Elena thumbed the charge selector on her sidearm, her heartbeat syncing with the pulsing alarm strobe. Together with Orin, she forced open the heavy hydraulic floodgate leading into loc_district_03_exit. As the door sealed shut behind them, locking out the pursuit drones, Elena examined the decrypted data fragment in the pale green emergency light. The conspiracy didn&#x27;t just touch the Council—it began on the very day her own memory was erased.
+
+---
+[[Engage in Dialogue 💬-&gt;Chapter_03_Dialogue_node_chapter_03_01]]</tw-passagedata>
+  <tw-passagedata pid="32" name="Chapter_03_Dialogue_node_chapter_03_01" tags="dialogue ch_03" pos="820,780" size="100,100">**[CHAR_ORIN]**
+&gt; &quot;The precinct drones are already circling the perimeter, Elena. What do you want to do with the courier&#x27;s chip?&quot;
+
+---
+### Choices:
+* (link: &quot;Hook it up to your deck. I need to bypass the security header right now.&quot;)[(set: $cunning to $cunning + 1)(set: $flags to $flags + (a: &quot;chose_cunning_approach&quot;))(go-to: &quot;Chapter_03_Dialogue_node_chapter_03_02a&quot;)]
+* (link: &quot;Tell me who delivered it, Orin. What happened to the courier?&quot;)[(set: $empathy to $empathy + 1)(set: $flags to $flags + (a: &quot;chose_empathy_approach&quot;))(go-to: &quot;Chapter_03_Dialogue_node_chapter_03_02b&quot;)]</tw-passagedata>
+  <tw-passagedata pid="33" name="Chapter_03_Dialogue_node_chapter_03_02a" tags="dialogue ch_03" pos="980,780" size="100,100">**[CHAR_ORIN]**
+&gt; &quot;Header cracked. The cipher points straight to the Spire Archives.&quot;
+
+---
+[[Continue...-&gt;Chapter_03_Dialogue_node_chapter_03_end]]</tw-passagedata>
+  <tw-passagedata pid="34" name="Chapter_03_Dialogue_node_chapter_03_02b" tags="dialogue ch_03" pos="1140,780" size="100,100">**[CHAR_ORIN]**
+&gt; &quot;His name was Felix. They took him in the third sweep. But he left the access codes behind for us.&quot;
+
+---
+[[Continue...-&gt;Chapter_03_Dialogue_node_chapter_03_end]]</tw-passagedata>
+  <tw-passagedata pid="35" name="Chapter_03_Dialogue_node_chapter_03_end" tags="dialogue ch_03" pos="1300,780" size="100,100">*The rain outside redoubles as the terminal screen displays the decoded coordinates.*
+
+---
+[[Chapter 3 Completed. Continue ➔-&gt;Chapter_03_Transition]]</tw-passagedata>
+  <tw-passagedata pid="36" name="Chapter_03_Transition" tags="transition ch_03" pos="1460,780" size="100,100">## Passage: Transition from Chapter 3 to Chapter 4
+
+Cross leaves district 3 under heavy acid rain, heading towards district 4.
+
+&gt; &quot;The sirens in district 4 echo through the concrete canyons.&quot;
+
+**State Shift:** `{&quot;active_flags_added&quot;: [&quot;transit_to_ch04&quot;]}`
+
+---
+[[Enter Chapter 4 ➔-&gt;Chapter_04_Intro]]
+[[📑 Chapter Select-&gt;Chapter_Select]]</tw-passagedata>
+  <tw-passagedata pid="37" name="Chapter_04_Intro" tags="chapter ch_04" pos="100,960" size="100,100">(set: $current_chapter to 4)
+## Chapter 4: Chapter 4: The Trail of Wire
+
+&gt; *Elena Cross navigates district 4 uncovering evidence against Sterling.*
+
+**Setting:** `loc_district_04`
+**Key Assets Required:** detective_badge, service_pistol
+
+---
+[[▶ Proceed into Chapter 4-&gt;Chapter_04_Scene_01]]
+[[📑 Chapter Select-&gt;Chapter_Select]]</tw-passagedata>
+  <tw-passagedata pid="38" name="Chapter_04_Scene_01" tags="scene ch_04" pos="280,960" size="100,100">### Chapter 4, Scene 1: Arrival at loc_district_04
+
+&lt;small&gt;📍 Location: `loc_district_04` | 👥 Present: char_cross | 💓 Beat: *Isolation and persistent cerebral unease*&lt;/small&gt;
+
+The acid precipitation hissed relentlessly against the corrugated steel shutters of the precinct. Elena Cross stepped past the perimeter security cordon into loc_district_04, her coat soaked through with neon-tinted rainwater. Her neural implant vibrated with a jagged harmonic—a phantom sensory echo of an erased archive key trying to complete a forgotten handshake. Around her, the city muttered in the low hum of cooling towers and flickering transit signs. Every terminal in the sector had been rebooted under emergency protocols, wiping today&#x27;s registry logs before the shift change.
+
+---
+[[Continue to Next Scene ➔-&gt;Chapter_04_Scene_02]]</tw-passagedata>
+  <tw-passagedata pid="39" name="Chapter_04_Scene_02" tags="scene ch_04" pos="460,960" size="100,100">### Chapter 4, Scene 2: Investigation and Contact
+
+&lt;small&gt;📍 Location: `loc_district_04` | 👥 Present: char_cross, char_orin | 💓 Beat: *Wary collaboration under tactical pressure*&lt;/small&gt;
+
+Deep within the labyrinth of steam lines, shadows detached from the damp concrete. Orin Vance leaned against a buzzing junction box, a pair of modified optic lenses whirring into focus. &#x27;You&#x27;re late, Elena,&#x27; he muttered, tossing a magnetic data cartridge between his gloved fingers. &#x27;Spire drones have been sweeping the drainage canals since third bell. If Kane catches wind that we&#x27;re pulling cold backups, we won&#x27;t make it to morning.&#x27; Cross caught the cartridge, feeling the residual heat of a fresh decrypt pass. &#x27;Sterling wiped my records, Orin. But he didn&#x27;t wipe what was etched on the physical copper.&#x27;
+
+---
+[[Continue to Next Scene ➔-&gt;Chapter_04_Scene_03]]</tw-passagedata>
+  <tw-passagedata pid="40" name="Chapter_04_Scene_03" tags="scene ch_04" pos="640,960" size="100,100">### Chapter 4, Scene 3: Confrontation and Breach to loc_district_04_exit
+
+&lt;small&gt;📍 Location: `loc_district_04_exit` | 👥 Present: char_cross, char_orin, char_kane | 💓 Beat: *High stakes confrontation and sudden realization*&lt;/small&gt;
+
+The breach siren echoed across the flooded conduit as searchlights carved paths through the swirling mist. Footsteps echoed above on the catwalks—Aegis enforcers moving into sweep formation. Elena thumbed the charge selector on her sidearm, her heartbeat syncing with the pulsing alarm strobe. Together with Orin, she forced open the heavy hydraulic floodgate leading into loc_district_04_exit. As the door sealed shut behind them, locking out the pursuit drones, Elena examined the decrypted data fragment in the pale green emergency light. The conspiracy didn&#x27;t just touch the Council—it began on the very day her own memory was erased.
+
+---
+[[Engage in Dialogue 💬-&gt;Chapter_04_Dialogue_node_chapter_04_01]]</tw-passagedata>
+  <tw-passagedata pid="41" name="Chapter_04_Dialogue_node_chapter_04_01" tags="dialogue ch_04" pos="820,960" size="100,100">**[CHAR_ORIN]**
+&gt; &quot;The precinct drones are already circling the perimeter, Elena. What do you want to do with the courier&#x27;s chip?&quot;
+
+---
+### Choices:
+* (link: &quot;Hook it up to your deck. I need to bypass the security header right now.&quot;)[(set: $cunning to $cunning + 1)(set: $flags to $flags + (a: &quot;chose_cunning_approach&quot;))(go-to: &quot;Chapter_04_Dialogue_node_chapter_04_02a&quot;)]
+* (link: &quot;Tell me who delivered it, Orin. What happened to the courier?&quot;)[(set: $empathy to $empathy + 1)(set: $flags to $flags + (a: &quot;chose_empathy_approach&quot;))(go-to: &quot;Chapter_04_Dialogue_node_chapter_04_02b&quot;)]</tw-passagedata>
+  <tw-passagedata pid="42" name="Chapter_04_Dialogue_node_chapter_04_02a" tags="dialogue ch_04" pos="980,960" size="100,100">**[CHAR_ORIN]**
+&gt; &quot;Header cracked. The cipher points straight to the Spire Archives.&quot;
+
+---
+[[Continue...-&gt;Chapter_04_Dialogue_node_chapter_04_end]]</tw-passagedata>
+  <tw-passagedata pid="43" name="Chapter_04_Dialogue_node_chapter_04_02b" tags="dialogue ch_04" pos="1140,960" size="100,100">**[CHAR_ORIN]**
+&gt; &quot;His name was Felix. They took him in the third sweep. But he left the access codes behind for us.&quot;
+
+---
+[[Continue...-&gt;Chapter_04_Dialogue_node_chapter_04_end]]</tw-passagedata>
+  <tw-passagedata pid="44" name="Chapter_04_Dialogue_node_chapter_04_end" tags="dialogue ch_04" pos="1300,960" size="100,100">*The rain outside redoubles as the terminal screen displays the decoded coordinates.*
+
+---
+[[Chapter 4 Completed. Continue ➔-&gt;Chapter_04_Transition]]</tw-passagedata>
+  <tw-passagedata pid="45" name="Chapter_04_Transition" tags="transition ch_04" pos="1460,960" size="100,100">## Passage: Transition from Chapter 4 to Chapter 5
+
+Cross leaves district 4 under heavy acid rain, heading towards district 5.
+
+&gt; &quot;The sirens in district 5 echo through the concrete canyons.&quot;
+
+**State Shift:** `{&quot;active_flags_added&quot;: [&quot;transit_to_ch05&quot;]}`
+
+---
+[[Enter Chapter 5 ➔-&gt;Chapter_05_Intro]]
+[[📑 Chapter Select-&gt;Chapter_Select]]</tw-passagedata>
+  <tw-passagedata pid="46" name="Chapter_05_Intro" tags="chapter ch_05" pos="100,1140" size="100,100">(set: $current_chapter to 5)
+## Chapter 5: Chapter 5: The Trail of Wire
+
+&gt; *Elena Cross navigates district 5 uncovering evidence against Sterling.*
+
+**Setting:** `loc_district_05`
+**Key Assets Required:** detective_badge, service_pistol
+
+---
+[[▶ Proceed into Chapter 5-&gt;Chapter_05_Scene_01]]
+[[📑 Chapter Select-&gt;Chapter_Select]]</tw-passagedata>
+  <tw-passagedata pid="47" name="Chapter_05_Scene_01" tags="scene ch_05" pos="280,1140" size="100,100">### Chapter 5, Scene 1: Arrival at loc_district_05
+
+&lt;small&gt;📍 Location: `loc_district_05` | 👥 Present: char_cross | 💓 Beat: *Isolation and persistent cerebral unease*&lt;/small&gt;
+
+The acid precipitation hissed relentlessly against the corrugated steel shutters of the precinct. Elena Cross stepped past the perimeter security cordon into loc_district_05, her coat soaked through with neon-tinted rainwater. Her neural implant vibrated with a jagged harmonic—a phantom sensory echo of an erased archive key trying to complete a forgotten handshake. Around her, the city muttered in the low hum of cooling towers and flickering transit signs. Every terminal in the sector had been rebooted under emergency protocols, wiping today&#x27;s registry logs before the shift change.
+
+---
+[[Continue to Next Scene ➔-&gt;Chapter_05_Scene_02]]</tw-passagedata>
+  <tw-passagedata pid="48" name="Chapter_05_Scene_02" tags="scene ch_05" pos="460,1140" size="100,100">### Chapter 5, Scene 2: Investigation and Contact
+
+&lt;small&gt;📍 Location: `loc_district_05` | 👥 Present: char_cross, char_orin | 💓 Beat: *Wary collaboration under tactical pressure*&lt;/small&gt;
+
+Deep within the labyrinth of steam lines, shadows detached from the damp concrete. Orin Vance leaned against a buzzing junction box, a pair of modified optic lenses whirring into focus. &#x27;You&#x27;re late, Elena,&#x27; he muttered, tossing a magnetic data cartridge between his gloved fingers. &#x27;Spire drones have been sweeping the drainage canals since third bell. If Kane catches wind that we&#x27;re pulling cold backups, we won&#x27;t make it to morning.&#x27; Cross caught the cartridge, feeling the residual heat of a fresh decrypt pass. &#x27;Sterling wiped my records, Orin. But he didn&#x27;t wipe what was etched on the physical copper.&#x27;
+
+---
+[[Continue to Next Scene ➔-&gt;Chapter_05_Scene_03]]</tw-passagedata>
+  <tw-passagedata pid="49" name="Chapter_05_Scene_03" tags="scene ch_05" pos="640,1140" size="100,100">### Chapter 5, Scene 3: Confrontation and Breach to loc_district_05_exit
+
+&lt;small&gt;📍 Location: `loc_district_05_exit` | 👥 Present: char_cross, char_orin, char_kane | 💓 Beat: *High stakes confrontation and sudden realization*&lt;/small&gt;
+
+The breach siren echoed across the flooded conduit as searchlights carved paths through the swirling mist. Footsteps echoed above on the catwalks—Aegis enforcers moving into sweep formation. Elena thumbed the charge selector on her sidearm, her heartbeat syncing with the pulsing alarm strobe. Together with Orin, she forced open the heavy hydraulic floodgate leading into loc_district_05_exit. As the door sealed shut behind them, locking out the pursuit drones, Elena examined the decrypted data fragment in the pale green emergency light. The conspiracy didn&#x27;t just touch the Council—it began on the very day her own memory was erased.
+
+---
+[[Engage in Dialogue 💬-&gt;Chapter_05_Dialogue_node_chapter_05_01]]</tw-passagedata>
+  <tw-passagedata pid="50" name="Chapter_05_Dialogue_node_chapter_05_01" tags="dialogue ch_05" pos="820,1140" size="100,100">**[CHAR_ORIN]**
+&gt; &quot;The precinct drones are already circling the perimeter, Elena. What do you want to do with the courier&#x27;s chip?&quot;
+
+---
+### Choices:
+* (link: &quot;Hook it up to your deck. I need to bypass the security header right now.&quot;)[(set: $cunning to $cunning + 1)(set: $flags to $flags + (a: &quot;chose_cunning_approach&quot;))(go-to: &quot;Chapter_05_Dialogue_node_chapter_05_02a&quot;)]
+* (link: &quot;Tell me who delivered it, Orin. What happened to the courier?&quot;)[(set: $empathy to $empathy + 1)(set: $flags to $flags + (a: &quot;chose_empathy_approach&quot;))(go-to: &quot;Chapter_05_Dialogue_node_chapter_05_02b&quot;)]</tw-passagedata>
+  <tw-passagedata pid="51" name="Chapter_05_Dialogue_node_chapter_05_02a" tags="dialogue ch_05" pos="980,1140" size="100,100">**[CHAR_ORIN]**
+&gt; &quot;Header cracked. The cipher points straight to the Spire Archives.&quot;
+
+---
+[[Continue...-&gt;Chapter_05_Dialogue_node_chapter_05_end]]</tw-passagedata>
+  <tw-passagedata pid="52" name="Chapter_05_Dialogue_node_chapter_05_02b" tags="dialogue ch_05" pos="1140,1140" size="100,100">**[CHAR_ORIN]**
+&gt; &quot;His name was Felix. They took him in the third sweep. But he left the access codes behind for us.&quot;
+
+---
+[[Continue...-&gt;Chapter_05_Dialogue_node_chapter_05_end]]</tw-passagedata>
+  <tw-passagedata pid="53" name="Chapter_05_Dialogue_node_chapter_05_end" tags="dialogue ch_05" pos="1300,1140" size="100,100">*The rain outside redoubles as the terminal screen displays the decoded coordinates.*
+
+---
+[[Chapter 5 Completed. Continue ➔-&gt;Chapter_05_Transition]]</tw-passagedata>
+  <tw-passagedata pid="54" name="Chapter_05_Transition" tags="transition ch_05" pos="1460,1140" size="100,100">## Passage: Transition from Chapter 5 to Chapter 6
+
+Cross leaves district 5 under heavy acid rain, heading towards district 6.
+
+&gt; &quot;The sirens in district 6 echo through the concrete canyons.&quot;
+
+**State Shift:** `{&quot;active_flags_added&quot;: [&quot;transit_to_ch06&quot;]}`
+
+---
+[[Enter Chapter 6 ➔-&gt;Chapter_06_Intro]]
+[[📑 Chapter Select-&gt;Chapter_Select]]</tw-passagedata>
+  <tw-passagedata pid="55" name="Chapter_06_Intro" tags="chapter ch_06" pos="100,1320" size="100,100">(set: $current_chapter to 6)
+## Chapter 6: Chapter 6: The Trail of Wire
+
+&gt; *Elena Cross navigates district 6 uncovering evidence against Sterling.*
+
+**Setting:** `loc_district_06`
+**Key Assets Required:** detective_badge, service_pistol
+
+---
+[[▶ Proceed into Chapter 6-&gt;Chapter_06_Scene_01]]
+[[📑 Chapter Select-&gt;Chapter_Select]]</tw-passagedata>
+  <tw-passagedata pid="56" name="Chapter_06_Scene_01" tags="scene ch_06" pos="280,1320" size="100,100">### Chapter 6, Scene 1: Arrival at loc_district_06
+
+&lt;small&gt;📍 Location: `loc_district_06` | 👥 Present: char_cross | 💓 Beat: *Isolation and persistent cerebral unease*&lt;/small&gt;
+
+The acid precipitation hissed relentlessly against the corrugated steel shutters of the precinct. Elena Cross stepped past the perimeter security cordon into loc_district_06, her coat soaked through with neon-tinted rainwater. Her neural implant vibrated with a jagged harmonic—a phantom sensory echo of an erased archive key trying to complete a forgotten handshake. Around her, the city muttered in the low hum of cooling towers and flickering transit signs. Every terminal in the sector had been rebooted under emergency protocols, wiping today&#x27;s registry logs before the shift change.
+
+---
+[[Continue to Next Scene ➔-&gt;Chapter_06_Scene_02]]</tw-passagedata>
+  <tw-passagedata pid="57" name="Chapter_06_Scene_02" tags="scene ch_06" pos="460,1320" size="100,100">### Chapter 6, Scene 2: Investigation and Contact
+
+&lt;small&gt;📍 Location: `loc_district_06` | 👥 Present: char_cross, char_orin | 💓 Beat: *Wary collaboration under tactical pressure*&lt;/small&gt;
+
+Deep within the labyrinth of steam lines, shadows detached from the damp concrete. Orin Vance leaned against a buzzing junction box, a pair of modified optic lenses whirring into focus. &#x27;You&#x27;re late, Elena,&#x27; he muttered, tossing a magnetic data cartridge between his gloved fingers. &#x27;Spire drones have been sweeping the drainage canals since third bell. If Kane catches wind that we&#x27;re pulling cold backups, we won&#x27;t make it to morning.&#x27; Cross caught the cartridge, feeling the residual heat of a fresh decrypt pass. &#x27;Sterling wiped my records, Orin. But he didn&#x27;t wipe what was etched on the physical copper.&#x27;
+
+---
+[[Continue to Next Scene ➔-&gt;Chapter_06_Scene_03]]</tw-passagedata>
+  <tw-passagedata pid="58" name="Chapter_06_Scene_03" tags="scene ch_06" pos="640,1320" size="100,100">### Chapter 6, Scene 3: Confrontation and Breach to loc_district_06_exit
+
+&lt;small&gt;📍 Location: `loc_district_06_exit` | 👥 Present: char_cross, char_orin, char_kane | 💓 Beat: *High stakes confrontation and sudden realization*&lt;/small&gt;
+
+The breach siren echoed across the flooded conduit as searchlights carved paths through the swirling mist. Footsteps echoed above on the catwalks—Aegis enforcers moving into sweep formation. Elena thumbed the charge selector on her sidearm, her heartbeat syncing with the pulsing alarm strobe. Together with Orin, she forced open the heavy hydraulic floodgate leading into loc_district_06_exit. As the door sealed shut behind them, locking out the pursuit drones, Elena examined the decrypted data fragment in the pale green emergency light. The conspiracy didn&#x27;t just touch the Council—it began on the very day her own memory was erased.
+
+---
+[[Engage in Dialogue 💬-&gt;Chapter_06_Dialogue_node_chapter_06_01]]</tw-passagedata>
+  <tw-passagedata pid="59" name="Chapter_06_Dialogue_node_chapter_06_01" tags="dialogue ch_06" pos="820,1320" size="100,100">**[CHAR_ORIN]**
+&gt; &quot;The precinct drones are already circling the perimeter, Elena. What do you want to do with the courier&#x27;s chip?&quot;
+
+---
+### Choices:
+* (link: &quot;Hook it up to your deck. I need to bypass the security header right now.&quot;)[(set: $cunning to $cunning + 1)(set: $flags to $flags + (a: &quot;chose_cunning_approach&quot;))(go-to: &quot;Chapter_06_Dialogue_node_chapter_06_02a&quot;)]
+* (link: &quot;Tell me who delivered it, Orin. What happened to the courier?&quot;)[(set: $empathy to $empathy + 1)(set: $flags to $flags + (a: &quot;chose_empathy_approach&quot;))(go-to: &quot;Chapter_06_Dialogue_node_chapter_06_02b&quot;)]</tw-passagedata>
+  <tw-passagedata pid="60" name="Chapter_06_Dialogue_node_chapter_06_02a" tags="dialogue ch_06" pos="980,1320" size="100,100">**[CHAR_ORIN]**
+&gt; &quot;Header cracked. The cipher points straight to the Spire Archives.&quot;
+
+---
+[[Continue...-&gt;Chapter_06_Dialogue_node_chapter_06_end]]</tw-passagedata>
+  <tw-passagedata pid="61" name="Chapter_06_Dialogue_node_chapter_06_02b" tags="dialogue ch_06" pos="1140,1320" size="100,100">**[CHAR_ORIN]**
+&gt; &quot;His name was Felix. They took him in the third sweep. But he left the access codes behind for us.&quot;
+
+---
+[[Continue...-&gt;Chapter_06_Dialogue_node_chapter_06_end]]</tw-passagedata>
+  <tw-passagedata pid="62" name="Chapter_06_Dialogue_node_chapter_06_end" tags="dialogue ch_06" pos="1300,1320" size="100,100">*The rain outside redoubles as the terminal screen displays the decoded coordinates.*
+
+---
+[[Journey Reaches Conclusion 🌟-&gt;Story_Conclusion]]</tw-passagedata>
+  <tw-passagedata pid="63" name="Story_Conclusion" tags="ending" pos="500,1560" size="100,100"># A Neon Grave — Epilogue &amp; Conclusion
+
+You have reached the culmination of your narrative journey!
+
+### Emergent Alignment &amp; Character Traits
+* **Cunning**: (print: $cunning) points
+* **Empathy**: (print: $empathy) points
+
+### Journey Review
+* Total Quests Completed: **(count: $completed_quests)**
+* [[Review Full Quest &amp; Achievement Log-&gt;Quest_Log]]
+* [[Review Story Codex &amp; World Lore-&gt;World_Codex]]
+
+---
+[[🔄 Play Again from Title Screen-&gt;Title_Screen]]
+[[📑 Revisit Any Chapter-&gt;Chapter_Select]]</tw-passagedata>
+  </tw-storydata>
+
+  <!-- Interactive Web Runner UI -->
+  <header class="qf-runner-nav">
+    <div class="qf-logo">
+      <span>⚔️</span>
+      <span id="qf-story-title">A Neon Grave</span>
+    </div>
+    <div class="qf-trait-meters" id="qf-trait-meters"></div>
+    <div style="display:flex; gap:10px;">
+      <button class="qf-trait-badge" style="cursor:pointer;" onclick="qfRestart()">🔄 Restart</button>
+      <button class="qf-trait-badge" style="cursor:pointer;" onclick="qfGoto('Codex_Menu')">📑 Menu</button>
+    </div>
+  </header>
+
+  <main class="qf-stage">
+    <div class="qf-card">
+      <div class="qf-passage-title" id="qf-title"></div>
+      <div class="qf-passage-content" id="qf-body"></div>
+      <div class="qf-choices" id="qf-choices"></div>
+    </div>
+  </main>
+
+  <footer class="qf-footer">
+    Exported from QuestForge Engine • Twine 2 & Twee 3 Compatible Edition
+  </footer>
+
+  <script>
+    (function() {
+      const traitsDef = [{"name": "Cunning", "description": "Deceptive problem solving and electronic intrusion", "color_hex": "#E0A82E"}, {"name": "Empathy", "description": "Reading emotional tells and forging loyal human alliances", "color_hex": "#2EA8E0"}];
+      const storyArc = {"title": "A Neon Grave", "genre": "Cyber-Noir Mystery", "tone": "Gritty, melancholic, suspenseful", "themes": ["Institutional corruption", "The burden of memory", "Redemption through truth"], "protagonist_sketch": "Detective Elena Cross, an investigator plagued by neural glitches from an unsolved case.", "antagonist_sketch": "Councilman Julian Sterling, a wealthy civic leader who buried his criminal origins.", "central_conflict": "A serial cipher killer targets the syndicate that Cross investigated before her memory was wiped.", "acts": [{"act_number": 1, "title": "The Ghost in the Circuit", "summary": "Cross investigates an impossible murder that points to her erased memories."}, {"act_number": 2, "title": "The Sunken Ward", "summary": "Delving into the flooded lower district, Cross confronts Sterling's enforcers."}, {"act_number": 3, "title": "The Glass Terminal", "summary": "Cross confronts Sterling with the decrypt key at the city memorial tower."}], "trait_vocabulary": [{"name": "Cunning", "description": "Deceptive problem solving and electronic intrusion", "color_hex": "#E0A82E"}, {"name": "Empathy", "description": "Reading emotional tells and forging loyal human alliances", "color_hex": "#2EA8E0"}]};
+
+      // State
+      let state = {
+        flags: [],
+        completedQuests: [],
+        traits: {},
+      };
+
+      traitsDef.forEach(t => {
+        const key = t.name.toLowerCase().replace(/[^a-zA-Z0-9_]/g, '');
+        state.traits[key] = 0;
+      });
+
+      // Load Twine DOM Passages
+      const passageMap = new Map();
+      let startPassageName = "Title_Screen";
+
+      document.querySelectorAll('tw-passagedata').forEach(el => {
+        const pid = el.getAttribute('pid');
+        const name = el.getAttribute('name');
+        const tags = (el.getAttribute('tags') || '').split(' ');
+        const rawContent = el.textContent || '';
+        passageMap.set(name, { pid, name, tags, rawContent });
+      });
+
+      // Trait UI rendering
+      function renderTraitMeters() {
+        const container = document.getElementById('qf-trait-meters');
+        container.innerHTML = '';
+        traitsDef.forEach(t => {
+          const key = t.name.toLowerCase().replace(/[^a-zA-Z0-9_]/g, '');
+          const val = state.traits[key] || 0;
+          const badge = document.createElement('div');
+          badge.className = 'qf-trait-badge';
+          badge.innerHTML = `<span style="color:${t.color_hex || '#60a5fa'}">●</span> ${t.name}: <span class="qf-score-val">${val}</span>`;
+          container.appendChild(badge);
+        });
+      }
+
+      // Parse passage text into displayable HTML and interactive choices
+      function renderPassage(passageName) {
+        const passage = passageMap.get(passageName);
+        if (!passage) {
+          console.warn("Passage not found:", passageName);
+          return;
+        }
+
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+        document.getElementById('qf-title').innerText = passage.name.replace(/_/g, ' ');
+
+        let raw = passage.rawContent;
+
+        // Process Harlowe macros in text
+        // (set: $trait to $trait + 1)
+        // (if: $flags contains "...") [...]
+        raw = raw.replace(/\(set:\s*\$([a-zA-Z0-9_]+)\s*to\s*\$\1\s*\+\s*(\d+)\)/g, (match, varName, amt) => {
+          state.traits[varName] = (state.traits[varName] || 0) + parseInt(amt, 10);
+          renderTraitMeters();
+          return '';
+        });
+
+        raw = raw.replace(/\(set:\s*\$flags\s*to\s*\$flags\s*\+\s*\(a:\s*(.*?)\)\)/g, (match, flagsStr) => {
+          const flags = flagsStr.split(',').map(s => s.trim().replace(/^["']|["']$/g, ''));
+          flags.forEach(f => { if (f && !state.flags.includes(f)) state.flags.push(f); });
+          return '';
+        });
+
+        // Handle (if: $flags contains "flag")[Content](else:)[Alt]
+        raw = raw.replace(/\(if:\s*\$flags\s*contains\s*["'](.*?)["']\)\[(.*?)\](?:\(else:\)\[(.*?)\])?/gs, (match, flag, yesContent, noContent) => {
+          return state.flags.includes(flag) ? yesContent : (noContent || '');
+        });
+
+        // Extract choices: [[label->target]] or (link: "label")[(set:...)(go-to: "target")]
+        const choices = [];
+
+        // 1. Harlowe links: (link: "label")[(set:...)(go-to: "target")]
+        raw = raw.replace(/\(link:\s*["'](.*?)["']\)\[(.*?)\(go-to:\s*["'](.*?)["']\)\]/gs, (match, label, setters, target) => {
+          choices.push({ label, target, setters });
+          return '';
+        });
+
+        // 2. Standard Twine links: [[Label->Target]] or [[Target]]
+        raw = raw.replace(/\[\[(.*?)\]\]/g, (match, inner) => {
+          if (inner.includes('->')) {
+            const parts = inner.split('->');
+            choices.push({ label: parts[0].trim(), target: parts[1].trim() });
+          } else {
+            choices.push({ label: inner.trim(), target: inner.trim() });
+          }
+          return '';
+        });
+
+        // Clean up markdown in body
+        let bodyHtml = raw
+          .replace(/^### (.*$)/gim, '<h3>$1</h3>')
+          .replace(/^## (.*$)/gim, '<h2>$1</h2>')
+          .replace(/^# (.*$)/gim, '<h1>$1</h1>')
+          .replace(/^\> \[!NOTE\]/gim, '<blockquote><strong>Note:</strong>')
+          .replace(/^\> (.*$)/gim, '<blockquote>$1</blockquote>')
+          .replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>')
+          .replace(/\*(.*?)\*/g, '<em>$1</em>')
+          .replace(/\n\n+/g, '</p><p>')
+          .replace(/\n/g, '<br>');
+
+        document.getElementById('qf-body').innerHTML = `<p>${bodyHtml}</p>`;
+
+        // Render choices buttons
+        const choiceContainer = document.getElementById('qf-choices');
+        choiceContainer.innerHTML = '';
+
+        choices.forEach(ch => {
+          const btn = document.createElement('button');
+          btn.className = 'qf-btn-choice';
+          btn.innerHTML = `<span>${ch.label}</span><span class="qf-choice-arrow">➔</span>`;
+          btn.onclick = () => {
+            if (ch.setters) {
+              // Apply setters
+              const traitMatch = ch.setters.match(/\$([a-zA-Z0-9_]+)\s*to\s*\$\1\s*\+\s*(\d+)/);
+              if (traitMatch) {
+                const varName = traitMatch[1];
+                const amt = parseInt(traitMatch[2], 10);
+                state.traits[varName] = (state.traits[varName] || 0) + amt;
+                renderTraitMeters();
+              }
+              const flagMatch = ch.setters.match(/\$flags\s*to\s*\$flags\s*\+\s*\(a:\s*(.*?)\)/);
+              if (flagMatch) {
+                const flags = flagMatch[1].split(',').map(s => s.trim().replace(/^["']|["']$/g, ''));
+                flags.forEach(f => { if (f && !state.flags.includes(f)) state.flags.push(f); });
+              }
+            }
+            renderPassage(ch.target);
+          };
+          choiceContainer.appendChild(btn);
+        });
+      }
+
+      window.qfGoto = renderPassage;
+      window.qfRestart = function() {
+        state.flags = [];
+        state.completedQuests = [];
+        traitsDef.forEach(t => {
+          const key = t.name.toLowerCase().replace(/[^a-zA-Z0-9_]/g, '');
+          state.traits[key] = 0;
+        });
+        renderTraitMeters();
+        renderPassage(startPassageName);
+      };
+
+      // Init
+      renderTraitMeters();
+      renderPassage(startPassageName);
+    })();
+  </script>
+</body>
+</html>

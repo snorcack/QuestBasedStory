@@ -1,0 +1,634 @@
+:: StoryTitle
+The Shifting Spire
+
+:: StoryData
+{
+  "ifid": "E574616A-2EAA-56D0-A187-9C96A641786B",
+  "format": "Harlowe",
+  "format-version": "3.3.8",
+  "start": "Title_Screen",
+  "zoom": 1
+}
+
+:: StoryInit {"position":"20,20","size":"100,100"}
+(set: $flags to (a:))
+(set: $completed_quests to (a:))
+(set: $inventory to (a:))
+(set: $current_chapter to 1)
+(set: $cunning to 0)
+(set: $empathy to 0)
+
+:: StoryHeader [header] {"position":"140,20","size":"100,100"}
+<div class="qf-status-bar">
+  <span class="qf-badge-title">📖 The Shifting Spire</span>
+  <span class="qf-badge-traits">🎭 Cunning: <b>($cunning)</b> | Empathy: <b>($empathy)</b></span>
+  <span class="qf-badge-quests">⚔️ Quests: <b>(count: $completed_quests)</b></span>
+  <span class="qf-links">[[Menu->Codex_Menu]]</span>
+</div>
+---
+
+:: Title_Screen [title] {"position":"300,100","size":"100,100"}
+# The Shifting Spire
+*Occult Time-Travel Thriller with Dark Comedy* • *Surreal tension laced with anachronistic irony, escalating from mundane corporate dread to cosmic horror*
+
+> [!NOTE]
+> **Content Advisory:** Mature 18+ (Explicit Uncensored Content)
+
+**The Conflict:** The irreconcilable tension between preserving linear time and allowing its deliberate collapse for godlike power, embodied in Marcus’s desperate collection of artifact fragments while the cult pushes for merger and a single past alteration threatens to unravel the ritual’s solution in the present.
+
+**Themes:** Reincarnation and the cyclical prison of history, Corporate power as eternal tyranny, Identity fractured across timelines, Unintended consequences of tampering with fate, Sanity versus the seductive pull of collapsed time
+
+**Protagonist:** Marcus Hale, a skeptical junior real estate broker whose impulsive need to prove himself masks a deep moral wound: his last deal cost a colleague their career and livelihood. Thrust from mundane onboarding into accidental activation of an ancient device, he must navigate shifting eras while confronting whether he will repeat the same selfish patterns across centuries or break the cycle.
+
+**Antagonist:** Harlan Voss, the immortal high priest of the cult and CEO of the organization. In every era he appears as the apex authority—modern CEO, medieval king, 1960s warden—driven by the belief that all souls are eternal property to be harvested when timelines merge. He views the protagonist as both pawn and key, leveraging Marcus’s accidental activation and lingering guilt to force participation in the final ritual or condemn reality to collapse.
+
+### Emergent Character Traits
+* **<span style='color:#E0A82E'>Cunning</span>**: The capacity to weaponize anachronisms, deceive reincarnated figures, and improvise temporal solutions through clever manipulation and quick thinking.
+* **<span style='color:#2EA8E0'>Empathy</span>**: The ability to recognize and honor the timeless souls of coworkers across eras, forging bonds that reveal hidden ritual paths and force morally weighted choices.
+
+---
+### Begin Experience
+[[▶ Begin Story->Chapter_01_Intro]]
+[[📑 Chapter Jump / Selection->Chapter_Select]]
+[[👥 Dramatis Personae (Cast)->Dramatis_Personae]]
+[[🗺️ World Codex->World_Codex]]
+[[🏆 Quest & Achievement Tracker->Quest_Log]]
+
+:: Codex_Menu [codex] {"position":"100,240","size":"100,100"}
+## 📖 Story Codex & Archives
+Access detailed world intelligence, cast files, and quest progression records.
+
+* [[👥 Cast & Dramatis Personae->Dramatis_Personae]]
+* [[🗺️ Locations & Lore Codex->World_Codex]]
+* [[⚔️ Active & Completed Quests->Quest_Log]]
+* [[🏆 Achievements->Achievements_List]]
+* [[📑 Jump to Specific Chapter->Chapter_Select]]
+* [[🔙 Return to Title Screen->Title_Screen]]
+
+:: Dramatis_Personae [codex] {"position":"260,240","size":"100,100"}
+## 👥 Dramatis Personae (Cast of Characters)
+
+### Marcus Hale *(protagonist)*
+A skeptical junior real estate broker whose impulsive need to prove himself masks a deep moral wound: his last deal cost a colleague their career and livelihood. Thrust from mundane onboarding into accidental activation of an ancient device, he must navigate shifting eras while confronting whether he will repeat the same selfish patterns across centuries or break the cycle.
+
+### Harlan Voss *(antagonist)*
+Immortal high priest of the cult and CEO of the organization. In every era he appears as the apex authority—modern CEO, medieval king, 1960s warden—driven by the belief that all souls are eternal property to be harvested when timelines merge.
+
+### Sophia Reyes *(ally)*
+Marcus's modern coworker whose career was nearly destroyed by his past deal; she is a reincarnated soul who begins remembering fragments once the spire activates.
+
+### Lila Hart *(ally)*
+A free-spirited 1960s art student and activist whose soul has been recycled through the spire; she remembers pieces of the medieval and modern eras in drug-fueled visions.
+
+### Isabella Duarte *(ally)*
+A noblewoman and secret scholar in the medieval court who has been positioned as Harlan's consort for centuries; she secretly records ritual fragments while surviving as property.
+
+### Vivian Slate *(antagonist_ally)*
+Harlan's immortal enforcer who appears as a corporate fixer, 1960s college dean, and medieval inquisitor; she has been his lover and weapon across every era.
+
+### Nora Ellison *(neutral)*
+A pragmatic 1960s university librarian and occult hobbyist who has pieced together fragments of the spire's history through banned books and campus disappearances.
+
+### Elena Crowe *(neutral)*
+A sharp-tongued medieval herbalist and midwife branded a witch; she has survived by selling temporal secrets to both Harlan's cult and those who oppose it.
+
+### Marcus Hale *(Junior Real Estate Broker)*
+### Harlan Voss *(Immortal Cult Leader and CEO)*
+### Sophia Reyes *(Executive Assistant and Reincarnated Colleague)*
+### Lady Isolde Veyra *(Court Advisor and Reincarnated Soul)*
+### Dr. Vivian Crowe *(Occult Researcher and Timeline Analyst)*
+### Lena Hart *(Student Activist and Reincarnated Ally)*
+### Mira Solen *(Artifact Archivist and Soul Librarian)*
+### Elara Quinn *(Visionary Oracle and Timeline Seer)*
+### Sarah Kline *(Spectral Informant and Archive Ghost)*
+
+---
+[[🔙 Return to Codex Menu->Codex_Menu]] | [[Return to Story->Title_Screen]]
+
+:: World_Codex [codex] {"position":"420,240","size":"100,100"}
+## 🗺️ World Codex & Setting
+
+### Locations
+* **The Glass Atrium**: Sleek marble floors under flickering fluorescent lights that stutter into guttering torch flames, the air thick with burnt coffee and ozone while distant keyboard clacks echo like chains. Cubicle walls bleed into stone archways during shifts, and the constant low hum of servers mixes with faint choral chanting from nowhere.
+* **The Iron Throne Hall**: Vaulted stone chamber draped in tapestries that ripple into corporate logos, braziers casting long shadows of filing cabinets across rushes that smell of damp earth and iron. Laughter from courtiers warps into the murmur of board meetings, with chains clinking beneath the floorboards.
+* **The Echoing Dormitory**: Wood-paneled corridors reeking of cigarettes, hairspray, and hot wiring, where psychedelic posters peel to reveal carved runes and typewriters chatter alongside phantom dot-matrix printers. Fluorescent tubes buzz overhead while vinyl records skip into Gregorian chants.
+* **The Temporal Conduit**: A claustrophobic brass-and-steel shaft where floor numbers smear across dead languages and buttons glow with impossible sigils. The air tastes of copper and regret; screams and elevator dings overlap as walls sweat condensation that forms fleeting faces.
+* **The Artifact Sanctum**: Dripping limestone chamber lined with glowing shard pedestals, the constant plink of water like distant clocks and the low thrum of buried machinery. Shadows move against the light, carrying whispers of unfinished deals and forgotten names.
+* **The Apex Observatory**: Wind-scoured platform where the city skyline melts from medieval spires to neon grids under churning constellations that spell ritual formulae. Cold air carries ozone and incense; the railings hum with stored temporal charge.
+* **The Collapsed Archives**: Moldering basement stacks crammed with anachronistic file boxes and leaking pipes that drip ink-black fluid. The rustle of paper masks faint sobbing; rats with too-human eyes scurry between eras.
+
+### Factions & Organizations
+* **The Eternal Harvest**: 
+* **The Weavers of Linearity**: 
+* **The Reincarnated Remnants**: 
+
+
+---
+[[🔙 Return to Codex Menu->Codex_Menu]] | [[Return to Story->Title_Screen]]
+
+:: Quest_Log [codex] {"position":"580,240","size":"100,100"}
+## ⚔️ Quest Log & Progression
+
+*No quests recorded in this story spine.*
+
+---
+[[🔙 Return to Codex Menu->Codex_Menu]] | [[Return to Story->Title_Screen]]
+
+:: Achievements_List [codex] {"position":"740,240","size":"100,100"}
+## 🏆 Story Achievements
+
+*No achievements configured for this story.*
+
+---
+[[🔙 Return to Codex Menu->Codex_Menu]] | [[Return to Story->Title_Screen]]
+
+:: Chapter_Select [menu] {"position":"900,240","size":"100,100"}
+## 📑 Chapter Select
+Select any chapter to begin or jump directly into its sequence:
+
+* **[[Chapter 1: Fluorescent Ignition->Chapter_01_Intro]]**
+  *Marcus Hale arrives at the sleek Glass Atrium for his first day as a junior broker, the air thick with burnt coffee and the low hum of serve...*
+* **[[Chapter 2: Throne of Anachronistic Chains->Chapter_02_Intro]]**
+  *Emerging from the elevator into the vaulted Iron Throne Hall, Marcus faces braziers casting shadows of filing cabinets across rushes while c...*
+* **[[Chapter 3: Elevator of Overlapping Screams->Chapter_03_Intro]]**
+  *Trapped in the claustrophobic Temporal Conduit, Marcus rides the brass-and-steel shaft as floor numbers smear across dead languages and butt...*
+* **[[Chapter 4: Vinyl Runes and Bleeding Posters->Chapter_04_Intro]]**
+  *Marcus steps into the Echoing Dormitory where psychedelic posters peel to reveal carved runes and typewriters chatter with phantom printers....*
+* **[[Chapter 5: Moldering Contracts of the Collapsed->Chapter_05_Intro]]**
+  *Entering the Forgotten Archives, Marcus navigates moldering stacks of anachronistic file boxes where leaking pipes drip ink-black fluid and ...*
+* **[[Chapter 6: Sanctum of Dripping Clocks->Chapter_06_Intro]]**
+  *Descending into the Artifact Sanctum, Marcus faces glowing shard pedestals in a dripping limestone chamber where water plinks like distant c...*
+* **[[Chapter 7: Apex of Merged Constellations->Chapter_07_Intro]]**
+  *Marcus emerges onto the wind-scoured Apex Observatory where the city skyline melts from medieval spires to neon grids under churning constel...*
+
+---
+[[🔙 Return to Title Screen->Title_Screen]]
+
+:: Chapter_01_Intro [chapter ch_01] {"position":"100,420","size":"100,100"}
+(set: $current_chapter to 1)
+## Chapter 1: Fluorescent Ignition
+
+> *Marcus Hale arrives at the sleek Glass Atrium for his first day as a junior broker, the air thick with burnt coffee and the low hum of servers. Fluorescent lights stutter as cubicle walls begin bleeding into stone archways, triggering the hidden temporal device during a routine orientation slide. The entire building lurches, depositing him in the Iron Throne Hall where modern coworkers manifest as courtiers and a harem.
+
+He encounters Harlan Voss as the immortal king on the throne, Vivian Slate as a silk-clad enforcer, and Sophia Reyes as a sharp-tongued advisor who recognizes him across lives. Tension erupts when Harlan demands Marcus sign an eternal contract, leveraging his old guilt over selling out a colleague. The core crisis is navigating the first culture shock while dodging chains that manifest from the floor.
+
+A dramatic revelation hits when Isabella Duarte appears as a medieval scribe and whispers that all souls here are reincarnated fragments of the same office. Marcus makes his first moral decision: refuse the contract or exploit an anachronism to escape. The chapter climaxes as he activates the brass elevator, the hall warping around him, leaving him primed to descend into the next era with the first taste of fractured identity.*
+
+**Setting:** `loc_modern_atrium`
+**Key Assets Required:** corporate_lanyard
+
+---
+[[▶ Proceed into Chapter 1->Chapter_01_Scene_01]]
+[[📑 Chapter Select->Chapter_Select]]
+
+:: Chapter_01_Scene_01 [scene ch_01] {"position":"280,420","size":"100,100"}
+### Chapter 1, Scene 1: Flickering Thresholds of Glass and Stone
+
+<small>📍 Location: `loc_modern_atrium` | 👥 Present: char_marcus | 💓 Beat: *Nervous anticipation fracturing into uncanny dread and buried guilt*</small>
+
+Marcus Hale pushed through the revolving doors of the Glass Atrium with his corporate lanyard already digging into his collar. The air hit him first: scorched coffee grounds and the metallic tang of ozone from a thousand humming servers. Marble floors gleamed under stuttering fluorescent panels that pulsed like failing heart monitors. He forced a smile at the receptionist, tasting the familiar acid of first-day nerves laced with older guilt. Two years ago he had signed away Sophia Reyes' career for a bonus; the memory still tasted like ash.
+
+The orientation slide deck began on the massive screen. Marcus stood among the new hires, shifting his weight, when the lights dimmed and surged. A low choral chant threaded beneath the keyboard clacks, impossible and ancient. Cubicle partitions rippled, their fabric edges hardening into rough stone. The burnt-coffee smell twisted into something resinous and smoky. Marcus's stomach dropped as the entire atrium lurched sideways, gravity bending like hot glass. His interior monologue raced: "Fantastic. Day one and the building's having a psychotic break. Anybody got a cigarette and a clue?"
+
+Around him, coworkers blurred at the edges, suits lengthening into embroidered tunics. The fluorescent tubes guttered into guttering torch flames that threw long shadows across suddenly vaulted ceilings. He clutched the lanyard like a lifeline, pulse hammering against his throat. The temporal device buried in the slide projector had woken; the Spire was claiming its newest fragment. Disorientation crashed over him in waves, equal parts terror and a perverse, guilty thrill that this time the chaos might finally be bigger than his own mistakes.
+
+---
+[[Continue to Next Scene ➔->Chapter_01_Scene_02]]
+
+:: Chapter_01_Scene_02 [scene ch_01] {"position":"460,420","size":"100,100"}
+### Chapter 1, Scene 2: Recognition Across Bleeding Timelines
+
+<small>📍 Location: `loc_modern_atrium` | 👥 Present: char_marcus, char_sophia | 💓 Beat: *Resurfacing guilt colliding with wary, reluctant alliance*</small>
+
+Sophia Reyes materialized at his elbow as the walls finished their slow metamorphosis into archways. She wore the same charcoal suit yet her eyes carried centuries of sharp recognition. "You sold me out once in this life," she said quietly, voice cutting through the rising chant. "Don't do it again in the next one." Marcus flinched. The marble beneath their feet had become uneven flagstones; the projector still droned corporate platitudes while torchlight licked the edges of her face.
+
+"Sophia, what the hell is happening?" he whispered. She glanced at the transforming atrium, then back at him with a mixture of resentment and reluctant pity. "The Spire remembers its own. Every soul here is a reincarnated fragment of the same damned office. Harlan's been harvesting us since the first crusade." Her fingers brushed his sleeve, an electric spark of shared memory flashing behind his eyes: medieval ledgers, 1960s acid trips, endless contracts signed in blood and ink. Marcus tasted copper. The guilt he had buried for two years now clawed upward, raw and accusing.
+
+Around them, the remaining modern hires flickered between cubicle drones and courtiers. Sophia's no-nonsense corporate cadence softened into something older, poetic. "You feel it too, don't you? The pull to repeat the same betrayal." Marcus swallowed hard, lanyard slick with sweat. He wanted to run, to apologize, to demand answers, but the atrium's hum was deepening into a growl. The first culture shock was complete; he stood exposed in the bleeding overlap of eras, his oldest wound now walking beside him wearing Sophia's face.
+
+---
+[[Continue to Next Scene ➔->Chapter_01_Scene_03]]
+
+:: Chapter_01_Scene_03 [scene ch_01] {"position":"640,420","size":"100,100"}
+### Chapter 1, Scene 3: Iron Summons and Manifest Chains
+
+<small>📍 Location: `loc_modern_atrium` | 👥 Present: char_marcus, char_harlan, char_vivian | 💓 Beat: *Acute panic and moral standoff under visceral threat*</small>
+
+The atrium heaved one final time and resolved into the Iron Throne Hall. Harlan Voss sat enthroned on black iron, crown of circuit-board and bone resting on silver hair. Vivian Slate stood at his right in silk that clung like liquid shadow, her smile clinical and hungry. "Sign the contract, Hale," Harlan intoned, voice cold corporate authority wrapped in liturgical cadence. "Every soul has a price, and I've been collecting interest since the first crusade. Your colleague's career was merely the down payment."
+
+Chains erupted from the flagstones, iron links warm and slick as they snaked toward Marcus's ankles. He danced backward, heart slamming. The lanyard flared hot against his chest. Vivian's silken menace cut the air: "Run, little broker. I do enjoy the chase... almost as much as the branding." Harlan leaned forward, eyes ancient and transactional. "Sign and the guilt ends. Refuse and we peel the timeline from your bones."
+
+Marcus's sarcastic armor cracked. The modern fluorescent memory of his betrayal overlaid the medieval hall like a double exposure. He felt the weight of every reincarnated life pressing down, the Spire's rule that time was cyclical and alterations bled. The chains tightened, one link brushing his calf with possessive heat. Culture shock roared in his ears: torch smoke, server ozone, the metallic taste of fear. He refused to reach for the offered quill. Instead he searched for an anachronism, anything modern that might fracture the ritual. The decision formed like a fault line: refuse the contract and risk everything, or exploit the bleed to escape. Adrenaline and moral vertigo warred inside him as the chains rose higher.
+
+---
+[[Continue to Next Scene ➔->Chapter_01_Scene_04]]
+
+:: Chapter_01_Scene_04 [scene ch_01] {"position":"820,420","size":"100,100"}
+### Chapter 1, Scene 4: The Scribe's Forbidden Whisper
+
+<small>📍 Location: `loc_modern_atrium` | 👥 Present: char_marcus, char_isabella | 💓 Beat: *Shattering revelation and the first stirrings of fractured identity*</small>
+
+Isabella Duarte appeared at the edge of the throne dais, quill poised over parchment that shimmered between vellum and tablet screen. She wore the garb of a medieval scribe yet her eyes locked onto Marcus with intimate recognition. While Harlan and Vivian were distracted by the rising chains, she glided forward and whispered against his ear, breath warm and laced with modern profanity. "Milord plays at god again. In my tongue we call that hubris... or a very small cock. All souls here are reincarnated fragments of the same office, Marcus. The Spire is a prison farm and Harlan is the warden harvesting eternity."
+
+Her voice carried formal cadence fractured by timeline bleed. Marcus saw flashes: Isabella in silk chains across centuries, recording ritual fragments while pretending to be property. The revelation detonated inside him. Every coworker, every face that had flickered during the shift, was a shard of the same eternal workforce trapped in Harlan's cycle. His own guilt over Sophia was merely the latest iteration of a betrayal repeated across lives. Isabella pressed a warm fragment of medieval seal into his palm. "Refuse. Use the anachronism. The brass elevator still answers to the living."
+
+The chains paused, sensing the shift in his resolve. Marcus felt empathy and cunning ignite together, two traits the Spire had tried to keep dormant. Isabella's centuries of learned detachment cracked for a single heartbeat; she chose to help him even though it risked her own survival. The hall warped around the truth she had given him, torchlight strobing with fluorescent ghosts. He understood now why the device had chosen him: because he was the fracture point, the soul still capable of breaking pattern.
+
+---
+[[Continue to Next Scene ➔->Chapter_01_Scene_05]]
+
+:: Chapter_01_Scene_05 [scene ch_01] {"position":"1000,420","size":"100,100"}
+### Chapter 1, Scene 5: Brass Descent and the Refusal Seal
+
+<small>📍 Location: `loc_elevator_core` | 👥 Present: char_marcus, char_isabella | 💓 Beat: *Emerging resolve through empathetic refusal and identity fracture*</small>
+
+Marcus lunged for the brass elevator doors that had manifested where the projector screen once stood. He slapped the corporate lanyard against the sigil-etched panel; the modern plastic fused with Isabella's medieval seal fragment in a shower of sparks. The anachronism rule ignited. The doors hissed open, revealing a shaft where floor numbers smeared across dead languages. Harlan's roar followed him: "The contract is eternal, Hale!" Vivian's laughter chased like silk razors. Marcus threw himself inside, chains shattering against the closing doors.
+
+Inside the temporal conduit the air tasted of copper and regret. Isabella's final whisper echoed: "Choose empathy next time." He clutched the fused seal-lanyard hybrid, the first artifact fragment secured. The elevator began its descent, walls sweating condensation that formed fleeting faces of every life he had betrayed or might yet save. Marcus's interior voice was raw: "I refused. For once I refused." The Spire's cyclical rule flexed around him, bleeding echoes intensifying, yet the refusal had created a small linear tear. Empathy and cunning both flickered awake inside him, fragile and new.
+
+As the car dropped toward unknown eras, Marcus tasted the first true fracture of his identity. He was no longer only the man who had sold out a colleague; he was also the man who had chosen the harder path. The elevator dinged in overlapping languages, and the next age rushed up to meet him.
+
+---
+[[Engage in Dialogue 💬->Chapter_01_Dialogue_node_01]]
+
+:: Chapter_01_Dialogue_node_01 [dialogue ch_01] {"position":"1180,420","size":"100,100"}
+*You push through the revolving doors of the Glass Atrium with your corporate lanyard already digging into your collar. The air hits you first: scorched coffee grounds and the metallic tang of ozone from a thousand humming servers. Marble floors gleam under stuttering fluorescent panels that pulse like failing heart monitors.*
+
+---
+[[Continue...->Chapter_01_Dialogue_node_02]]
+
+:: Chapter_01_Dialogue_node_02 [dialogue ch_01] {"position":"1340,420","size":"100,100"}
+*The orientation slide deck begins on the massive screen. You stand among the new hires, shifting your weight, when the lights dim and surge. A low choral chant threads beneath the keyboard clacks, impossible and ancient. Cubicle partitions ripple, their fabric edges hardening into rough stone.*
+
+---
+[[Continue...->Chapter_01_Dialogue_node_03]]
+
+:: Chapter_01_Dialogue_node_03 [dialogue ch_01] {"position":"1500,420","size":"100,100"}
+**[CHAR_MARCUS]**
+> "(Fantastic. Day one and the building's having a psychotic break. Anybody got a cigarette and a clue?)"
+
+---
+[[Continue...->Chapter_01_Dialogue_node_04]]
+
+:: Chapter_01_Dialogue_node_04 [dialogue ch_01] {"position":"1660,420","size":"100,100"}
+*Around you, coworkers blur at the edges, suits lengthening into embroidered tunics. The fluorescent tubes gutter into torch flames that throw long shadows across suddenly vaulted ceilings. You clutch the lanyard like a lifeline, pulse hammering against your throat. The temporal device buried in the slide projector has woken; the Spire is claiming its newest fragment.*
+
+---
+[[Continue...->Chapter_01_Dialogue_node_05]]
+
+:: Chapter_01_Dialogue_node_05 [dialogue ch_01] {"position":"1820,420","size":"100,100"}
+**[CHAR_SOPHIA]**
+> "You sold me out once in this life. Don't do it again in the next one."
+
+---
+[[Continue...->Chapter_01_Dialogue_node_06]]
+
+:: Chapter_01_Dialogue_node_06 [dialogue ch_01] {"position":"1980,420","size":"100,100"}
+**[CHAR_MARCUS]**
+> "Sophia? What the hell is happening?"
+
+---
+[[Continue...->Chapter_01_Dialogue_node_07]]
+
+:: Chapter_01_Dialogue_node_07 [dialogue ch_01] {"position":"2140,420","size":"100,100"}
+**[CHAR_SOPHIA]**
+> "The Spire remembers its own. Every soul here is a reincarnated fragment of the same damned office. Harlan's been harvesting us since the first crusade."
+
+---
+[[Continue...->Chapter_01_Dialogue_node_08]]
+
+:: Chapter_01_Dialogue_node_08 [dialogue ch_01] {"position":"2300,420","size":"100,100"}
+**[CHAR_SOPHIA]**
+> "You feel it too, don't you? The pull to repeat the same betrayal."
+
+---
+[[Continue...->Chapter_01_Dialogue_node_09]]
+
+:: Chapter_01_Dialogue_node_09 [dialogue ch_01] {"position":"2460,420","size":"100,100"}
+**[CHAR_MARCUS]**
+> ""
+
+---
+### Choices:
+* (link: "I... I do. The guilt. I'm sorry, Sophia.")[(set: $empathy to $empathy + 1)(go-to: "Chapter_01_Dialogue_node_10")]
+* (link: "What I feel is irrelevant. How do we get out of here?")[(set: $cunning to $cunning + 1)(go-to: "Chapter_01_Dialogue_node_10")]
+* [[Don't lay this on me. That was business. This is... something else.->Chapter_01_Dialogue_node_10]]
+
+:: Chapter_01_Dialogue_node_10 [dialogue ch_01] {"position":"2620,420","size":"100,100"}
+*Before she can answer, the atrium heaves one final time and resolves into the Iron Throne Hall. Harlan Voss sits enthroned on black iron, a crown of circuit-board and bone resting on silver hair. Vivian Slate stands at his right in silk that clings like liquid shadow, her smile clinical and hungry.*
+
+---
+[[Continue...->Chapter_01_Dialogue_node_11]]
+
+:: Chapter_01_Dialogue_node_11 [dialogue ch_01] {"position":"2780,420","size":"100,100"}
+**[CHAR_HARLAN]**
+> "Sign the contract, Hale. Every soul has a price, and I've been collecting interest since the first crusade. Your colleague's career was merely the down payment."
+
+---
+[[Continue...->Chapter_01_Dialogue_node_12]]
+
+:: Chapter_01_Dialogue_node_12 [dialogue ch_01] {"position":"2940,420","size":"100,100"}
+*Chains erupt from the flagstones, iron links warm and slick as they snake toward your ankles. You dance backward, heart slamming against your ribs.*
+
+---
+[[Continue...->Chapter_01_Dialogue_node_13]]
+
+:: Chapter_01_Dialogue_node_13 [dialogue ch_01] {"position":"3100,420","size":"100,100"}
+**[CHAR_VIVIAN]**
+> "Run, little broker. I do enjoy the chase... almost as much as the branding."
+
+---
+[[Continue...->Chapter_01_Dialogue_node_14]]
+
+:: Chapter_01_Dialogue_node_14 [dialogue ch_01] {"position":"3260,420","size":"100,100"}
+**[CHAR_HARLAN]**
+> "Sign and the guilt ends. Refuse and we peel the timeline from your bones."
+
+---
+[[Continue...->Chapter_01_Dialogue_node_15]]
+
+:: Chapter_01_Dialogue_node_15 [dialogue ch_01] {"position":"3420,420","size":"100,100"}
+*Isabella Duarte appears at the edge of the throne dais, quill poised over parchment that shimmers between vellum and a tablet screen. While Harlan and Vivian are distracted by the rising chains, she glides forward.*
+
+---
+[[Continue...->Chapter_01_Dialogue_node_16]]
+
+:: Chapter_01_Dialogue_node_16 [dialogue ch_01] {"position":"3580,420","size":"100,100"}
+**[CHAR_ISABELLA]**
+> "(Whispering) Milord plays at god again. In my tongue we call that hubris... or a very small cock. The Spire is a prison farm. He's harvesting us. Refuse. Use the anachronism. The brass elevator still answers to the living."
+
+---
+[[Continue...->Chapter_01_Dialogue_node_17]]
+
+:: Chapter_01_Dialogue_node_17 [dialogue ch_01] {"position":"3740,420","size":"100,100"}
+*She presses a warm fragment of a medieval seal into your palm. The chains pause, sensing a shift in your resolve. You understand now. The choice is yours.*
+
+---
+[[Continue...->Chapter_01_Dialogue_node_18]]
+
+:: Chapter_01_Dialogue_node_18 [dialogue ch_01] {"position":"3900,420","size":"100,100"}
+**[CHAR_MARCUS]**
+> ""
+
+---
+### Choices:
+* (link: "[Confront Harlan] "I'm not your property. Not now, not ever."")[(set: $empathy to $empathy + 1)(go-to: "Chapter_01_Dialogue_node_19_empathy")]
+* (link: "[Bargain with Harlan] "Every soul has a price? Fine. Name yours for letting us go."")[(set: $cunning to $cunning + 1)(go-to: "Chapter_01_Dialogue_node_19_cunning")]
+* [[[Lunge for the elevator] Use the anachronism. Now.->Chapter_01_Dialogue_node_20]]
+
+:: Chapter_01_Dialogue_node_19_empathy [dialogue ch_01] {"position":"4060,420","size":"100,100"}
+**[CHAR_HARLAN]**
+> "A noble sentiment. Utterly worthless. The chains don't care for your principles."
+
+---
+[[Continue...->Chapter_01_Dialogue_node_20]]
+
+:: Chapter_01_Dialogue_node_19_cunning [dialogue ch_01] {"position":"4220,420","size":"100,100"}
+**[CHAR_HARLAN]**
+> "You think you have leverage? Adorable. The only term is submission."
+
+---
+[[Continue...->Chapter_01_Dialogue_node_20]]
+
+:: Chapter_01_Dialogue_node_20 [dialogue ch_01] {"position":"4380,420","size":"100,100"}
+*Spurred by defiance or desperation, you lunge for the brass elevator doors that have manifested where the projector screen once stood. You slap the corporate lanyard against the sigil-etched panel; the modern plastic fuses with Isabella's medieval seal in a shower of sparks. The doors hiss open.*
+
+---
+[[Continue...->Chapter_01_Dialogue_node_21]]
+
+:: Chapter_01_Dialogue_node_21 [dialogue ch_01] {"position":"4540,420","size":"100,100"}
+**[CHAR_HARLAN]**
+> "THE CONTRACT IS ETERNAL, HALE!"
+
+---
+[[Continue...->Chapter_01_Dialogue_node_22]]
+
+:: Chapter_01_Dialogue_node_22 [dialogue ch_01] {"position":"4700,420","size":"100,100"}
+*His roar follows you as you throw yourself inside. The chains shatter against the closing doors with the sound of breaking glass.*
+
+---
+[[Continue...->Chapter_01_Dialogue_node_23]]
+
+:: Chapter_01_Dialogue_node_23 [dialogue ch_01] {"position":"4860,420","size":"100,100"}
+*Inside the temporal conduit, the air tastes of copper and regret. You clutch the fused seal-lanyard hybrid, the first artifact fragment secured. Isabella's last words echo in your mind.*
+
+---
+[[Continue...->Chapter_01_Dialogue_node_24]]
+
+:: Chapter_01_Dialogue_node_24 [dialogue ch_01] {"position":"5020,420","size":"100,100"}
+**[CHAR_ISABELLA]**
+> "(Echoing) Choose empathy next time..."
+
+---
+[[Continue...->Chapter_01_Dialogue_node_25]]
+
+:: Chapter_01_Dialogue_node_25 [dialogue ch_01] {"position":"5180,420","size":"100,100"}
+**[CHAR_MARCUS]**
+> "(I refused. For once in my goddamn life, I refused.)"
+
+---
+[[Continue...->Chapter_01_Dialogue_node_26]]
+
+:: Chapter_01_Dialogue_node_26 [dialogue ch_01] {"position":"5340,420","size":"100,100"}
+*The elevator begins its descent, walls sweating condensation that forms fleeting faces of every life you had betrayed or might yet save. You are no longer only the man who sold out a colleague; you are also the man who chose the harder path. The elevator dings in overlapping languages, and the next age rushes up to meet you.*
+
+---
+[[Chapter 1 Completed. Continue ➔->Chapter_01_Transition]]
+
+:: Chapter_01_Transition [transition ch_01] {"position":"5500,420","size":"100,100"}
+## Passage: Transition from Chapter 1 to Chapter 2
+
+Marcus activates the brass elevator as the Iron Throne Hall warps around him, temporal currents yanking the space through layered realities. The car descends in a flicker of fluorescent-to-torchlight bleed, the medieval seal fragment on his lanyard glowing hot against his palm while distant boardroom murmurs and chain rattles echo from below. He steps out into the full vaulted hall where modern cubicle logic has fully surrendered to medieval hierarchy.
+
+> "The elevator doors part onto braziers guttering across rushes where filing cabinets stand like sentries and courtiers in doublets mutter quarterly projections beneath the iron throne."
+
+**State Shift:** `{"flags_added": ["temporal_descent_initiated", "ch_02_started"], "flags_removed": ["first_shift_triggered"]}`
+
+---
+[[Enter Chapter 2 ➔->Chapter_02_Intro]]
+[[📑 Chapter Select->Chapter_Select]]
+
+:: Chapter_02_Intro [chapter ch_02] {"position":"100,600","size":"100,100"}
+(set: $current_chapter to 2)
+## Chapter 2: Throne of Anachronistic Chains
+
+> *Emerging from the elevator into the vaulted Iron Throne Hall, Marcus faces braziers casting shadows of filing cabinets across rushes while courtiers murmur board-meeting platitudes. Harlan, now fully the medieval king, presses the contract again, backed by Vivian's vicious intimacy and threats of branding. Sophia and Isabella form uneasy alliances, feeding Marcus cryptic warnings about the cycle.
+
+The central obstacle is surviving a ritualistic board meeting turned feast where reincarnated coworkers test his loyalty. Marcus discovers the first true artifact shard hidden in a tapestry that flickers between corporate logo and royal crest. The twist comes when he realizes altering one past deal here could erase a modern colleague's existence.
+
+Choosing empathy, he forges a fragile pact with Isabella to protect the souls instead of seizing power. The climax forces him back into the elevator core as the hall begins merging with 1960s wood paneling, carrying the seal fragment and a growing dread of the harvest.*
+
+**Setting:** `loc_medieval_hall`
+**Key Assets Required:** corporate_lanyard, medieval_seal_fragment
+
+---
+[[▶ Proceed into Chapter 2->Chapter_02_Transition]]
+[[📑 Chapter Select->Chapter_Select]]
+
+:: Chapter_02_Transition [transition ch_02] {"position":"280,600","size":"100,100"}
+## Passage: Transition from Chapter 2 to Chapter 3
+
+With the fragile pact sealed and the hall beginning to bleed into 1960s paneling, Marcus is forced back through the elevator core as the floor lurches upward. Overlapping dings and half-heard screams fill the shaft while condensation traces coworker faces on the walls; the seal fragment vibrates violently, buying him seconds of stability. The descent resumes, carrying him toward the psychedelic era with Isabella’s bond token warm in his pocket.
+
+> "Numbers smear across dead languages on the elevator panel as a new ding reverberates and the doors crack open onto wood-paneled corridors thick with cigarette haze and the low crackle of vinyl."
+
+**State Shift:** `{"flags_added": ["timeline_bleed_worsening", "ch_03_started"], "inventory_added": ["nora_warning_note"]}`
+
+---
+[[Enter Chapter 3 ➔->Chapter_03_Intro]]
+[[📑 Chapter Select->Chapter_Select]]
+
+:: Chapter_03_Intro [chapter ch_03] {"position":"100,780","size":"100,100"}
+(set: $current_chapter to 3)
+## Chapter 3: Elevator of Overlapping Screams
+
+> *Trapped in the claustrophobic Temporal Conduit, Marcus rides the brass-and-steel shaft as floor numbers smear across dead languages and buttons pulse with sigils. Overlapping dings and screams echo while condensation forms fleeting coworker faces on the walls. The elevator deposits him briefly into the modern atrium again before lurching toward the 1960s Dormitory.
+
+He encounters Nora Ellison selling timeline knowledge from inside the car, demanding grimoires or stock tips. The core crisis is surviving the bleed as 1960s vinyl skips into Gregorian chant, forcing quick improvisation with the medieval seal to stabilize the descent. A revelation strikes when Elena Crowe appears as a prophetic passenger, hinting that Harlan's ritual requires Marcus's original betrayal repeated across eras.
+
+Marcus decides to withhold the seal fragment from Nora, prioritizing empathy for the trapped souls. The chapter peaks as the doors open into wood-paneled corridors reeking of cigarettes and hot wiring, leaving him ready to hunt fragments in the psychedelic era.*
+
+**Setting:** `loc_elevator_core`
+**Key Assets Required:** corporate_lanyard, medieval_seal_fragment, isabella_bond_token
+
+---
+[[▶ Proceed into Chapter 3->Chapter_03_Transition]]
+[[📑 Chapter Select->Chapter_Select]]
+
+:: Chapter_03_Transition [transition ch_03] {"position":"280,780","size":"100,100"}
+## Passage: Transition from Chapter 3 to Chapter 4
+
+The temporal conduit stabilizes just long enough for the elevator to deposit Marcus into the 1960s dormitory. Vinyl skips bleed into Gregorian warnings while psychedelic posters peel to reveal carved runes; the air smells of hairspray and hot wiring. Nora’s refusal still rings in his ears as he steps fully into the era, seal fragment and warning note in hand.
+
+> "A flower-child silhouette grabs his wrist the moment the doors open, dragging him into a haze of incense and the urgent whisper that campus security has become cult enforcers."
+
+**State Shift:** `{"flags_added": ["ch_04_started"], "flags_removed": ["ch_03_completed"]}`
+
+---
+[[Enter Chapter 4 ➔->Chapter_04_Intro]]
+[[📑 Chapter Select->Chapter_Select]]
+
+:: Chapter_04_Intro [chapter ch_04] {"position":"100,960","size":"100,100"}
+(set: $current_chapter to 4)
+## Chapter 4: Vinyl Runes and Bleeding Posters
+
+> *Marcus steps into the Echoing Dormitory where psychedelic posters peel to reveal carved runes and typewriters chatter with phantom printers. The air reeks of hairspray and ozone as timelines bleed, turning record skips into choral warnings. He meets Lila Hart in full 1960s flower-child mode, who immediately drags him into protecting her friends from cult enforcers manifesting as campus security.
+
+The central investigation involves decoding vinyl grooves that hide artifact coordinates while dodging Vivian's sudden appearances offering seductive power. A major twist reveals that one of Lila's friends is Sophia's 1960s incarnation, forcing Marcus to confront whether saving her erases his modern ally. He chooses empathy, forging a joint ritual with Lila to stabilize the bleed.
+
+The climax erupts when Harlan's voice booms through the PA system demanding surrender of the seal; Marcus escapes through a collapsing wall into the Forgotten Archives clutching a new psychedelic sigil fragment.*
+
+**Setting:** `loc_1960s_dorm`
+**Key Assets Required:** corporate_lanyard, medieval_seal_fragment, isabella_bond_token, nora_warning_note
+
+---
+[[▶ Proceed into Chapter 4->Chapter_04_Transition]]
+[[📑 Chapter Select->Chapter_Select]]
+
+:: Chapter_04_Transition [transition ch_04] {"position":"280,960","size":"100,100"}
+## Passage: Transition from Chapter 4 to Chapter 5
+
+The collapsing dormitory wall deposits Marcus into the Forgotten Archives as Harlan’s PA voice still echoes. Moldering file boxes and ink-black drips replace wood paneling; the combined fragments pulse with new weight. Lila’s ritual token and the fresh sigil piece anchor him as he begins sorting contracts that flicker between eras.
+
+> "Rats with human eyes scurry between stacks while a wounded Sophia’s voice calls from the shadows, warning that the next contract he touches may already be written in his own blood."
+
+**State Shift:** `{"flags_added": ["ch_05_started", "harlan_betrayal_revealed"], "inventory_added": ["elena_blood_pact_shard", "archive_contract_key"]}`
+
+---
+[[Enter Chapter 5 ➔->Chapter_05_Intro]]
+[[📑 Chapter Select->Chapter_Select]]
+
+:: Chapter_05_Intro [chapter ch_05] {"position":"100,1140","size":"100,100"}
+(set: $current_chapter to 5)
+## Chapter 5: Moldering Contracts of the Collapsed
+
+> *Entering the Forgotten Archives, Marcus navigates moldering stacks of anachronistic file boxes where leaking pipes drip ink-black fluid and rats with human eyes scurry between eras. The rustle of paper masks sobbing voices from unfinished deals. He encounters Elena Crowe again, now trading fragments for bloodline protection, and a wounded Sophia struggling with timeline bleed.
+
+The core crisis is sorting real contracts from false ones that could trap him in a single era while cult remnants close in. A devastating revelation exposes that Harlan orchestrated Marcus's original modern betrayal to prime him as the ritual key. Choosing cunning over pure empathy, Marcus forges a temporary alliance with Elena to steal two more shards.
+
+The chapter climaxes in a paper-storm chase as the archives begin collapsing into the Underground Vault, leaving him with the combined artifact pieces and a burning need to reach the sanctum before the final merger.*
+
+**Setting:** `loc_forgotten_archives`
+**Key Assets Required:** corporate_lanyard, medieval_seal_fragment, isabella_bond_token, nora_warning_note, psychedelic_sigil_fragment, lila_joint_ritual_token
+
+---
+[[▶ Proceed into Chapter 5->Chapter_05_Transition]]
+[[📑 Chapter Select->Chapter_Select]]
+
+:: Chapter_05_Transition [transition ch_05] {"position":"280,1140","size":"100,100"}
+## Passage: Transition from Chapter 5 to Chapter 6
+
+The paper-storm chase drives Marcus downward through collapsing shelves into the limestone Artifact Sanctum. Dripping water ticks like clocks; the assembled shards now hum in resonance. Allies converge as Harlan’s enforcers breach the upper levels, forcing the final assembly of the temporal artifact under the glow of shard pedestals.
+
+> "Pedestals ignite one by one as the vault ceiling cracks open, revealing the spire above and the sound of Vivian’s heels descending the final staircase."
+
+**State Shift:** `{"flags_added": ["ch_06_started", "final_ritual_armed", "necessary_wound_chosen"], "inventory_added": ["assembled_temporal_artifact"]}`
+
+---
+[[Enter Chapter 6 ➔->Chapter_06_Intro]]
+[[📑 Chapter Select->Chapter_Select]]
+
+:: Chapter_06_Intro [chapter ch_06] {"position":"100,1320","size":"100,100"}
+(set: $current_chapter to 6)
+## Chapter 6: Sanctum of Dripping Clocks
+
+> *Descending into the Artifact Sanctum, Marcus faces glowing shard pedestals in a dripping limestone chamber where water plinks like distant clocks and buried machinery thrums. Shadows carry whispers of forgotten names while the Weavers and Remnants factions clash around him. He reunites with Lila, Isabella, and Sophia for a desperate assembly of the collected fragments.
+
+The central obstacle is solving the multi-era puzzle lock on the final pedestal while Harlan's enforcers, led by Vivian, breach the vault. A shattering revelation confirms that completing the ritual without the necessary wound will erase all the allies he has bonded with across time. Marcus makes the pivotal decision to wound the timeline deliberately, using empathy to convince the remnants to aid the reset.
+
+The climax sees the vault merging with the spire above as the final shard slots in, propelling him toward the rooftop observatory with the assembled artifact and the full weight of the cycle's end.*
+
+**Setting:** `loc_underground_vault`
+**Key Assets Required:** corporate_lanyard, medieval_seal_fragment, isabella_bond_token, nora_warning_note, psychedelic_sigil_fragment, lila_joint_ritual_token, elena_blood_pact_shard, archive_contract_key
+
+---
+[[▶ Proceed into Chapter 6->Chapter_06_Transition]]
+[[📑 Chapter Select->Chapter_Select]]
+
+:: Chapter_06_Transition [transition ch_06] {"position":"280,1320","size":"100,100"}
+## Passage: Transition from Chapter 6 to Chapter 7
+
+With the artifact fully assembled, the sanctum merges upward into the wind-scoured Apex Observatory. Constellations churn overhead spelling ritual formulae while Harlan and the Eternal Harvest faction wait on the railings. All bonded allies stand at Marcus’s back as the final choice between empathetic sacrifice and cunning power crystallizes under the merged skyline.
+
+> "Constellations realign into Harlan’s sigil as the wind carries the scent of ozone and the immortal king’s voice offers one last intimate bargain across the glowing rail."
+
+**State Shift:** `{"flags_added": ["ch_07_started", "cycle_broken", "timeline_restored"], "inventory_added": ["broken_contract_shard"]}`
+
+---
+[[Enter Chapter 7 ➔->Chapter_07_Intro]]
+[[📑 Chapter Select->Chapter_Select]]
+
+:: Chapter_07_Intro [chapter ch_07] {"position":"100,1500","size":"100,100"}
+(set: $current_chapter to 7)
+## Chapter 7: Apex of Merged Constellations
+
+> *Marcus emerges onto the wind-scoured Apex Observatory where the city skyline melts from medieval spires to neon grids under churning constellations spelling ritual formulae. Cold air carries ozone and incense as the railings hum with stored temporal charge. Harlan Voss awaits in his truest immortal form, backed by the Eternal Harvest faction, while the Weavers and Remnants look to Marcus for the final choice.
+
+The ultimate crisis is performing the necessary wound on the assembled artifact while the timelines fully merge inside the building. Vivian makes one last intimate offer to join the harvest. With all allies present, Marcus confronts his original moral wound and chooses empathetic sacrifice over cunning power, shattering the cycle.
+
+The chapter and story climax as the spire resets, timelines separating cleanly. Marcus returns to the modern atrium with memories intact but the contract broken, the building's lights stabilizing as dawn breaks over a linear world.*
+
+**Setting:** `loc_rooftop_spire`
+**Key Assets Required:** assembled_temporal_artifact, isabella_bond_token, lila_joint_ritual_token, elena_blood_pact_shard
+
+---
+[[▶ Proceed into Chapter 7->Story_Conclusion]]
+[[📑 Chapter Select->Chapter_Select]]
+
+:: Story_Conclusion [ending] {"position":"500,1740","size":"100,100"}
+# The Shifting Spire — Epilogue & Conclusion
+
+You have reached the culmination of your narrative journey!
+
+### Emergent Alignment & Character Traits
+* **Cunning**: (print: $cunning) points
+* **Empathy**: (print: $empathy) points
+
+### Journey Review
+* Total Quests Completed: **(count: $completed_quests)**
+* [[Review Full Quest & Achievement Log->Quest_Log]]
+* [[Review Story Codex & World Lore->World_Codex]]
+
+---
+[[🔄 Play Again from Title Screen->Title_Screen]]
+[[📑 Revisit Any Chapter->Chapter_Select]]

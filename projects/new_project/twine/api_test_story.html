@@ -1,0 +1,432 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>API Test Story — QuestForge Twine Edition</title>
+  <style id="twine-user-stylesheet" type="text/twine-css">
+    :root {
+      --bg-dark: #07090e;
+      --card-bg: rgba(18, 23, 37, 0.85);
+      --border-color: rgba(66, 82, 110, 0.4);
+      --accent: #3b82f6;
+      --text-main: #f1f5f9;
+      --text-muted: #94a3b8;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      background: var(--bg-dark);
+      background-image: radial-gradient(circle at 50% 10%, rgba(30, 58, 138, 0.18) 0%, transparent 60%);
+      color: var(--text-main);
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+    header.qf-runner-nav {
+      border-bottom: 1px solid var(--border-color);
+      background: rgba(10, 14, 26, 0.8);
+      backdrop-filter: blur(12px);
+      padding: 12px 24px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      position: sticky;
+      top: 0;
+      z-index: 50;
+    }
+    .qf-logo {
+      font-weight: 700;
+      font-size: 0.95rem;
+      letter-spacing: 0.05em;
+      color: #60a5fa;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .qf-trait-meters {
+      display: flex;
+      gap: 16px;
+      align-items: center;
+    }
+    .qf-trait-badge {
+      font-size: 0.8rem;
+      padding: 4px 12px;
+      border-radius: 9999px;
+      background: rgba(30, 41, 59, 0.8);
+      border: 1px solid var(--border-color);
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+    .qf-score-val {
+      font-weight: bold;
+      color: #93c5fd;
+    }
+    main.qf-stage {
+      flex: 1;
+      max-width: 860px;
+      width: 100%;
+      margin: 32px auto;
+      padding: 0 20px;
+      display: flex;
+      flex-direction: column;
+    }
+    .qf-card {
+      background: var(--card-bg);
+      border: 1px solid var(--border-color);
+      border-radius: 16px;
+      padding: 36px 40px;
+      box-shadow: 0 20px 40px -15px rgba(0, 0, 0, 0.7);
+      backdrop-filter: blur(16px);
+      animation: fadeIn 0.25s ease-out;
+    }
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(6px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    .qf-passage-title {
+      font-size: 1.5rem;
+      font-weight: 700;
+      margin-bottom: 20px;
+      color: #e2e8f0;
+      border-bottom: 1px solid rgba(255,255,255,0.08);
+      padding-bottom: 12px;
+    }
+    .qf-passage-content {
+      font-size: 1.05rem;
+      line-height: 1.75;
+      color: #cbd5e1;
+    }
+    .qf-passage-content p {
+      margin-bottom: 1.25rem;
+    }
+    .qf-passage-content blockquote {
+      border-left: 3px solid #3b82f6;
+      padding: 10px 18px;
+      margin: 16px 0;
+      background: rgba(59, 130, 246, 0.08);
+      border-radius: 0 8px 8px 0;
+      font-style: italic;
+    }
+    .qf-passage-content h1, .qf-passage-content h2, .qf-passage-content h3 {
+      margin: 20px 0 12px 0;
+      color: #f8fafc;
+    }
+    .qf-passage-content hr {
+      border: 0;
+      height: 1px;
+      background: var(--border-color);
+      margin: 24px 0;
+    }
+    .qf-choices {
+      margin-top: 28px;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+    .qf-btn-choice {
+      background: rgba(30, 41, 59, 0.7);
+      border: 1px solid rgba(148, 163, 184, 0.25);
+      border-radius: 12px;
+      padding: 14px 20px;
+      color: #f1f5f9;
+      font-size: 0.95rem;
+      text-align: left;
+      cursor: pointer;
+      transition: all 0.2s ease;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+    .qf-btn-choice:hover {
+      background: rgba(59, 130, 246, 0.25);
+      border-color: #3b82f6;
+      transform: translateX(4px);
+    }
+    .qf-choice-arrow {
+      color: #60a5fa;
+      font-weight: bold;
+    }
+    footer.qf-footer {
+      padding: 16px;
+      text-align: center;
+      font-size: 0.75rem;
+      color: var(--text-muted);
+      border-top: 1px solid rgba(255,255,255,0.05);
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Twine 2 Canonical Specification Data Root -->
+  <tw-storydata name="API Test Story" startnode="3" creator="QuestForge" creator-version="1.0.0" format="Harlowe" format-version="3.3.8" ifid="1D879F9A-74E3-5112-AE37-241AFC014ABE" zoom="1" options="">
+  <style role="stylesheet" id="twine-user-stylesheet" type="text/twine-css"></style>
+  <script role="script" id="twine-user-script" type="text/twine-javascript"></script>
+  <tw-passagedata pid="1" name="StoryInit" tags="" pos="20,20" size="100,100">(set: $flags to (a:))
+(set: $completed_quests to (a:))
+(set: $inventory to (a:))
+(set: $current_chapter to 1)</tw-passagedata>
+  <tw-passagedata pid="2" name="StoryHeader" tags="header" pos="140,20" size="100,100">&lt;div class=&quot;qf-status-bar&quot;&gt;
+  &lt;span class=&quot;qf-badge-title&quot;&gt;📖 API Test Story&lt;/span&gt;
+  &lt;span class=&quot;qf-badge-quests&quot;&gt;⚔️ Quests: &lt;b&gt;(count: $completed_quests)&lt;/b&gt;&lt;/span&gt;
+  &lt;span class=&quot;qf-links&quot;&gt;[[Menu-&gt;Codex_Menu]]&lt;/span&gt;
+&lt;/div&gt;
+---</tw-passagedata>
+  <tw-passagedata pid="3" name="Title_Screen" tags="title" pos="300,100" size="100,100"># API Test Story
+*Mystery* • *Intriguing*
+
+---
+### Begin Experience
+[[▶ Begin Story-&gt;Chapter_01_Intro]]
+[[📑 Chapter Jump / Selection-&gt;Chapter_Select]]
+[[👥 Dramatis Personae (Cast)-&gt;Dramatis_Personae]]
+[[🗺️ World Codex-&gt;World_Codex]]
+[[🏆 Quest &amp; Achievement Tracker-&gt;Quest_Log]]</tw-passagedata>
+  <tw-passagedata pid="4" name="Codex_Menu" tags="codex" pos="100,240" size="100,100">## 📖 Story Codex &amp; Archives
+Access detailed world intelligence, cast files, and quest progression records.
+
+* [[👥 Cast &amp; Dramatis Personae-&gt;Dramatis_Personae]]
+* [[🗺️ Locations &amp; Lore Codex-&gt;World_Codex]]
+* [[⚔️ Active &amp; Completed Quests-&gt;Quest_Log]]
+* [[🏆 Achievements-&gt;Achievements_List]]
+* [[📑 Jump to Specific Chapter-&gt;Chapter_Select]]
+* [[🔙 Return to Title Screen-&gt;Title_Screen]]</tw-passagedata>
+  <tw-passagedata pid="5" name="Dramatis_Personae" tags="codex" pos="260,240" size="100,100">## 👥 Dramatis Personae (Cast of Characters)
+
+*No character records registered yet.*
+
+---
+[[🔙 Return to Codex Menu-&gt;Codex_Menu]] | [[Return to Story-&gt;Title_Screen]]</tw-passagedata>
+  <tw-passagedata pid="6" name="World_Codex" tags="codex" pos="420,240" size="100,100">## 🗺️ World Codex &amp; Setting
+
+*No world records registered yet.*
+
+---
+[[🔙 Return to Codex Menu-&gt;Codex_Menu]] | [[Return to Story-&gt;Title_Screen]]</tw-passagedata>
+  <tw-passagedata pid="7" name="Quest_Log" tags="codex" pos="580,240" size="100,100">## ⚔️ Quest Log &amp; Progression
+
+*No quests recorded in this story spine.*
+
+---
+[[🔙 Return to Codex Menu-&gt;Codex_Menu]] | [[Return to Story-&gt;Title_Screen]]</tw-passagedata>
+  <tw-passagedata pid="8" name="Achievements_List" tags="codex" pos="740,240" size="100,100">## 🏆 Story Achievements
+
+*No achievements configured for this story.*
+
+---
+[[🔙 Return to Codex Menu-&gt;Codex_Menu]] | [[Return to Story-&gt;Title_Screen]]</tw-passagedata>
+  <tw-passagedata pid="9" name="Chapter_Select" tags="menu" pos="900,240" size="100,100">## 📑 Chapter Select
+Select any chapter to begin or jump directly into its sequence:
+
+* **[[Chapter 1: The Beginning-&gt;Chapter_01_Intro]]**
+
+---
+[[🔙 Return to Title Screen-&gt;Title_Screen]]</tw-passagedata>
+  <tw-passagedata pid="10" name="Chapter_01_Intro" tags="chapter ch_01" pos="100,420" size="100,100">(set: $current_chapter to 1)
+## Chapter 1: The Beginning
+
+---
+[[▶ Proceed into Chapter 1-&gt;Story_Conclusion]]
+[[📑 Chapter Select-&gt;Chapter_Select]]</tw-passagedata>
+  <tw-passagedata pid="11" name="Story_Conclusion" tags="ending" pos="500,660" size="100,100"># API Test Story — Epilogue &amp; Conclusion
+
+You have reached the culmination of your narrative journey!
+
+### Emergent Alignment &amp; Character Traits
+*Your choices have shaped the world and guided your companions.*
+
+### Journey Review
+* Total Quests Completed: **(count: $completed_quests)**
+* [[Review Full Quest &amp; Achievement Log-&gt;Quest_Log]]
+* [[Review Story Codex &amp; World Lore-&gt;World_Codex]]
+
+---
+[[🔄 Play Again from Title Screen-&gt;Title_Screen]]
+[[📑 Revisit Any Chapter-&gt;Chapter_Select]]</tw-passagedata>
+  </tw-storydata>
+
+  <!-- Interactive Web Runner UI -->
+  <header class="qf-runner-nav">
+    <div class="qf-logo">
+      <span>⚔️</span>
+      <span id="qf-story-title">API Test Story</span>
+    </div>
+    <div class="qf-trait-meters" id="qf-trait-meters"></div>
+    <div style="display:flex; gap:10px;">
+      <button class="qf-trait-badge" style="cursor:pointer;" onclick="qfRestart()">🔄 Restart</button>
+      <button class="qf-trait-badge" style="cursor:pointer;" onclick="qfGoto('Codex_Menu')">📑 Menu</button>
+    </div>
+  </header>
+
+  <main class="qf-stage">
+    <div class="qf-card">
+      <div class="qf-passage-title" id="qf-title"></div>
+      <div class="qf-passage-content" id="qf-body"></div>
+      <div class="qf-choices" id="qf-choices"></div>
+    </div>
+  </main>
+
+  <footer class="qf-footer">
+    Exported from QuestForge Engine • Twine 2 & Twee 3 Compatible Edition
+  </footer>
+
+  <script>
+    (function() {
+      const traitsDef = [];
+      const storyArc = {"title": "API Test Story", "genre": "Mystery", "tone": "Intriguing"};
+
+      // State
+      let state = {
+        flags: [],
+        completedQuests: [],
+        traits: {},
+      };
+
+      traitsDef.forEach(t => {
+        const key = t.name.toLowerCase().replace(/[^a-zA-Z0-9_]/g, '');
+        state.traits[key] = 0;
+      });
+
+      // Load Twine DOM Passages
+      const passageMap = new Map();
+      let startPassageName = "Title_Screen";
+
+      document.querySelectorAll('tw-passagedata').forEach(el => {
+        const pid = el.getAttribute('pid');
+        const name = el.getAttribute('name');
+        const tags = (el.getAttribute('tags') || '').split(' ');
+        const rawContent = el.textContent || '';
+        passageMap.set(name, { pid, name, tags, rawContent });
+      });
+
+      // Trait UI rendering
+      function renderTraitMeters() {
+        const container = document.getElementById('qf-trait-meters');
+        container.innerHTML = '';
+        traitsDef.forEach(t => {
+          const key = t.name.toLowerCase().replace(/[^a-zA-Z0-9_]/g, '');
+          const val = state.traits[key] || 0;
+          const badge = document.createElement('div');
+          badge.className = 'qf-trait-badge';
+          badge.innerHTML = `<span style="color:${t.color_hex || '#60a5fa'}">●</span> ${t.name}: <span class="qf-score-val">${val}</span>`;
+          container.appendChild(badge);
+        });
+      }
+
+      // Parse passage text into displayable HTML and interactive choices
+      function renderPassage(passageName) {
+        const passage = passageMap.get(passageName);
+        if (!passage) {
+          console.warn("Passage not found:", passageName);
+          return;
+        }
+
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+        document.getElementById('qf-title').innerText = passage.name.replace(/_/g, ' ');
+
+        let raw = passage.rawContent;
+
+        // Process Harlowe macros in text
+        // (set: $trait to $trait + 1)
+        // (if: $flags contains "...") [...]
+        raw = raw.replace(/\(set:\s*\$([a-zA-Z0-9_]+)\s*to\s*\$\1\s*\+\s*(\d+)\)/g, (match, varName, amt) => {
+          state.traits[varName] = (state.traits[varName] || 0) + parseInt(amt, 10);
+          renderTraitMeters();
+          return '';
+        });
+
+        raw = raw.replace(/\(set:\s*\$flags\s*to\s*\$flags\s*\+\s*\(a:\s*(.*?)\)\)/g, (match, flagsStr) => {
+          const flags = flagsStr.split(',').map(s => s.trim().replace(/^["']|["']$/g, ''));
+          flags.forEach(f => { if (f && !state.flags.includes(f)) state.flags.push(f); });
+          return '';
+        });
+
+        // Handle (if: $flags contains "flag")[Content](else:)[Alt]
+        raw = raw.replace(/\(if:\s*\$flags\s*contains\s*["'](.*?)["']\)\[(.*?)\](?:\(else:\)\[(.*?)\])?/gs, (match, flag, yesContent, noContent) => {
+          return state.flags.includes(flag) ? yesContent : (noContent || '');
+        });
+
+        // Extract choices: [[label->target]] or (link: "label")[(set:...)(go-to: "target")]
+        const choices = [];
+
+        // 1. Harlowe links: (link: "label")[(set:...)(go-to: "target")]
+        raw = raw.replace(/\(link:\s*["'](.*?)["']\)\[(.*?)\(go-to:\s*["'](.*?)["']\)\]/gs, (match, label, setters, target) => {
+          choices.push({ label, target, setters });
+          return '';
+        });
+
+        // 2. Standard Twine links: [[Label->Target]] or [[Target]]
+        raw = raw.replace(/\[\[(.*?)\]\]/g, (match, inner) => {
+          if (inner.includes('->')) {
+            const parts = inner.split('->');
+            choices.push({ label: parts[0].trim(), target: parts[1].trim() });
+          } else {
+            choices.push({ label: inner.trim(), target: inner.trim() });
+          }
+          return '';
+        });
+
+        // Clean up markdown in body
+        let bodyHtml = raw
+          .replace(/^### (.*$)/gim, '<h3>$1</h3>')
+          .replace(/^## (.*$)/gim, '<h2>$1</h2>')
+          .replace(/^# (.*$)/gim, '<h1>$1</h1>')
+          .replace(/^\> \[!NOTE\]/gim, '<blockquote><strong>Note:</strong>')
+          .replace(/^\> (.*$)/gim, '<blockquote>$1</blockquote>')
+          .replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>')
+          .replace(/\*(.*?)\*/g, '<em>$1</em>')
+          .replace(/\n\n+/g, '</p><p>')
+          .replace(/\n/g, '<br>');
+
+        document.getElementById('qf-body').innerHTML = `<p>${bodyHtml}</p>`;
+
+        // Render choices buttons
+        const choiceContainer = document.getElementById('qf-choices');
+        choiceContainer.innerHTML = '';
+
+        choices.forEach(ch => {
+          const btn = document.createElement('button');
+          btn.className = 'qf-btn-choice';
+          btn.innerHTML = `<span>${ch.label}</span><span class="qf-choice-arrow">➔</span>`;
+          btn.onclick = () => {
+            if (ch.setters) {
+              // Apply setters
+              const traitMatch = ch.setters.match(/\$([a-zA-Z0-9_]+)\s*to\s*\$\1\s*\+\s*(\d+)/);
+              if (traitMatch) {
+                const varName = traitMatch[1];
+                const amt = parseInt(traitMatch[2], 10);
+                state.traits[varName] = (state.traits[varName] || 0) + amt;
+                renderTraitMeters();
+              }
+              const flagMatch = ch.setters.match(/\$flags\s*to\s*\$flags\s*\+\s*\(a:\s*(.*?)\)/);
+              if (flagMatch) {
+                const flags = flagMatch[1].split(',').map(s => s.trim().replace(/^["']|["']$/g, ''));
+                flags.forEach(f => { if (f && !state.flags.includes(f)) state.flags.push(f); });
+              }
+            }
+            renderPassage(ch.target);
+          };
+          choiceContainer.appendChild(btn);
+        });
+      }
+
+      window.qfGoto = renderPassage;
+      window.qfRestart = function() {
+        state.flags = [];
+        state.completedQuests = [];
+        traitsDef.forEach(t => {
+          const key = t.name.toLowerCase().replace(/[^a-zA-Z0-9_]/g, '');
+          state.traits[key] = 0;
+        });
+        renderTraitMeters();
+        renderPassage(startPassageName);
+      };
+
+      // Init
+      renderTraitMeters();
+      renderPassage(startPassageName);
+    })();
+  </script>
+</body>
+</html>

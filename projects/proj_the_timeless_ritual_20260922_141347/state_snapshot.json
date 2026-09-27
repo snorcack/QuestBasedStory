@@ -1,0 +1,1999 @@
+{
+  "values": {
+    "story_seed": "The protagonist joins a new real estate organization, but gets embroiled in a cult that spans centuries. He mistakenly activates a device that starts shifting the entire building through time. The building changes appearance and purpose based on the time period, but the structure remains the same. The workers in the building stay the reincarnations of current workers. Our player has to find artifacts to fix this  and complete the ritual before the timelines merge and collapse. The story starts normally, then the protagonist moves to each timeline once, then they have to visit each timeline to collect the pieces of the artifact and solve puzzles in hilarious situations. The first timeline is the modern timeline, the second timeline is a medieval timeline where magic is present, the building acts as the palace of A king (currently CEO) with the harem (all employees), the last timeline is the 1960's timeline, just starting with technology, the building is a college dorm, the CEO is the warden and the students are employees again. The characters other than the protagonist may have different names that have same meaning in different timelines. The story will have a crisis where altering something in the past will be key to unlocking the ritual in the future.",
+    "is_explicit": true,
+    "story_arc": {
+      "title": "The Shifting Spire",
+      "genre": "Occult Time-Travel Thriller with Dark Comedy",
+      "tone": "Surreal tension laced with anachronistic irony, escalating from mundane corporate dread to cosmic horror",
+      "themes": [
+        "Reincarnation and the cyclical prison of history",
+        "Corporate power as eternal tyranny",
+        "Identity fractured across timelines",
+        "Unintended consequences of tampering with fate",
+        "Sanity versus the seductive pull of collapsed time"
+      ],
+      "protagonist_sketch": "Marcus Hale, a skeptical junior real estate broker whose impulsive need to prove himself masks a deep moral wound: his last deal cost a colleague their career and livelihood. Thrust from mundane onboarding into accidental activation of an ancient device, he must navigate shifting eras while confronting whether he will repeat the same selfish patterns across centuries or break the cycle.",
+      "antagonist_sketch": "Harlan Voss, the immortal high priest of the cult and CEO of the organization. In every era he appears as the apex authority\u2014modern CEO, medieval king, 1960s warden\u2014driven by the belief that all souls are eternal property to be harvested when timelines merge. He views the protagonist as both pawn and key, leveraging Marcus\u2019s accidental activation and lingering guilt to force participation in the final ritual or condemn reality to collapse.",
+      "central_conflict": "The irreconcilable tension between preserving linear time and allowing its deliberate collapse for godlike power, embodied in Marcus\u2019s desperate collection of artifact fragments while the cult pushes for merger and a single past alteration threatens to unravel the ritual\u2019s solution in the present.",
+      "acts": [
+        {
+          "act_number": 1,
+          "title": "Act 1: The Accidental Ignition",
+          "summary": "Marcus joins the real-estate firm in the modern timeline. During a routine orientation he inadvertently activates the hidden temporal device. The building lurches through time, first depositing him in the medieval palace where the CEO rules as king and his coworkers appear as a harem and court. Initial confusion and humorous culture shock give way to the first revelation that these are reincarnated souls and that the cult has orchestrated events for centuries."
+        },
+        {
+          "act_number": 2,
+          "title": "Act 2: Fragments Across Eras",
+          "summary": "The spire shifts again to the 1960s college dorm. Marcus must travel repeatedly between the three timelines, solving era-specific puzzles and enduring increasingly absurd situations while collecting the scattered artifact pieces. Rising stakes include cult enforcers hunting him, moral dilemmas about altering past events, and the growing realization that the timelines are beginning to bleed together."
+        },
+        {
+          "act_number": 3,
+          "title": "Act 3: The Necessary Wound",
+          "summary": "A crisis forces Marcus to deliberately change a pivotal past event, unlocking the final ritual but risking the erasure of people he has come to care for. In the climax the timelines begin to merge inside the building itself. Marcus confronts Harlan Voss in his truest form and must choose between ruthless cunning to seize power or empathetic sacrifice to restore the proper flow of time, deciding whether the cycle ends or continues."
+        }
+      ],
+      "trait_vocabulary": [
+        {
+          "name": "Cunning",
+          "description": "The capacity to weaponize anachronisms, deceive reincarnated figures, and improvise temporal solutions through clever manipulation and quick thinking.",
+          "color_hex": "#E0A82E"
+        },
+        {
+          "name": "Empathy",
+          "description": "The ability to recognize and honor the timeless souls of coworkers across eras, forging bonds that reveal hidden ritual paths and force morally weighted choices.",
+          "color_hex": "#2EA8E0"
+        }
+      ]
+    },
+    "trait_vocabulary": [
+      {
+        "name": "Cunning",
+        "description": "The capacity to weaponize anachronisms, deceive reincarnated figures, and improvise temporal solutions through clever manipulation and quick thinking.",
+        "color_hex": "#E0A82E"
+      },
+      {
+        "name": "Empathy",
+        "description": "The ability to recognize and honor the timeless souls of coworkers across eras, forging bonds that reveal hidden ritual paths and force morally weighted choices.",
+        "color_hex": "#2EA8E0"
+      }
+    ],
+    "chapter_contracts": [
+      {
+        "chapter_id": "chapter_01",
+        "order": 1,
+        "title": "Fluorescent Ignition",
+        "narrative_scope": "Marcus Hale arrives at the sleek Glass Atrium for his first day as a junior broker, the air thick with burnt coffee and the low hum of servers. Fluorescent lights stutter as cubicle walls begin bleeding into stone archways, triggering the hidden temporal device during a routine orientation slide. The entire building lurches, depositing him in the Iron Throne Hall where modern coworkers manifest as courtiers and a harem.\n\nHe encounters Harlan Voss as the immortal king on the throne, Vivian Slate as a silk-clad enforcer, and Sophia Reyes as a sharp-tongued advisor who recognizes him across lives. Tension erupts when Harlan demands Marcus sign an eternal contract, leveraging his old guilt over selling out a colleague. The core crisis is navigating the first culture shock while dodging chains that manifest from the floor.\n\nA dramatic revelation hits when Isabella Duarte appears as a medieval scribe and whispers that all souls here are reincarnated fragments of the same office. Marcus makes his first moral decision: refuse the contract or exploit an anachronism to escape. The chapter climaxes as he activates the brass elevator, the hall warping around him, leaving him primed to descend into the next era with the first taste of fractured identity.",
+        "entry_state": {
+          "location": "loc_modern_atrium",
+          "trait_snapshot": {
+            "Cunning": "none",
+            "Empathy": "none"
+          },
+          "inventory": [
+            "corporate_lanyard"
+          ],
+          "active_flags": [
+            "ch_01_started",
+            "modern_onboarding"
+          ]
+        },
+        "exit_state": {
+          "location": "loc_elevator_core",
+          "trait_snapshot": {
+            "Cunning": "emerging",
+            "Empathy": "emerging"
+          },
+          "inventory": [
+            "corporate_lanyard",
+            "medieval_seal_fragment"
+          ],
+          "active_flags": [
+            "ch_01_completed",
+            "harlan_contract_refused",
+            "first_shift_triggered"
+          ]
+        },
+        "attachment_points": [
+          {
+            "slot_id": "slot_ch01_01",
+            "chapter_id": "chapter_01",
+            "location_id": "loc_modern_atrium",
+            "available_after": "ch_01_started",
+            "expires_after": "ch_01_completed",
+            "npcs_present": [
+              "char_sophia"
+            ],
+            "arc_type": "investigative",
+            "assigned_quest_id": null
+          },
+          {
+            "slot_id": "slot_ch01_02",
+            "chapter_id": "chapter_01",
+            "location_id": "loc_modern_atrium",
+            "available_after": "ch_01_started",
+            "expires_after": "ch_01_completed",
+            "npcs_present": [
+              "char_isabella"
+            ],
+            "arc_type": "companion_favor",
+            "assigned_quest_id": null
+          }
+        ]
+      },
+      {
+        "chapter_id": "chapter_02",
+        "order": 2,
+        "title": "Throne of Anachronistic Chains",
+        "narrative_scope": "Emerging from the elevator into the vaulted Iron Throne Hall, Marcus faces braziers casting shadows of filing cabinets across rushes while courtiers murmur board-meeting platitudes. Harlan, now fully the medieval king, presses the contract again, backed by Vivian's vicious intimacy and threats of branding. Sophia and Isabella form uneasy alliances, feeding Marcus cryptic warnings about the cycle.\n\nThe central obstacle is surviving a ritualistic board meeting turned feast where reincarnated coworkers test his loyalty. Marcus discovers the first true artifact shard hidden in a tapestry that flickers between corporate logo and royal crest. The twist comes when he realizes altering one past deal here could erase a modern colleague's existence.\n\nChoosing empathy, he forges a fragile pact with Isabella to protect the souls instead of seizing power. The climax forces him back into the elevator core as the hall begins merging with 1960s wood paneling, carrying the seal fragment and a growing dread of the harvest.",
+        "entry_state": {
+          "location": "loc_medieval_hall",
+          "trait_snapshot": {
+            "Cunning": "emerging",
+            "Empathy": "emerging"
+          },
+          "inventory": [
+            "corporate_lanyard",
+            "medieval_seal_fragment"
+          ],
+          "active_flags": [
+            "ch_02_started",
+            "harlan_contract_refused"
+          ]
+        },
+        "exit_state": {
+          "location": "loc_elevator_core",
+          "trait_snapshot": {
+            "Cunning": "established",
+            "Empathy": "established"
+          },
+          "inventory": [
+            "corporate_lanyard",
+            "medieval_seal_fragment",
+            "isabella_bond_token"
+          ],
+          "active_flags": [
+            "ch_02_completed",
+            "isabella_allied",
+            "first_moral_choice_made"
+          ]
+        },
+        "attachment_points": [
+          {
+            "slot_id": "slot_ch02_01",
+            "chapter_id": "chapter_02",
+            "location_id": "loc_medieval_hall",
+            "available_after": "ch_02_started",
+            "expires_after": "ch_02_completed",
+            "npcs_present": [
+              "char_vivian",
+              "char_sophia"
+            ],
+            "arc_type": "moral_dilemma",
+            "assigned_quest_id": null
+          },
+          {
+            "slot_id": "slot_ch02_02",
+            "chapter_id": "chapter_02",
+            "location_id": "loc_medieval_hall",
+            "available_after": "ch_02_started",
+            "expires_after": "ch_02_completed",
+            "npcs_present": [
+              "char_isabella"
+            ],
+            "arc_type": "companion_favor",
+            "assigned_quest_id": null
+          }
+        ]
+      },
+      {
+        "chapter_id": "chapter_03",
+        "order": 3,
+        "title": "Elevator of Overlapping Screams",
+        "narrative_scope": "Trapped in the claustrophobic Temporal Conduit, Marcus rides the brass-and-steel shaft as floor numbers smear across dead languages and buttons pulse with sigils. Overlapping dings and screams echo while condensation forms fleeting coworker faces on the walls. The elevator deposits him briefly into the modern atrium again before lurching toward the 1960s Dormitory.\n\nHe encounters Nora Ellison selling timeline knowledge from inside the car, demanding grimoires or stock tips. The core crisis is surviving the bleed as 1960s vinyl skips into Gregorian chant, forcing quick improvisation with the medieval seal to stabilize the descent. A revelation strikes when Elena Crowe appears as a prophetic passenger, hinting that Harlan's ritual requires Marcus's original betrayal repeated across eras.\n\nMarcus decides to withhold the seal fragment from Nora, prioritizing empathy for the trapped souls. The chapter peaks as the doors open into wood-paneled corridors reeking of cigarettes and hot wiring, leaving him ready to hunt fragments in the psychedelic era.",
+        "entry_state": {
+          "location": "loc_elevator_core",
+          "trait_snapshot": {
+            "Cunning": "established",
+            "Empathy": "established"
+          },
+          "inventory": [
+            "corporate_lanyard",
+            "medieval_seal_fragment",
+            "isabella_bond_token"
+          ],
+          "active_flags": [
+            "ch_03_started",
+            "isabella_allied"
+          ]
+        },
+        "exit_state": {
+          "location": "loc_1960s_dorm",
+          "trait_snapshot": {
+            "Cunning": "dominant",
+            "Empathy": "established"
+          },
+          "inventory": [
+            "corporate_lanyard",
+            "medieval_seal_fragment",
+            "isabella_bond_token",
+            "nora_warning_note"
+          ],
+          "active_flags": [
+            "ch_03_completed",
+            "nora_deal_refused",
+            "timeline_bleed_worsening"
+          ]
+        },
+        "attachment_points": [
+          {
+            "slot_id": "slot_ch03_01",
+            "chapter_id": "chapter_03",
+            "location_id": "loc_elevator_core",
+            "available_after": "ch_03_started",
+            "expires_after": "ch_03_completed",
+            "npcs_present": [
+              "char_nora",
+              "char_elena"
+            ],
+            "arc_type": "investigative",
+            "assigned_quest_id": null
+          },
+          {
+            "slot_id": "slot_ch03_02",
+            "chapter_id": "chapter_03",
+            "location_id": "loc_elevator_core",
+            "available_after": "ch_03_started",
+            "expires_after": "ch_03_completed",
+            "npcs_present": [
+              "char_sophia"
+            ],
+            "arc_type": "simple",
+            "assigned_quest_id": null
+          }
+        ]
+      },
+      {
+        "chapter_id": "chapter_04",
+        "order": 4,
+        "title": "Vinyl Runes and Bleeding Posters",
+        "narrative_scope": "Marcus steps into the Echoing Dormitory where psychedelic posters peel to reveal carved runes and typewriters chatter with phantom printers. The air reeks of hairspray and ozone as timelines bleed, turning record skips into choral warnings. He meets Lila Hart in full 1960s flower-child mode, who immediately drags him into protecting her friends from cult enforcers manifesting as campus security.\n\nThe central investigation involves decoding vinyl grooves that hide artifact coordinates while dodging Vivian's sudden appearances offering seductive power. A major twist reveals that one of Lila's friends is Sophia's 1960s incarnation, forcing Marcus to confront whether saving her erases his modern ally. He chooses empathy, forging a joint ritual with Lila to stabilize the bleed.\n\nThe climax erupts when Harlan's voice booms through the PA system demanding surrender of the seal; Marcus escapes through a collapsing wall into the Forgotten Archives clutching a new psychedelic sigil fragment.",
+        "entry_state": {
+          "location": "loc_1960s_dorm",
+          "trait_snapshot": {
+            "Cunning": "dominant",
+            "Empathy": "established"
+          },
+          "inventory": [
+            "corporate_lanyard",
+            "medieval_seal_fragment",
+            "isabella_bond_token",
+            "nora_warning_note"
+          ],
+          "active_flags": [
+            "ch_04_started",
+            "timeline_bleed_worsening"
+          ]
+        },
+        "exit_state": {
+          "location": "loc_forgotten_archives",
+          "trait_snapshot": {
+            "Cunning": "dominant",
+            "Empathy": "dominant"
+          },
+          "inventory": [
+            "corporate_lanyard",
+            "medieval_seal_fragment",
+            "isabella_bond_token",
+            "nora_warning_note",
+            "psychedelic_sigil_fragment",
+            "lila_joint_ritual_token"
+          ],
+          "active_flags": [
+            "ch_04_completed",
+            "lila_allied",
+            "sophia_1960s_revealed"
+          ]
+        },
+        "attachment_points": [
+          {
+            "slot_id": "slot_ch04_01",
+            "chapter_id": "chapter_04",
+            "location_id": "loc_1960s_dorm",
+            "available_after": "ch_04_started",
+            "expires_after": "ch_04_completed",
+            "npcs_present": [
+              "char_lila",
+              "char_vivian"
+            ],
+            "arc_type": "moral_dilemma",
+            "assigned_quest_id": null
+          },
+          {
+            "slot_id": "slot_ch04_02",
+            "chapter_id": "chapter_04",
+            "location_id": "loc_1960s_dorm",
+            "available_after": "ch_04_started",
+            "expires_after": "ch_04_completed",
+            "npcs_present": [
+              "char_nora"
+            ],
+            "arc_type": "investigative",
+            "assigned_quest_id": null
+          },
+          {
+            "slot_id": "slot_ch04_03",
+            "chapter_id": "chapter_04",
+            "location_id": "loc_1960s_dorm",
+            "available_after": "ch_04_started",
+            "expires_after": "ch_04_completed",
+            "npcs_present": [
+              "char_sophia"
+            ],
+            "arc_type": "companion_favor",
+            "assigned_quest_id": null
+          }
+        ]
+      },
+      {
+        "chapter_id": "chapter_05",
+        "order": 5,
+        "title": "Moldering Contracts of the Collapsed",
+        "narrative_scope": "Entering the Forgotten Archives, Marcus navigates moldering stacks of anachronistic file boxes where leaking pipes drip ink-black fluid and rats with human eyes scurry between eras. The rustle of paper masks sobbing voices from unfinished deals. He encounters Elena Crowe again, now trading fragments for bloodline protection, and a wounded Sophia struggling with timeline bleed.\n\nThe core crisis is sorting real contracts from false ones that could trap him in a single era while cult remnants close in. A devastating revelation exposes that Harlan orchestrated Marcus's original modern betrayal to prime him as the ritual key. Choosing cunning over pure empathy, Marcus forges a temporary alliance with Elena to steal two more shards.\n\nThe chapter climaxes in a paper-storm chase as the archives begin collapsing into the Underground Vault, leaving him with the combined artifact pieces and a burning need to reach the sanctum before the final merger.",
+        "entry_state": {
+          "location": "loc_forgotten_archives",
+          "trait_snapshot": {
+            "Cunning": "dominant",
+            "Empathy": "dominant"
+          },
+          "inventory": [
+            "corporate_lanyard",
+            "medieval_seal_fragment",
+            "isabella_bond_token",
+            "nora_warning_note",
+            "psychedelic_sigil_fragment",
+            "lila_joint_ritual_token"
+          ],
+          "active_flags": [
+            "ch_05_started",
+            "lila_allied",
+            "sophia_1960s_revealed"
+          ]
+        },
+        "exit_state": {
+          "location": "loc_underground_vault",
+          "trait_snapshot": {
+            "Cunning": "dominant",
+            "Empathy": "dominant"
+          },
+          "inventory": [
+            "corporate_lanyard",
+            "medieval_seal_fragment",
+            "isabella_bond_token",
+            "nora_warning_note",
+            "psychedelic_sigil_fragment",
+            "lila_joint_ritual_token",
+            "elena_blood_pact_shard",
+            "archive_contract_key"
+          ],
+          "active_flags": [
+            "ch_05_completed",
+            "elena_allied",
+            "harlan_betrayal_revealed"
+          ]
+        },
+        "attachment_points": [
+          {
+            "slot_id": "slot_ch05_01",
+            "chapter_id": "chapter_05",
+            "location_id": "loc_forgotten_archives",
+            "available_after": "ch_05_started",
+            "expires_after": "ch_05_completed",
+            "npcs_present": [
+              "char_elena",
+              "char_sophia"
+            ],
+            "arc_type": "moral_dilemma",
+            "assigned_quest_id": null
+          },
+          {
+            "slot_id": "slot_ch05_02",
+            "chapter_id": "chapter_05",
+            "location_id": "loc_forgotten_archives",
+            "available_after": "ch_05_started",
+            "expires_after": "ch_05_completed",
+            "npcs_present": [
+              "char_nora"
+            ],
+            "arc_type": "investigative",
+            "assigned_quest_id": null
+          }
+        ]
+      },
+      {
+        "chapter_id": "chapter_06",
+        "order": 6,
+        "title": "Sanctum of Dripping Clocks",
+        "narrative_scope": "Descending into the Artifact Sanctum, Marcus faces glowing shard pedestals in a dripping limestone chamber where water plinks like distant clocks and buried machinery thrums. Shadows carry whispers of forgotten names while the Weavers and Remnants factions clash around him. He reunites with Lila, Isabella, and Sophia for a desperate assembly of the collected fragments.\n\nThe central obstacle is solving the multi-era puzzle lock on the final pedestal while Harlan's enforcers, led by Vivian, breach the vault. A shattering revelation confirms that completing the ritual without the necessary wound will erase all the allies he has bonded with across time. Marcus makes the pivotal decision to wound the timeline deliberately, using empathy to convince the remnants to aid the reset.\n\nThe climax sees the vault merging with the spire above as the final shard slots in, propelling him toward the rooftop observatory with the assembled artifact and the full weight of the cycle's end.",
+        "entry_state": {
+          "location": "loc_underground_vault",
+          "trait_snapshot": {
+            "Cunning": "dominant",
+            "Empathy": "dominant"
+          },
+          "inventory": [
+            "corporate_lanyard",
+            "medieval_seal_fragment",
+            "isabella_bond_token",
+            "nora_warning_note",
+            "psychedelic_sigil_fragment",
+            "lila_joint_ritual_token",
+            "elena_blood_pact_shard",
+            "archive_contract_key"
+          ],
+          "active_flags": [
+            "ch_06_started",
+            "elena_allied",
+            "harlan_betrayal_revealed"
+          ]
+        },
+        "exit_state": {
+          "location": "loc_rooftop_spire",
+          "trait_snapshot": {
+            "Cunning": "dominant",
+            "Empathy": "dominant"
+          },
+          "inventory": [
+            "assembled_temporal_artifact",
+            "isabella_bond_token",
+            "lila_joint_ritual_token",
+            "elena_blood_pact_shard"
+          ],
+          "active_flags": [
+            "ch_06_completed",
+            "allies_united",
+            "final_ritual_armed",
+            "necessary_wound_chosen"
+          ]
+        },
+        "attachment_points": [
+          {
+            "slot_id": "slot_ch06_01",
+            "chapter_id": "chapter_06",
+            "location_id": "loc_underground_vault",
+            "available_after": "ch_06_started",
+            "expires_after": "ch_06_completed",
+            "npcs_present": [
+              "char_lila",
+              "char_isabella",
+              "char_sophia"
+            ],
+            "arc_type": "companion_favor",
+            "assigned_quest_id": null
+          },
+          {
+            "slot_id": "slot_ch06_02",
+            "chapter_id": "chapter_06",
+            "location_id": "loc_underground_vault",
+            "available_after": "ch_06_started",
+            "expires_after": "ch_06_completed",
+            "npcs_present": [
+              "char_vivian"
+            ],
+            "arc_type": "moral_dilemma",
+            "assigned_quest_id": null
+          },
+          {
+            "slot_id": "slot_ch06_03",
+            "chapter_id": "chapter_06",
+            "location_id": "loc_underground_vault",
+            "available_after": "ch_06_started",
+            "expires_after": "ch_06_completed",
+            "npcs_present": [
+              "char_elena"
+            ],
+            "arc_type": "investigative",
+            "assigned_quest_id": null
+          }
+        ]
+      },
+      {
+        "chapter_id": "chapter_07",
+        "order": 7,
+        "title": "Apex of Merged Constellations",
+        "narrative_scope": "Marcus emerges onto the wind-scoured Apex Observatory where the city skyline melts from medieval spires to neon grids under churning constellations spelling ritual formulae. Cold air carries ozone and incense as the railings hum with stored temporal charge. Harlan Voss awaits in his truest immortal form, backed by the Eternal Harvest faction, while the Weavers and Remnants look to Marcus for the final choice.\n\nThe ultimate crisis is performing the necessary wound on the assembled artifact while the timelines fully merge inside the building. Vivian makes one last intimate offer to join the harvest. With all allies present, Marcus confronts his original moral wound and chooses empathetic sacrifice over cunning power, shattering the cycle.\n\nThe chapter and story climax as the spire resets, timelines separating cleanly. Marcus returns to the modern atrium with memories intact but the contract broken, the building's lights stabilizing as dawn breaks over a linear world.",
+        "entry_state": {
+          "location": "loc_rooftop_spire",
+          "trait_snapshot": {
+            "Cunning": "dominant",
+            "Empathy": "dominant"
+          },
+          "inventory": [
+            "assembled_temporal_artifact",
+            "isabella_bond_token",
+            "lila_joint_ritual_token",
+            "elena_blood_pact_shard"
+          ],
+          "active_flags": [
+            "ch_07_started",
+            "allies_united",
+            "final_ritual_armed",
+            "necessary_wound_chosen"
+          ]
+        },
+        "exit_state": {
+          "location": "loc_modern_atrium",
+          "trait_snapshot": {
+            "Cunning": "dominant",
+            "Empathy": "dominant"
+          },
+          "inventory": [
+            "broken_contract_shard"
+          ],
+          "active_flags": [
+            "ch_07_completed",
+            "cycle_broken",
+            "timeline_restored"
+          ]
+        },
+        "attachment_points": [
+          {
+            "slot_id": "slot_ch07_01",
+            "chapter_id": "chapter_07",
+            "location_id": "loc_rooftop_spire",
+            "available_after": "ch_07_started",
+            "expires_after": "ch_07_completed",
+            "npcs_present": [
+              "char_harlan",
+              "char_vivian"
+            ],
+            "arc_type": "moral_dilemma",
+            "assigned_quest_id": null
+          },
+          {
+            "slot_id": "slot_ch07_02",
+            "chapter_id": "chapter_07",
+            "location_id": "loc_rooftop_spire",
+            "available_after": "ch_07_started",
+            "expires_after": "ch_07_completed",
+            "npcs_present": [
+              "char_sophia",
+              "char_lila",
+              "char_isabella"
+            ],
+            "arc_type": "companion_favor",
+            "assigned_quest_id": null
+          }
+        ]
+      }
+    ],
+    "transitions": [
+      {
+        "transition_id": "trans_ch01_to_ch02",
+        "from_chapter_id": "chapter_01",
+        "to_chapter_id": "chapter_02",
+        "scene_summary": "Marcus activates the brass elevator as the Iron Throne Hall warps around him, temporal currents yanking the space through layered realities. The car descends in a flicker of fluorescent-to-torchlight bleed, the medieval seal fragment on his lanyard glowing hot against his palm while distant boardroom murmurs and chain rattles echo from below. He steps out into the full vaulted hall where modern cubicle logic has fully surrendered to medieval hierarchy.",
+        "state_delta": {
+          "flags_added": [
+            "temporal_descent_initiated",
+            "ch_02_started"
+          ],
+          "flags_removed": [
+            "first_shift_triggered"
+          ]
+        },
+        "narrative_hook": "The elevator doors part onto braziers guttering across rushes where filing cabinets stand like sentries and courtiers in doublets mutter quarterly projections beneath the iron throne."
+      },
+      {
+        "transition_id": "trans_ch02_to_ch03",
+        "from_chapter_id": "chapter_02",
+        "to_chapter_id": "chapter_03",
+        "scene_summary": "With the fragile pact sealed and the hall beginning to bleed into 1960s paneling, Marcus is forced back through the elevator core as the floor lurches upward. Overlapping dings and half-heard screams fill the shaft while condensation traces coworker faces on the walls; the seal fragment vibrates violently, buying him seconds of stability. The descent resumes, carrying him toward the psychedelic era with Isabella\u2019s bond token warm in his pocket.",
+        "state_delta": {
+          "flags_added": [
+            "timeline_bleed_worsening",
+            "ch_03_started"
+          ],
+          "inventory_added": [
+            "nora_warning_note"
+          ]
+        },
+        "narrative_hook": "Numbers smear across dead languages on the elevator panel as a new ding reverberates and the doors crack open onto wood-paneled corridors thick with cigarette haze and the low crackle of vinyl."
+      },
+      {
+        "transition_id": "trans_ch03_to_ch04",
+        "from_chapter_id": "chapter_03",
+        "to_chapter_id": "chapter_04",
+        "scene_summary": "The temporal conduit stabilizes just long enough for the elevator to deposit Marcus into the 1960s dormitory. Vinyl skips bleed into Gregorian warnings while psychedelic posters peel to reveal carved runes; the air smells of hairspray and hot wiring. Nora\u2019s refusal still rings in his ears as he steps fully into the era, seal fragment and warning note in hand.",
+        "state_delta": {
+          "flags_added": [
+            "ch_04_started"
+          ],
+          "flags_removed": [
+            "ch_03_completed"
+          ]
+        },
+        "narrative_hook": "A flower-child silhouette grabs his wrist the moment the doors open, dragging him into a haze of incense and the urgent whisper that campus security has become cult enforcers."
+      },
+      {
+        "transition_id": "trans_ch04_to_ch05",
+        "from_chapter_id": "chapter_04",
+        "to_chapter_id": "chapter_05",
+        "scene_summary": "The collapsing dormitory wall deposits Marcus into the Forgotten Archives as Harlan\u2019s PA voice still echoes. Moldering file boxes and ink-black drips replace wood paneling; the combined fragments pulse with new weight. Lila\u2019s ritual token and the fresh sigil piece anchor him as he begins sorting contracts that flicker between eras.",
+        "state_delta": {
+          "flags_added": [
+            "ch_05_started",
+            "harlan_betrayal_revealed"
+          ],
+          "inventory_added": [
+            "elena_blood_pact_shard",
+            "archive_contract_key"
+          ]
+        },
+        "narrative_hook": "Rats with human eyes scurry between stacks while a wounded Sophia\u2019s voice calls from the shadows, warning that the next contract he touches may already be written in his own blood."
+      },
+      {
+        "transition_id": "trans_ch05_to_ch06",
+        "from_chapter_id": "chapter_05",
+        "to_chapter_id": "chapter_06",
+        "scene_summary": "The paper-storm chase drives Marcus downward through collapsing shelves into the limestone Artifact Sanctum. Dripping water ticks like clocks; the assembled shards now hum in resonance. Allies converge as Harlan\u2019s enforcers breach the upper levels, forcing the final assembly of the temporal artifact under the glow of shard pedestals.",
+        "state_delta": {
+          "flags_added": [
+            "ch_06_started",
+            "final_ritual_armed",
+            "necessary_wound_chosen"
+          ],
+          "inventory_added": [
+            "assembled_temporal_artifact"
+          ]
+        },
+        "narrative_hook": "Pedestals ignite one by one as the vault ceiling cracks open, revealing the spire above and the sound of Vivian\u2019s heels descending the final staircase."
+      },
+      {
+        "transition_id": "trans_ch06_to_ch07",
+        "from_chapter_id": "chapter_06",
+        "to_chapter_id": "chapter_07",
+        "scene_summary": "With the artifact fully assembled, the sanctum merges upward into the wind-scoured Apex Observatory. Constellations churn overhead spelling ritual formulae while Harlan and the Eternal Harvest faction wait on the railings. All bonded allies stand at Marcus\u2019s back as the final choice between empathetic sacrifice and cunning power crystallizes under the merged skyline.",
+        "state_delta": {
+          "flags_added": [
+            "ch_07_started",
+            "cycle_broken",
+            "timeline_restored"
+          ],
+          "inventory_added": [
+            "broken_contract_shard"
+          ]
+        },
+        "narrative_hook": "Constellations realign into Harlan\u2019s sigil as the wind carries the scent of ozone and the immortal king\u2019s voice offers one last intimate bargain across the glowing rail."
+      }
+    ],
+    "world_bible": {
+      "locations": [
+        {
+          "id": "loc_modern_atrium",
+          "name": "The Glass Atrium",
+          "description": "Sleek marble floors under flickering fluorescent lights that stutter into guttering torch flames, the air thick with burnt coffee and ozone while distant keyboard clacks echo like chains. Cubicle walls bleed into stone archways during shifts, and the constant low hum of servers mixes with faint choral chanting from nowhere.",
+          "accessible_from": [
+            "loc_elevator_core",
+            "loc_underground_vault"
+          ],
+          "notable_npcs": [
+            "npc_marcus_hale",
+            "npc_sophia_reyes"
+          ]
+        },
+        {
+          "id": "loc_medieval_hall",
+          "name": "The Iron Throne Hall",
+          "description": "Vaulted stone chamber draped in tapestries that ripple into corporate logos, braziers casting long shadows of filing cabinets across rushes that smell of damp earth and iron. Laughter from courtiers warps into the murmur of board meetings, with chains clinking beneath the floorboards.",
+          "accessible_from": [
+            "loc_elevator_core"
+          ],
+          "notable_npcs": [
+            "npc_harlan_voss",
+            "npc_isolde_veyra"
+          ]
+        },
+        {
+          "id": "loc_1960s_dorm",
+          "name": "The Echoing Dormitory",
+          "description": "Wood-paneled corridors reeking of cigarettes, hairspray, and hot wiring, where psychedelic posters peel to reveal carved runes and typewriters chatter alongside phantom dot-matrix printers. Fluorescent tubes buzz overhead while vinyl records skip into Gregorian chants.",
+          "accessible_from": [
+            "loc_elevator_core",
+            "loc_rooftop_spire"
+          ],
+          "notable_npcs": [
+            "npc_vivian_crowe",
+            "npc_lena_hart"
+          ]
+        },
+        {
+          "id": "loc_elevator_core",
+          "name": "The Temporal Conduit",
+          "description": "A claustrophobic brass-and-steel shaft where floor numbers smear across dead languages and buttons glow with impossible sigils. The air tastes of copper and regret; screams and elevator dings overlap as walls sweat condensation that forms fleeting faces.",
+          "accessible_from": [
+            "loc_modern_atrium",
+            "loc_medieval_hall",
+            "loc_1960s_dorm",
+            "loc_underground_vault"
+          ],
+          "notable_npcs": []
+        },
+        {
+          "id": "loc_underground_vault",
+          "name": "The Artifact Sanctum",
+          "description": "Dripping limestone chamber lined with glowing shard pedestals, the constant plink of water like distant clocks and the low thrum of buried machinery. Shadows move against the light, carrying whispers of unfinished deals and forgotten names.",
+          "accessible_from": [
+            "loc_elevator_core",
+            "loc_modern_atrium",
+            "loc_forgotten_archives"
+          ],
+          "notable_npcs": [
+            "npc_mira_solen"
+          ]
+        },
+        {
+          "id": "loc_rooftop_spire",
+          "name": "The Apex Observatory",
+          "description": "Wind-scoured platform where the city skyline melts from medieval spires to neon grids under churning constellations that spell ritual formulae. Cold air carries ozone and incense; the railings hum with stored temporal charge.",
+          "accessible_from": [
+            "loc_1960s_dorm",
+            "loc_elevator_core"
+          ],
+          "notable_npcs": [
+            "npc_elara_quinn"
+          ]
+        },
+        {
+          "id": "loc_forgotten_archives",
+          "name": "The Collapsed Archives",
+          "description": "Moldering basement stacks crammed with anachronistic file boxes and leaking pipes that drip ink-black fluid. The rustle of paper masks faint sobbing; rats with too-human eyes scurry between eras.",
+          "accessible_from": [
+            "loc_underground_vault"
+          ],
+          "notable_npcs": [
+            "npc_sarah_kline"
+          ]
+        }
+      ],
+      "factions": [
+        {
+          "id": "fac_harvest",
+          "name": "The Eternal Harvest",
+          "goals": "Force the final timeline merger to harvest all reincarnated souls for godlike immortality and absolute dominion.",
+          "relationships": {
+            "fac_weavers": "hostile",
+            "fac_remnants": "manipulative"
+          },
+          "territory": [
+            "loc_modern_atrium",
+            "loc_medieval_hall",
+            "loc_elevator_core"
+          ]
+        },
+        {
+          "id": "fac_weavers",
+          "name": "The Weavers of Linearity",
+          "goals": "Shatter the reincarnation cycle and restore strict linear time before total collapse.",
+          "relationships": {
+            "fac_harvest": "hostile"
+          },
+          "territory": [
+            "loc_1960s_dorm",
+            "loc_forgotten_archives"
+          ]
+        },
+        {
+          "id": "fac_remnants",
+          "name": "The Reincarnated Remnants",
+          "goals": "Survive the shifts, recover personal identities, and decide whether to aid or betray the merger.",
+          "relationships": {
+            "fac_harvest": "neutral",
+            "fac_weavers": "wary"
+          },
+          "territory": [
+            "loc_underground_vault",
+            "loc_rooftop_spire"
+          ]
+        }
+      ],
+      "npcs": [
+        {
+          "id": "npc_marcus_hale",
+          "name": "Marcus Hale",
+          "location": "loc_modern_atrium",
+          "role": "Junior Real Estate Broker",
+          "personality": "Skeptical, guilt-ridden, quick-witted under pressure",
+          "dialogue_voice": "Dry corporate sarcasm masking rising panic"
+        },
+        {
+          "id": "npc_harlan_voss",
+          "name": "Harlan Voss",
+          "location": "loc_medieval_hall",
+          "role": "Immortal Cult Leader and CEO",
+          "personality": "Charismatic, predatory, coldly amused by suffering",
+          "dialogue_voice": "Smooth velvet command that shifts era-appropriate registers"
+        },
+        {
+          "id": "npc_sophia_reyes",
+          "name": "Sophia Reyes",
+          "location": "loc_modern_atrium",
+          "role": "Executive Assistant and Reincarnated Colleague",
+          "personality": "Loyal, sharp-tongued, quietly empathetic",
+          "dialogue_voice": "Crisp professional tone with sudden warm asides"
+        },
+        {
+          "id": "npc_isolde_veyra",
+          "name": "Lady Isolde Veyra",
+          "location": "loc_medieval_hall",
+          "role": "Court Advisor and Reincarnated Soul",
+          "personality": "Regal, perceptive, burdened by centuries of memory",
+          "dialogue_voice": "Formal archaic cadence laced with modern irony"
+        },
+        {
+          "id": "npc_vivian_crowe",
+          "name": "Dr. Vivian Crowe",
+          "location": "loc_1960s_dorm",
+          "role": "Occult Researcher and Timeline Analyst",
+          "personality": "Brilliant, chain-smoking, paranoid about paradoxes",
+          "dialogue_voice": "Clinical 1960s academic with frantic urgency"
+        },
+        {
+          "id": "npc_lena_hart",
+          "name": "Lena Hart",
+          "location": "loc_1960s_dorm",
+          "role": "Student Activist and Reincarnated Ally",
+          "personality": "Fierce, idealistic, quick to bond across time",
+          "dialogue_voice": "Passionate protest cadence mixed with sudden tenderness"
+        },
+        {
+          "id": "npc_mira_solen",
+          "name": "Mira Solen",
+          "location": "loc_underground_vault",
+          "role": "Artifact Archivist and Soul Librarian",
+          "personality": "Mysterious, calculating, secretly protective",
+          "dialogue_voice": "Soft, measured whispers heavy with hidden knowledge"
+        },
+        {
+          "id": "npc_elara_quinn",
+          "name": "Elara Quinn",
+          "location": "loc_rooftop_spire",
+          "role": "Visionary Oracle and Timeline Seer",
+          "personality": "Dreamy, prophetic, haunted by future echoes",
+          "dialogue_voice": "Ethereal singsong that fractures into urgent warnings"
+        },
+        {
+          "id": "npc_sarah_kline",
+          "name": "Sarah Kline",
+          "location": "loc_forgotten_archives",
+          "role": "Spectral Informant and Archive Ghost",
+          "personality": "Cynical, world-weary, darkly humorous",
+          "dialogue_voice": "Raspy, cigarette-stained whispers with biting sarcasm"
+        }
+      ],
+      "rules": [
+        {
+          "id": "rule_time_cycle",
+          "category": "time",
+          "rule_text": "Time within the Spire is cyclical; any alteration creates bleeding echoes that intensify until the originating event is resolved or the cycle collapses."
+        },
+        {
+          "id": "rule_reincarnation",
+          "category": "biology",
+          "rule_text": "Souls reincarnate along fixed patterns anchored to the Spire; full memory recovery grants power but accelerates madness and timeline instability."
+        },
+        {
+          "id": "rule_anachronism",
+          "category": "technology",
+          "rule_text": "Artifacts and devices function across eras only inside the Spire's field, often producing unpredictable hybrid effects that can accelerate or delay shifts."
+        },
+        {
+          "id": "rule_soul_harvest",
+          "category": "magic",
+          "rule_text": "Soul harvesting requires a completed timeline merger; partial merges weaken the cult but risk permanent fractures that doom all participants."
+        }
+      ],
+      "timeline": [
+        {
+          "id": "evt_founding",
+          "name": "The Binding of the Spire",
+          "order": 1,
+          "description": "Ancient priests construct the Spire to imprison souls in an eternal reincarnation loop, laying the foundation for future control."
+        },
+        {
+          "id": "evt_medieval",
+          "name": "The King's Pact",
+          "order": 2,
+          "description": "Harlan Voss, as medieval king, performs the first major ritual binding the souls of future colleagues into the cycle."
+        },
+        {
+          "id": "evt_1960s",
+          "name": "The Dormant Experiment",
+          "order": 3,
+          "description": "1960s cult experiment partially activates the Spire, causing the first documented timeline bleed and awakening latent memories."
+        },
+        {
+          "id": "evt_modern",
+          "name": "The Corporate Acquisition",
+          "order": 4,
+          "description": "Harlan acquires the modern building, positioning it as the final site for the merger ritual while recruiting reincarnated souls under corporate guise."
+        },
+        {
+          "id": "evt_activation",
+          "name": "The Impulsive Touch",
+          "order": 5,
+          "description": "Marcus Hale's accidental activation during onboarding ignites the current cascade of shifts, threatening to unravel or complete the cycle."
+        }
+      ]
+    },
+    "characters": [
+      {
+        "id": "char_marcus",
+        "name": "Marcus Hale",
+        "role": "protagonist",
+        "location_home": "loc_modern_tower",
+        "backstory": "A skeptical junior real estate broker whose impulsive need to prove himself masks a deep moral wound: his last deal cost a colleague their career and livelihood. Thrust from mundane onboarding into accidental activation of an ancient device, he must navigate shifting eras while confronting whether he will repeat the same selfish patterns across centuries or break the cycle.",
+        "motivation": "Prove his worth without repeating past betrayals while collecting artifact fragments to stop timeline collapse and protect the reincarnated souls he encounters.",
+        "flaw": "Impulsive self-serving decisions driven by guilt that blind him to long-term consequences and the value of others.",
+        "arc": "Evolves from cunning opportunist repeating selfish patterns to someone willing to make an empathetic sacrifice that restores linear time at personal cost.",
+        "dialogue_voice": "Dry, sarcastic modern quips undercut by growing anachronistic awe and self-doubt. 'Fantastic, now the 1960s dorm is bleeding into the boardroom. Anybody got a cigarette and a clue?'",
+        "dominant_trait_alignment": "Cunning",
+        "relationships": {
+          "char_sophia": "Guilt-ridden former colleague turned reluctant ally; her reincarnation forces him to confront his past mistake.",
+          "char_harlan": "Hunted pawn and key; Voss exploits Marcus's guilt to coerce participation in the ritual.",
+          "char_isabella": "Romantic tension and moral anchor across the medieval timeline; she sees his potential for change.",
+          "char_vivian": "Direct threat and rival enforcer who hunts him across eras."
+        }
+      },
+      {
+        "id": "char_harlan",
+        "name": "Harlan Voss",
+        "role": "antagonist",
+        "location_home": "loc_modern_tower",
+        "backstory": "Immortal high priest of the cult and CEO of the organization. In every era he appears as the apex authority\u2014modern CEO, medieval king, 1960s warden\u2014driven by the belief that all souls are eternal property to be harvested when timelines merge.",
+        "motivation": "Merge all timelines into a single eternal domain where he can harvest godlike power from reincarnated souls.",
+        "flaw": "Arrogant conviction that every soul is transactional property, blinding him to genuine human connections that could undermine the ritual.",
+        "arc": "His power peaks as timelines bleed but his isolation grows; he doubles down on control even as Marcus's choices threaten to unravel his centuries-long plan.",
+        "dialogue_voice": "Cold corporate authority laced with ancient liturgical cadence and anachronistic menace. 'Sign the contract, Hale. Every soul has a price, and I've been collecting interest since the first crusade.'",
+        "dominant_trait_alignment": "Cunning",
+        "relationships": {
+          "char_marcus": "Views as both pawn and linchpin; leverages guilt to force ritual participation.",
+          "char_vivian": "Trusted lieutenant and occasional lover across eras; she executes his will without question.",
+          "char_isabella": "Medieval court possession he treats as property; her rebellion threatens his authority."
+        }
+      },
+      {
+        "id": "char_sophia",
+        "name": "Sophia Reyes",
+        "role": "ally",
+        "location_home": "loc_modern_tower",
+        "backstory": "Marcus's modern coworker whose career was nearly destroyed by his past deal; she is a reincarnated soul who begins remembering fragments once the spire activates.",
+        "motivation": "Reclaim her agency across timelines and help Marcus break the cycle so no more souls are harvested.",
+        "flaw": "Lingering resentment toward Marcus that makes her withhold trust until empathy bridges the gap.",
+        "arc": "Moves from transactional ally to genuine friend and emotional compass, teaching Marcus the value of honoring reincarnated bonds.",
+        "dialogue_voice": "Sharp, no-nonsense corporate survivor with sudden poetic insights from past lives. 'You sold me out once in this life. Don't do it again in the next one.'",
+        "dominant_trait_alignment": "Empathy",
+        "relationships": {
+          "char_marcus": "Wary ally carrying the weight of his past betrayal; slowly becomes his moral anchor.",
+          "char_lila": "Cross-timeline sisterhood; they bond over shared memories of being used by the cult.",
+          "char_nora": "Relies on Nora for 1960s occult intel in exchange for future-timeline knowledge."
+        }
+      },
+      {
+        "id": "char_lila",
+        "name": "Lila Hart",
+        "role": "ally",
+        "location_home": "loc_1960s_dorm",
+        "backstory": "A free-spirited 1960s art student and activist whose soul has been recycled through the spire; she remembers pieces of the medieval and modern eras in drug-fueled visions.",
+        "motivation": "Expose the cult's eternal control and liberate souls, starting with protecting her 1960s friends from timeline bleed.",
+        "flaw": "Reckless hedonism and trust issues from repeated betrayals across lives; she uses sarcasm to mask vulnerability.",
+        "arc": "Learns to temper rebellion with strategic empathy, becoming the bridge that lets Marcus coordinate across all three eras.",
+        "dialogue_voice": "Psychedelic 60s slang mixed with sudden archaic formality and dark humor. 'Groovy, another king trying to own our souls. Pass the joint and the ritual dagger.'",
+        "dominant_trait_alignment": "Empathy",
+        "relationships": {
+          "char_sophia": "Instant cross-era kinship; they share memories of being exploited by Harlan.",
+          "char_nora": "Mentor-student dynamic; Nora grounds Lila's visions with historical facts.",
+          "char_marcus": "Flirtatious allyship that forces Marcus to confront his modern cynicism."
+        }
+      },
+      {
+        "id": "char_isabella",
+        "name": "Isabella Duarte",
+        "role": "ally",
+        "location_home": "loc_medieval_palace",
+        "backstory": "A noblewoman and secret scholar in the medieval court who has been positioned as Harlan's consort for centuries; she secretly records ritual fragments while surviving as property.",
+        "motivation": "End the cycle of being owned across lifetimes and help Marcus perform the wound that resets time.",
+        "flaw": "Learned emotional detachment from centuries of being treated as currency; she fears genuine connection will be used against her.",
+        "arc": "Opens herself to trust and love, choosing sacrifice over survival when the timelines merge.",
+        "dialogue_voice": "Formal medieval cadence occasionally pierced by modern profanity when timelines bleed. 'Milord plays at god again. In my tongue we call that hubris... or a very small cock.'",
+        "dominant_trait_alignment": "Empathy",
+        "relationships": {
+          "char_marcus": "Romantic and moral partner; their bond reveals the ritual's true cost.",
+          "char_harlan": "Resentful captive-consort who plots his downfall from within.",
+          "char_elena": "Rival informants who trade forbidden knowledge; tension laced with mutual respect."
+        }
+      },
+      {
+        "id": "char_vivian",
+        "name": "Vivian Slate",
+        "role": "antagonist_ally",
+        "location_home": "loc_modern_tower",
+        "backstory": "Harlan's immortal enforcer who appears as a corporate fixer, 1960s college dean, and medieval inquisitor; she has been his lover and weapon across every era.",
+        "motivation": "Maintain Harlan's dominance and secure her own eternal position in the merged timeline.",
+        "flaw": "Sadistic enjoyment of control that leads her to overplay her hand and create unnecessary enemies.",
+        "arc": "Her loyalty fractures when Marcus's empathy reveals how disposable she truly is to Harlan.",
+        "dialogue_voice": "Silken corporate menace with clinical detachment and sudden bursts of vicious intimacy. 'Run, little broker. I do enjoy the chase... almost as much as the branding.'",
+        "dominant_trait_alignment": "Cunning",
+        "relationships": {
+          "char_harlan": "Lover and second-in-command; she will do anything to keep his favor.",
+          "char_marcus": "Primary hunter; she takes personal pleasure in cornering him across eras.",
+          "char_sophia": "Particular hatred for Sophia as the soul who escaped her grasp once before."
+        }
+      },
+      {
+        "id": "char_nora",
+        "name": "Nora Ellison",
+        "role": "neutral",
+        "location_home": "loc_1960s_dorm",
+        "backstory": "A pragmatic 1960s university librarian and occult hobbyist who has pieced together fragments of the spire's history through banned books and campus disappearances.",
+        "motivation": "Acquire timeline-altering knowledge to protect her own small circle, selling information to the highest bidder.",
+        "flaw": "Transactional cynicism; she refuses to pick a side until the price is right, endangering everyone.",
+        "arc": "Gradually moves from pure self-interest to a reluctant informant role after witnessing timeline bleed destroy her students.",
+        "dialogue_voice": "Crisp academic precision laced with 60s beatnik weariness. 'The fee is three first-edition grimoires or one future stock tip. Choose quickly before the walls start screaming again.'",
+        "dominant_trait_alignment": "Cunning",
+        "relationships": {
+          "char_lila": "Reluctant mentor; shares knowledge only when Lila's recklessness threatens her.",
+          "char_marcus": "Sells him critical 1960s puzzle solutions in exchange for modern artifacts.",
+          "char_elena": "Cross-era correspondence through ritual letters; they trade warnings and leverage."
+        }
+      },
+      {
+        "id": "char_elena",
+        "name": "Elena Crowe",
+        "role": "neutral",
+        "location_home": "loc_medieval_palace",
+        "backstory": "A sharp-tongued medieval herbalist and midwife branded a witch; she has survived by selling temporal secrets to both Harlan's cult and those who oppose it.",
+        "motivation": "Secure personal power and safety for her bloodline across all timelines, treating the spire as a marketplace.",
+        "flaw": "Deep paranoia and self-preservation that makes her betray allies the moment a better offer appears.",
+        "arc": "Witnessing Marcus's sacrifice makes her question whether perpetual transaction is worth the soul cost.",
+        "dialogue_voice": "Biting medieval vernacular mixed with prophetic riddles and black-market pragmatism. 'A fragment for a kiss, a kiss for a secret, and a secret for your soul. Standard rates.'",
+        "dominant_trait_alignment": "Cunning",
+        "relationships": {
+          "char_isabella": "Fellow court survivor and occasional co-conspirator; they trade favors warily.",
+          "char_nora": "Distant but vital information network across centuries via ritual correspondence.",
+          "char_harlan": "Occasional supplier of rare components; she loathes but needs his patronage."
+        }
+      }
+    ],
+    "relationship_map": [
+      {
+        "source_id": "char_marcus",
+        "target_id": "char_sophia",
+        "nature": "guilt_and_alliance",
+        "description": "Marcus's past betrayal haunts their partnership; Sophia demands he prove change."
+      },
+      {
+        "source_id": "char_marcus",
+        "target_id": "char_isabella",
+        "nature": "romantic_tension",
+        "description": "Genuine affection across eras that forces Marcus to choose empathy over cunning."
+      },
+      {
+        "source_id": "char_marcus",
+        "target_id": "char_harlan",
+        "nature": "pursues_and_resists",
+        "description": "Marcus collects fragments to stop Harlan's ritual while being hunted as the key."
+      },
+      {
+        "source_id": "char_harlan",
+        "target_id": "char_vivian",
+        "nature": "commands_and_possesses",
+        "description": "Harlan's immortal enforcer and lover who executes his will without hesitation."
+      },
+      {
+        "source_id": "char_sophia",
+        "target_id": "char_lila",
+        "nature": "cross_timeline_bond",
+        "description": "Reincarnated sisters-in-suffering who share memories of Harlan's exploitation."
+      },
+      {
+        "source_id": "char_lila",
+        "target_id": "char_nora",
+        "nature": "mentor_and_rebel",
+        "description": "Nora tempers Lila's chaos with historical knowledge in exchange for protection."
+      },
+      {
+        "source_id": "char_isabella",
+        "target_id": "char_elena",
+        "nature": "rival_informants",
+        "description": "Trade forbidden ritual knowledge while competing for leverage against Harlan."
+      },
+      {
+        "source_id": "char_vivian",
+        "target_id": "char_marcus",
+        "nature": "hunter_and_prey",
+        "description": "Vivian takes sadistic pleasure in pursuing Marcus across every bleeding timeline."
+      },
+      {
+        "source_id": "char_elena",
+        "target_id": "char_harlan",
+        "nature": "transactional_supplier",
+        "description": "Elena sells Harlan rare components while secretly undermining his ritual."
+      },
+      {
+        "source_id": "char_nora",
+        "target_id": "char_marcus",
+        "nature": "information_for_artifacts",
+        "description": "Nora trades 1960s puzzle solutions for future-timeline leverage."
+      }
+    ],
+    "chapters": [
+      {
+        "chapter_id": "chapter_01",
+        "contract": {
+          "chapter_id": "chapter_01",
+          "order": 1,
+          "title": "Fluorescent Ignition",
+          "narrative_scope": "Marcus Hale arrives at the sleek Glass Atrium for his first day as a junior broker, the air thick with burnt coffee and the low hum of servers. Fluorescent lights stutter as cubicle walls begin bleeding into stone archways, triggering the hidden temporal device during a routine orientation slide. The entire building lurches, depositing him in the Iron Throne Hall where modern coworkers manifest as courtiers and a harem.\n\nHe encounters Harlan Voss as the immortal king on the throne, Vivian Slate as a silk-clad enforcer, and Sophia Reyes as a sharp-tongued advisor who recognizes him across lives. Tension erupts when Harlan demands Marcus sign an eternal contract, leveraging his old guilt over selling out a colleague. The core crisis is navigating the first culture shock while dodging chains that manifest from the floor.\n\nA dramatic revelation hits when Isabella Duarte appears as a medieval scribe and whispers that all souls here are reincarnated fragments of the same office. Marcus makes his first moral decision: refuse the contract or exploit an anachronism to escape. The chapter climaxes as he activates the brass elevator, the hall warping around him, leaving him primed to descend into the next era with the first taste of fractured identity.",
+          "entry_state": {
+            "location": "loc_modern_atrium",
+            "trait_snapshot": {
+              "Cunning": "none",
+              "Empathy": "none"
+            },
+            "inventory": [
+              "corporate_lanyard"
+            ],
+            "active_flags": [
+              "ch_01_started",
+              "modern_onboarding"
+            ]
+          },
+          "exit_state": {
+            "location": "loc_elevator_core",
+            "trait_snapshot": {
+              "Cunning": "emerging",
+              "Empathy": "emerging"
+            },
+            "inventory": [
+              "corporate_lanyard",
+              "medieval_seal_fragment"
+            ],
+            "active_flags": [
+              "ch_01_completed",
+              "harlan_contract_refused",
+              "first_shift_triggered"
+            ]
+          },
+          "attachment_points": [
+            {
+              "slot_id": "slot_ch01_01",
+              "chapter_id": "chapter_01",
+              "location_id": "loc_modern_atrium",
+              "available_after": "ch_01_started",
+              "expires_after": "ch_01_completed",
+              "npcs_present": [
+                "char_sophia"
+              ],
+              "arc_type": "investigative",
+              "assigned_quest_id": null
+            },
+            {
+              "slot_id": "slot_ch01_02",
+              "chapter_id": "chapter_01",
+              "location_id": "loc_modern_atrium",
+              "available_after": "ch_01_started",
+              "expires_after": "ch_01_completed",
+              "npcs_present": [
+                "char_isabella"
+              ],
+              "arc_type": "companion_favor",
+              "assigned_quest_id": null
+            }
+          ]
+        },
+        "scenes": [
+          {
+            "scene_id": "sc_ch01_01",
+            "title": "Flickering Thresholds of Glass and Stone",
+            "location_id": "loc_modern_atrium",
+            "prose": "Marcus Hale pushed through the revolving doors of the Glass Atrium with his corporate lanyard already digging into his collar. The air hit him first: scorched coffee grounds and the metallic tang of ozone from a thousand humming servers. Marble floors gleamed under stuttering fluorescent panels that pulsed like failing heart monitors. He forced a smile at the receptionist, tasting the familiar acid of first-day nerves laced with older guilt. Two years ago he had signed away Sophia Reyes' career for a bonus; the memory still tasted like ash.\n\nThe orientation slide deck began on the massive screen. Marcus stood among the new hires, shifting his weight, when the lights dimmed and surged. A low choral chant threaded beneath the keyboard clacks, impossible and ancient. Cubicle partitions rippled, their fabric edges hardening into rough stone. The burnt-coffee smell twisted into something resinous and smoky. Marcus's stomach dropped as the entire atrium lurched sideways, gravity bending like hot glass. His interior monologue raced: \"Fantastic. Day one and the building's having a psychotic break. Anybody got a cigarette and a clue?\"\n\nAround him, coworkers blurred at the edges, suits lengthening into embroidered tunics. The fluorescent tubes guttered into guttering torch flames that threw long shadows across suddenly vaulted ceilings. He clutched the lanyard like a lifeline, pulse hammering against his throat. The temporal device buried in the slide projector had woken; the Spire was claiming its newest fragment. Disorientation crashed over him in waves, equal parts terror and a perverse, guilty thrill that this time the chaos might finally be bigger than his own mistakes.",
+            "characters_present": [
+              "char_marcus"
+            ],
+            "emotional_beat": "Nervous anticipation fracturing into uncanny dread and buried guilt"
+          },
+          {
+            "scene_id": "sc_ch01_02",
+            "title": "Recognition Across Bleeding Timelines",
+            "location_id": "loc_modern_atrium",
+            "prose": "Sophia Reyes materialized at his elbow as the walls finished their slow metamorphosis into archways. She wore the same charcoal suit yet her eyes carried centuries of sharp recognition. \"You sold me out once in this life,\" she said quietly, voice cutting through the rising chant. \"Don't do it again in the next one.\" Marcus flinched. The marble beneath their feet had become uneven flagstones; the projector still droned corporate platitudes while torchlight licked the edges of her face.\n\n\"Sophia, what the hell is happening?\" he whispered. She glanced at the transforming atrium, then back at him with a mixture of resentment and reluctant pity. \"The Spire remembers its own. Every soul here is a reincarnated fragment of the same damned office. Harlan's been harvesting us since the first crusade.\" Her fingers brushed his sleeve, an electric spark of shared memory flashing behind his eyes: medieval ledgers, 1960s acid trips, endless contracts signed in blood and ink. Marcus tasted copper. The guilt he had buried for two years now clawed upward, raw and accusing.\n\nAround them, the remaining modern hires flickered between cubicle drones and courtiers. Sophia's no-nonsense corporate cadence softened into something older, poetic. \"You feel it too, don't you? The pull to repeat the same betrayal.\" Marcus swallowed hard, lanyard slick with sweat. He wanted to run, to apologize, to demand answers, but the atrium's hum was deepening into a growl. The first culture shock was complete; he stood exposed in the bleeding overlap of eras, his oldest wound now walking beside him wearing Sophia's face.",
+            "characters_present": [
+              "char_marcus",
+              "char_sophia"
+            ],
+            "emotional_beat": "Resurfacing guilt colliding with wary, reluctant alliance"
+          },
+          {
+            "scene_id": "sc_ch01_03",
+            "title": "Iron Summons and Manifest Chains",
+            "location_id": "loc_modern_atrium",
+            "prose": "The atrium heaved one final time and resolved into the Iron Throne Hall. Harlan Voss sat enthroned on black iron, crown of circuit-board and bone resting on silver hair. Vivian Slate stood at his right in silk that clung like liquid shadow, her smile clinical and hungry. \"Sign the contract, Hale,\" Harlan intoned, voice cold corporate authority wrapped in liturgical cadence. \"Every soul has a price, and I've been collecting interest since the first crusade. Your colleague's career was merely the down payment.\"\n\nChains erupted from the flagstones, iron links warm and slick as they snaked toward Marcus's ankles. He danced backward, heart slamming. The lanyard flared hot against his chest. Vivian's silken menace cut the air: \"Run, little broker. I do enjoy the chase... almost as much as the branding.\" Harlan leaned forward, eyes ancient and transactional. \"Sign and the guilt ends. Refuse and we peel the timeline from your bones.\"\n\nMarcus's sarcastic armor cracked. The modern fluorescent memory of his betrayal overlaid the medieval hall like a double exposure. He felt the weight of every reincarnated life pressing down, the Spire's rule that time was cyclical and alterations bled. The chains tightened, one link brushing his calf with possessive heat. Culture shock roared in his ears: torch smoke, server ozone, the metallic taste of fear. He refused to reach for the offered quill. Instead he searched for an anachronism, anything modern that might fracture the ritual. The decision formed like a fault line: refuse the contract and risk everything, or exploit the bleed to escape. Adrenaline and moral vertigo warred inside him as the chains rose higher.",
+            "characters_present": [
+              "char_marcus",
+              "char_harlan",
+              "char_vivian"
+            ],
+            "emotional_beat": "Acute panic and moral standoff under visceral threat"
+          },
+          {
+            "scene_id": "sc_ch01_04",
+            "title": "The Scribe's Forbidden Whisper",
+            "location_id": "loc_modern_atrium",
+            "prose": "Isabella Duarte appeared at the edge of the throne dais, quill poised over parchment that shimmered between vellum and tablet screen. She wore the garb of a medieval scribe yet her eyes locked onto Marcus with intimate recognition. While Harlan and Vivian were distracted by the rising chains, she glided forward and whispered against his ear, breath warm and laced with modern profanity. \"Milord plays at god again. In my tongue we call that hubris... or a very small cock. All souls here are reincarnated fragments of the same office, Marcus. The Spire is a prison farm and Harlan is the warden harvesting eternity.\"\n\nHer voice carried formal cadence fractured by timeline bleed. Marcus saw flashes: Isabella in silk chains across centuries, recording ritual fragments while pretending to be property. The revelation detonated inside him. Every coworker, every face that had flickered during the shift, was a shard of the same eternal workforce trapped in Harlan's cycle. His own guilt over Sophia was merely the latest iteration of a betrayal repeated across lives. Isabella pressed a warm fragment of medieval seal into his palm. \"Refuse. Use the anachronism. The brass elevator still answers to the living.\"\n\nThe chains paused, sensing the shift in his resolve. Marcus felt empathy and cunning ignite together, two traits the Spire had tried to keep dormant. Isabella's centuries of learned detachment cracked for a single heartbeat; she chose to help him even though it risked her own survival. The hall warped around the truth she had given him, torchlight strobing with fluorescent ghosts. He understood now why the device had chosen him: because he was the fracture point, the soul still capable of breaking pattern.",
+            "characters_present": [
+              "char_marcus",
+              "char_isabella"
+            ],
+            "emotional_beat": "Shattering revelation and the first stirrings of fractured identity"
+          },
+          {
+            "scene_id": "sc_ch01_05",
+            "title": "Brass Descent and the Refusal Seal",
+            "location_id": "loc_elevator_core",
+            "prose": "Marcus lunged for the brass elevator doors that had manifested where the projector screen once stood. He slapped the corporate lanyard against the sigil-etched panel; the modern plastic fused with Isabella's medieval seal fragment in a shower of sparks. The anachronism rule ignited. The doors hissed open, revealing a shaft where floor numbers smeared across dead languages. Harlan's roar followed him: \"The contract is eternal, Hale!\" Vivian's laughter chased like silk razors. Marcus threw himself inside, chains shattering against the closing doors.\n\nInside the temporal conduit the air tasted of copper and regret. Isabella's final whisper echoed: \"Choose empathy next time.\" He clutched the fused seal-lanyard hybrid, the first artifact fragment secured. The elevator began its descent, walls sweating condensation that formed fleeting faces of every life he had betrayed or might yet save. Marcus's interior voice was raw: \"I refused. For once I refused.\" The Spire's cyclical rule flexed around him, bleeding echoes intensifying, yet the refusal had created a small linear tear. Empathy and cunning both flickered awake inside him, fragile and new.\n\nAs the car dropped toward unknown eras, Marcus tasted the first true fracture of his identity. He was no longer only the man who had sold out a colleague; he was also the man who had chosen the harder path. The elevator dinged in overlapping languages, and the next age rushed up to meet him.",
+            "characters_present": [
+              "char_marcus",
+              "char_isabella"
+            ],
+            "emotional_beat": "Emerging resolve through empathetic refusal and identity fracture"
+          }
+        ],
+        "dialogue_tree": [
+          {
+            "node_id": "node_01",
+            "type": "speaker",
+            "speaker": "narrator",
+            "text": "You push through the revolving doors of the Glass Atrium with your corporate lanyard already digging into your collar. The air hits you first: scorched coffee grounds and the metallic tang of ozone from a thousand humming servers. Marble floors gleam under stuttering fluorescent panels that pulse like failing heart monitors.",
+            "choices": [],
+            "next_node": "node_02"
+          },
+          {
+            "node_id": "node_02",
+            "type": "speaker",
+            "speaker": "narrator",
+            "text": "The orientation slide deck begins on the massive screen. You stand among the new hires, shifting your weight, when the lights dim and surge. A low choral chant threads beneath the keyboard clacks, impossible and ancient. Cubicle partitions ripple, their fabric edges hardening into rough stone.",
+            "choices": [],
+            "next_node": "node_03"
+          },
+          {
+            "node_id": "node_03",
+            "type": "speaker",
+            "speaker": "char_marcus",
+            "text": "(Fantastic. Day one and the building's having a psychotic break. Anybody got a cigarette and a clue?)",
+            "choices": [],
+            "next_node": "node_04"
+          },
+          {
+            "node_id": "node_04",
+            "type": "speaker",
+            "speaker": "narrator",
+            "text": "Around you, coworkers blur at the edges, suits lengthening into embroidered tunics. The fluorescent tubes gutter into torch flames that throw long shadows across suddenly vaulted ceilings. You clutch the lanyard like a lifeline, pulse hammering against your throat. The temporal device buried in the slide projector has woken; the Spire is claiming its newest fragment.",
+            "choices": [],
+            "next_node": "node_05"
+          },
+          {
+            "node_id": "node_05",
+            "type": "speaker",
+            "speaker": "char_sophia",
+            "text": "You sold me out once in this life. Don't do it again in the next one.",
+            "choices": [],
+            "next_node": "node_06"
+          },
+          {
+            "node_id": "node_06",
+            "type": "speaker",
+            "speaker": "char_marcus",
+            "text": "Sophia? What the hell is happening?",
+            "choices": [],
+            "next_node": "node_07"
+          },
+          {
+            "node_id": "node_07",
+            "type": "speaker",
+            "speaker": "char_sophia",
+            "text": "The Spire remembers its own. Every soul here is a reincarnated fragment of the same damned office. Harlan's been harvesting us since the first crusade.",
+            "choices": [],
+            "next_node": "node_08"
+          },
+          {
+            "node_id": "node_08",
+            "type": "speaker",
+            "speaker": "char_sophia",
+            "text": "You feel it too, don't you? The pull to repeat the same betrayal.",
+            "choices": [],
+            "next_node": "node_09"
+          },
+          {
+            "node_id": "node_09",
+            "type": "choice",
+            "speaker": "char_marcus",
+            "text": "",
+            "choices": [
+              {
+                "label": "I... I do. The guilt. I'm sorry, Sophia.",
+                "trait_tag": "Empathy",
+                "flags_set": [],
+                "next_node": "node_10",
+                "condition_flag": null
+              },
+              {
+                "label": "What I feel is irrelevant. How do we get out of here?",
+                "trait_tag": "Cunning",
+                "flags_set": [],
+                "next_node": "node_10",
+                "condition_flag": null
+              },
+              {
+                "label": "Don't lay this on me. That was business. This is... something else.",
+                "trait_tag": null,
+                "flags_set": [],
+                "next_node": "node_10",
+                "condition_flag": null
+              }
+            ],
+            "next_node": null
+          },
+          {
+            "node_id": "node_10",
+            "type": "speaker",
+            "speaker": "narrator",
+            "text": "Before she can answer, the atrium heaves one final time and resolves into the Iron Throne Hall. Harlan Voss sits enthroned on black iron, a crown of circuit-board and bone resting on silver hair. Vivian Slate stands at his right in silk that clings like liquid shadow, her smile clinical and hungry.",
+            "choices": [],
+            "next_node": "node_11"
+          },
+          {
+            "node_id": "node_11",
+            "type": "speaker",
+            "speaker": "char_harlan",
+            "text": "Sign the contract, Hale. Every soul has a price, and I've been collecting interest since the first crusade. Your colleague's career was merely the down payment.",
+            "choices": [],
+            "next_node": "node_12"
+          },
+          {
+            "node_id": "node_12",
+            "type": "speaker",
+            "speaker": "narrator",
+            "text": "Chains erupt from the flagstones, iron links warm and slick as they snake toward your ankles. You dance backward, heart slamming against your ribs.",
+            "choices": [],
+            "next_node": "node_13"
+          },
+          {
+            "node_id": "node_13",
+            "type": "speaker",
+            "speaker": "char_vivian",
+            "text": "Run, little broker. I do enjoy the chase... almost as much as the branding.",
+            "choices": [],
+            "next_node": "node_14"
+          },
+          {
+            "node_id": "node_14",
+            "type": "speaker",
+            "speaker": "char_harlan",
+            "text": "Sign and the guilt ends. Refuse and we peel the timeline from your bones.",
+            "choices": [],
+            "next_node": "node_15"
+          },
+          {
+            "node_id": "node_15",
+            "type": "speaker",
+            "speaker": "narrator",
+            "text": "Isabella Duarte appears at the edge of the throne dais, quill poised over parchment that shimmers between vellum and a tablet screen. While Harlan and Vivian are distracted by the rising chains, she glides forward.",
+            "choices": [],
+            "next_node": "node_16"
+          },
+          {
+            "node_id": "node_16",
+            "type": "speaker",
+            "speaker": "char_isabella",
+            "text": "(Whispering) Milord plays at god again. In my tongue we call that hubris... or a very small cock. The Spire is a prison farm. He's harvesting us. Refuse. Use the anachronism. The brass elevator still answers to the living.",
+            "choices": [],
+            "next_node": "node_17"
+          },
+          {
+            "node_id": "node_17",
+            "type": "speaker",
+            "speaker": "narrator",
+            "text": "She presses a warm fragment of a medieval seal into your palm. The chains pause, sensing a shift in your resolve. You understand now. The choice is yours.",
+            "choices": [],
+            "next_node": "node_18"
+          },
+          {
+            "node_id": "node_18",
+            "type": "choice",
+            "speaker": "char_marcus",
+            "text": "",
+            "choices": [
+              {
+                "label": "[Confront Harlan] \"I'm not your property. Not now, not ever.\"",
+                "trait_tag": "Empathy",
+                "flags_set": [],
+                "next_node": "node_19_empathy",
+                "condition_flag": null
+              },
+              {
+                "label": "[Bargain with Harlan] \"Every soul has a price? Fine. Name yours for letting us go.\"",
+                "trait_tag": "Cunning",
+                "flags_set": [],
+                "next_node": "node_19_cunning",
+                "condition_flag": null
+              },
+              {
+                "label": "[Lunge for the elevator] Use the anachronism. Now.",
+                "trait_tag": null,
+                "flags_set": [],
+                "next_node": "node_20",
+                "condition_flag": null
+              }
+            ],
+            "next_node": null
+          },
+          {
+            "node_id": "node_19_empathy",
+            "type": "speaker",
+            "speaker": "char_harlan",
+            "text": "A noble sentiment. Utterly worthless. The chains don't care for your principles.",
+            "choices": [],
+            "next_node": "node_20"
+          },
+          {
+            "node_id": "node_19_cunning",
+            "type": "speaker",
+            "speaker": "char_harlan",
+            "text": "You think you have leverage? Adorable. The only term is submission.",
+            "choices": [],
+            "next_node": "node_20"
+          },
+          {
+            "node_id": "node_20",
+            "type": "speaker",
+            "speaker": "narrator",
+            "text": "Spurred by defiance or desperation, you lunge for the brass elevator doors that have manifested where the projector screen once stood. You slap the corporate lanyard against the sigil-etched panel; the modern plastic fuses with Isabella's medieval seal in a shower of sparks. The doors hiss open.",
+            "choices": [],
+            "next_node": "node_21"
+          },
+          {
+            "node_id": "node_21",
+            "type": "speaker",
+            "speaker": "char_harlan",
+            "text": "THE CONTRACT IS ETERNAL, HALE!",
+            "choices": [],
+            "next_node": "node_22"
+          },
+          {
+            "node_id": "node_22",
+            "type": "speaker",
+            "speaker": "narrator",
+            "text": "His roar follows you as you throw yourself inside. The chains shatter against the closing doors with the sound of breaking glass.",
+            "choices": [],
+            "next_node": "node_23"
+          },
+          {
+            "node_id": "node_23",
+            "type": "speaker",
+            "speaker": "narrator",
+            "text": "Inside the temporal conduit, the air tastes of copper and regret. You clutch the fused seal-lanyard hybrid, the first artifact fragment secured. Isabella's last words echo in your mind.",
+            "choices": [],
+            "next_node": "node_24"
+          },
+          {
+            "node_id": "node_24",
+            "type": "speaker",
+            "speaker": "char_isabella",
+            "text": "(Echoing) Choose empathy next time...",
+            "choices": [],
+            "next_node": "node_25"
+          },
+          {
+            "node_id": "node_25",
+            "type": "speaker",
+            "speaker": "char_marcus",
+            "text": "(I refused. For once in my goddamn life, I refused.)",
+            "choices": [],
+            "next_node": "node_26"
+          },
+          {
+            "node_id": "node_26",
+            "type": "speaker",
+            "speaker": "narrator",
+            "text": "The elevator begins its descent, walls sweating condensation that forms fleeting faces of every life you had betrayed or might yet save. You are no longer only the man who sold out a colleague; you are also the man who chose the harder path. The elevator dings in overlapping languages, and the next age rushes up to meet you.",
+            "choices": [],
+            "next_node": null
+          }
+        ],
+        "quests": [],
+        "characters_present": [
+          "char_marcus",
+          "char_harlan",
+          "char_sophia",
+          "char_lila",
+          "char_isabella",
+          "char_vivian",
+          "char_nora",
+          "char_elena"
+        ],
+        "critic_score": 86.0,
+        "critic_notes": "Integrate the missing harem manifestation during the shift to Iron Throne Hall to fulfill the contract's culture-shock requirement and heighten the surreal coworker transformation.; Deepen Marcus's pre-refusal internal conflict with a specific flashback beat to the Sophia betrayal, making the moral decision less abrupt and strengthening both character motivation and emotional impact.; Remove or integrate the bracketed section headers into continuous prose to improve pacing and flow; they currently fracture immersion."
+      }
+    ],
+    "current_stage": "stage_4_chapter_authoring",
+    "current_chapter_index": 0,
+    "iteration_count": 1,
+    "critic_notes": "Integrate the missing harem manifestation during the shift to Iron Throne Hall to fulfill the contract's culture-shock requirement and heighten the surreal coworker transformation.; Deepen Marcus's pre-refusal internal conflict with a specific flashback beat to the Sophia betrayal, making the moral decision less abrupt and strengthening both character motivation and emotional impact.; Remove or integrate the bracketed section headers into continuous prose to improve pacing and flow; they currently fracture immersion.",
+    "critic_passed": true,
+    "critic_score": 86,
+    "current_scenes": [
+      {
+        "scene_id": "sc_ch01_01",
+        "title": "Flickering Thresholds of Glass and Stone",
+        "location_id": "loc_modern_atrium",
+        "prose": "Marcus Hale pushed through the revolving doors of the Glass Atrium with his corporate lanyard already digging into his collar. The air hit him first: scorched coffee grounds and the metallic tang of ozone from a thousand humming servers. Marble floors gleamed under stuttering fluorescent panels that pulsed like failing heart monitors. He forced a smile at the receptionist, tasting the familiar acid of first-day nerves laced with older guilt. Two years ago he had signed away Sophia Reyes' career for a bonus; the memory still tasted like ash.\n\nThe orientation slide deck began on the massive screen. Marcus stood among the new hires, shifting his weight, when the lights dimmed and surged. A low choral chant threaded beneath the keyboard clacks, impossible and ancient. Cubicle partitions rippled, their fabric edges hardening into rough stone. The burnt-coffee smell twisted into something resinous and smoky. Marcus's stomach dropped as the entire atrium lurched sideways, gravity bending like hot glass. His interior monologue raced: \"Fantastic. Day one and the building's having a psychotic break. Anybody got a cigarette and a clue?\"\n\nAround him, coworkers blurred at the edges, suits lengthening into embroidered tunics. The fluorescent tubes guttered into guttering torch flames that threw long shadows across suddenly vaulted ceilings. He clutched the lanyard like a lifeline, pulse hammering against his throat. The temporal device buried in the slide projector had woken; the Spire was claiming its newest fragment. Disorientation crashed over him in waves, equal parts terror and a perverse, guilty thrill that this time the chaos might finally be bigger than his own mistakes.",
+        "characters_present": [
+          "char_marcus"
+        ],
+        "emotional_beat": "Nervous anticipation fracturing into uncanny dread and buried guilt"
+      },
+      {
+        "scene_id": "sc_ch01_02",
+        "title": "Recognition Across Bleeding Timelines",
+        "location_id": "loc_modern_atrium",
+        "prose": "Sophia Reyes materialized at his elbow as the walls finished their slow metamorphosis into archways. She wore the same charcoal suit yet her eyes carried centuries of sharp recognition. \"You sold me out once in this life,\" she said quietly, voice cutting through the rising chant. \"Don't do it again in the next one.\" Marcus flinched. The marble beneath their feet had become uneven flagstones; the projector still droned corporate platitudes while torchlight licked the edges of her face.\n\n\"Sophia, what the hell is happening?\" he whispered. She glanced at the transforming atrium, then back at him with a mixture of resentment and reluctant pity. \"The Spire remembers its own. Every soul here is a reincarnated fragment of the same damned office. Harlan's been harvesting us since the first crusade.\" Her fingers brushed his sleeve, an electric spark of shared memory flashing behind his eyes: medieval ledgers, 1960s acid trips, endless contracts signed in blood and ink. Marcus tasted copper. The guilt he had buried for two years now clawed upward, raw and accusing.\n\nAround them, the remaining modern hires flickered between cubicle drones and courtiers. Sophia's no-nonsense corporate cadence softened into something older, poetic. \"You feel it too, don't you? The pull to repeat the same betrayal.\" Marcus swallowed hard, lanyard slick with sweat. He wanted to run, to apologize, to demand answers, but the atrium's hum was deepening into a growl. The first culture shock was complete; he stood exposed in the bleeding overlap of eras, his oldest wound now walking beside him wearing Sophia's face.",
+        "characters_present": [
+          "char_marcus",
+          "char_sophia"
+        ],
+        "emotional_beat": "Resurfacing guilt colliding with wary, reluctant alliance"
+      },
+      {
+        "scene_id": "sc_ch01_03",
+        "title": "Iron Summons and Manifest Chains",
+        "location_id": "loc_modern_atrium",
+        "prose": "The atrium heaved one final time and resolved into the Iron Throne Hall. Harlan Voss sat enthroned on black iron, crown of circuit-board and bone resting on silver hair. Vivian Slate stood at his right in silk that clung like liquid shadow, her smile clinical and hungry. \"Sign the contract, Hale,\" Harlan intoned, voice cold corporate authority wrapped in liturgical cadence. \"Every soul has a price, and I've been collecting interest since the first crusade. Your colleague's career was merely the down payment.\"\n\nChains erupted from the flagstones, iron links warm and slick as they snaked toward Marcus's ankles. He danced backward, heart slamming. The lanyard flared hot against his chest. Vivian's silken menace cut the air: \"Run, little broker. I do enjoy the chase... almost as much as the branding.\" Harlan leaned forward, eyes ancient and transactional. \"Sign and the guilt ends. Refuse and we peel the timeline from your bones.\"\n\nMarcus's sarcastic armor cracked. The modern fluorescent memory of his betrayal overlaid the medieval hall like a double exposure. He felt the weight of every reincarnated life pressing down, the Spire's rule that time was cyclical and alterations bled. The chains tightened, one link brushing his calf with possessive heat. Culture shock roared in his ears: torch smoke, server ozone, the metallic taste of fear. He refused to reach for the offered quill. Instead he searched for an anachronism, anything modern that might fracture the ritual. The decision formed like a fault line: refuse the contract and risk everything, or exploit the bleed to escape. Adrenaline and moral vertigo warred inside him as the chains rose higher.",
+        "characters_present": [
+          "char_marcus",
+          "char_harlan",
+          "char_vivian"
+        ],
+        "emotional_beat": "Acute panic and moral standoff under visceral threat"
+      },
+      {
+        "scene_id": "sc_ch01_04",
+        "title": "The Scribe's Forbidden Whisper",
+        "location_id": "loc_modern_atrium",
+        "prose": "Isabella Duarte appeared at the edge of the throne dais, quill poised over parchment that shimmered between vellum and tablet screen. She wore the garb of a medieval scribe yet her eyes locked onto Marcus with intimate recognition. While Harlan and Vivian were distracted by the rising chains, she glided forward and whispered against his ear, breath warm and laced with modern profanity. \"Milord plays at god again. In my tongue we call that hubris... or a very small cock. All souls here are reincarnated fragments of the same office, Marcus. The Spire is a prison farm and Harlan is the warden harvesting eternity.\"\n\nHer voice carried formal cadence fractured by timeline bleed. Marcus saw flashes: Isabella in silk chains across centuries, recording ritual fragments while pretending to be property. The revelation detonated inside him. Every coworker, every face that had flickered during the shift, was a shard of the same eternal workforce trapped in Harlan's cycle. His own guilt over Sophia was merely the latest iteration of a betrayal repeated across lives. Isabella pressed a warm fragment of medieval seal into his palm. \"Refuse. Use the anachronism. The brass elevator still answers to the living.\"\n\nThe chains paused, sensing the shift in his resolve. Marcus felt empathy and cunning ignite together, two traits the Spire had tried to keep dormant. Isabella's centuries of learned detachment cracked for a single heartbeat; she chose to help him even though it risked her own survival. The hall warped around the truth she had given him, torchlight strobing with fluorescent ghosts. He understood now why the device had chosen him: because he was the fracture point, the soul still capable of breaking pattern.",
+        "characters_present": [
+          "char_marcus",
+          "char_isabella"
+        ],
+        "emotional_beat": "Shattering revelation and the first stirrings of fractured identity"
+      },
+      {
+        "scene_id": "sc_ch01_05",
+        "title": "Brass Descent and the Refusal Seal",
+        "location_id": "loc_elevator_core",
+        "prose": "Marcus lunged for the brass elevator doors that had manifested where the projector screen once stood. He slapped the corporate lanyard against the sigil-etched panel; the modern plastic fused with Isabella's medieval seal fragment in a shower of sparks. The anachronism rule ignited. The doors hissed open, revealing a shaft where floor numbers smeared across dead languages. Harlan's roar followed him: \"The contract is eternal, Hale!\" Vivian's laughter chased like silk razors. Marcus threw himself inside, chains shattering against the closing doors.\n\nInside the temporal conduit the air tasted of copper and regret. Isabella's final whisper echoed: \"Choose empathy next time.\" He clutched the fused seal-lanyard hybrid, the first artifact fragment secured. The elevator began its descent, walls sweating condensation that formed fleeting faces of every life he had betrayed or might yet save. Marcus's interior voice was raw: \"I refused. For once I refused.\" The Spire's cyclical rule flexed around him, bleeding echoes intensifying, yet the refusal had created a small linear tear. Empathy and cunning both flickered awake inside him, fragile and new.\n\nAs the car dropped toward unknown eras, Marcus tasted the first true fracture of his identity. He was no longer only the man who had sold out a colleague; he was also the man who had chosen the harder path. The elevator dinged in overlapping languages, and the next age rushed up to meet him.",
+        "characters_present": [
+          "char_marcus",
+          "char_isabella"
+        ],
+        "emotional_beat": "Emerging resolve through empathetic refusal and identity fracture"
+      }
+    ],
+    "checkpoint_status": "approved",
+    "checkpoint_action": "approve",
+    "regeneration_notes": ""
+  },
+  "checkpoint_data": {
+    "stage": "stage_4_chapter_authoring",
+    "checkpoint": 4,
+    "chapter_index": 0,
+    "payload": {
+      "chapter_id": "chapter_01",
+      "contract": {
+        "chapter_id": "chapter_01",
+        "order": 1,
+        "title": "Fluorescent Ignition",
+        "narrative_scope": "Marcus Hale arrives at the sleek Glass Atrium for his first day as a junior broker, the air thick with burnt coffee and the low hum of servers. Fluorescent lights stutter as cubicle walls begin bleeding into stone archways, triggering the hidden temporal device during a routine orientation slide. The entire building lurches, depositing him in the Iron Throne Hall where modern coworkers manifest as courtiers and a harem.\n\nHe encounters Harlan Voss as the immortal king on the throne, Vivian Slate as a silk-clad enforcer, and Sophia Reyes as a sharp-tongued advisor who recognizes him across lives. Tension erupts when Harlan demands Marcus sign an eternal contract, leveraging his old guilt over selling out a colleague. The core crisis is navigating the first culture shock while dodging chains that manifest from the floor.\n\nA dramatic revelation hits when Isabella Duarte appears as a medieval scribe and whispers that all souls here are reincarnated fragments of the same office. Marcus makes his first moral decision: refuse the contract or exploit an anachronism to escape. The chapter climaxes as he activates the brass elevator, the hall warping around him, leaving him primed to descend into the next era with the first taste of fractured identity.",
+        "entry_state": {
+          "location": "loc_modern_atrium",
+          "trait_snapshot": {
+            "Cunning": "none",
+            "Empathy": "none"
+          },
+          "inventory": [
+            "corporate_lanyard"
+          ],
+          "active_flags": [
+            "ch_01_started",
+            "modern_onboarding"
+          ]
+        },
+        "exit_state": {
+          "location": "loc_elevator_core",
+          "trait_snapshot": {
+            "Cunning": "emerging",
+            "Empathy": "emerging"
+          },
+          "inventory": [
+            "corporate_lanyard",
+            "medieval_seal_fragment"
+          ],
+          "active_flags": [
+            "ch_01_completed",
+            "harlan_contract_refused",
+            "first_shift_triggered"
+          ]
+        },
+        "attachment_points": [
+          {
+            "slot_id": "slot_ch01_01",
+            "chapter_id": "chapter_01",
+            "location_id": "loc_modern_atrium",
+            "available_after": "ch_01_started",
+            "expires_after": "ch_01_completed",
+            "npcs_present": [
+              "char_sophia"
+            ],
+            "arc_type": "investigative",
+            "assigned_quest_id": null
+          },
+          {
+            "slot_id": "slot_ch01_02",
+            "chapter_id": "chapter_01",
+            "location_id": "loc_modern_atrium",
+            "available_after": "ch_01_started",
+            "expires_after": "ch_01_completed",
+            "npcs_present": [
+              "char_isabella"
+            ],
+            "arc_type": "companion_favor",
+            "assigned_quest_id": null
+          }
+        ]
+      },
+      "scenes": [
+        {
+          "scene_id": "sc_ch01_01",
+          "title": "Flickering Thresholds of Glass and Stone",
+          "location_id": "loc_modern_atrium",
+          "prose": "Marcus Hale pushed through the revolving doors of the Glass Atrium with his corporate lanyard already digging into his collar. The air hit him first: scorched coffee grounds and the metallic tang of ozone from a thousand humming servers. Marble floors gleamed under stuttering fluorescent panels that pulsed like failing heart monitors. He forced a smile at the receptionist, tasting the familiar acid of first-day nerves laced with older guilt. Two years ago he had signed away Sophia Reyes' career for a bonus; the memory still tasted like ash.\n\nThe orientation slide deck began on the massive screen. Marcus stood among the new hires, shifting his weight, when the lights dimmed and surged. A low choral chant threaded beneath the keyboard clacks, impossible and ancient. Cubicle partitions rippled, their fabric edges hardening into rough stone. The burnt-coffee smell twisted into something resinous and smoky. Marcus's stomach dropped as the entire atrium lurched sideways, gravity bending like hot glass. His interior monologue raced: \"Fantastic. Day one and the building's having a psychotic break. Anybody got a cigarette and a clue?\"\n\nAround him, coworkers blurred at the edges, suits lengthening into embroidered tunics. The fluorescent tubes guttered into guttering torch flames that threw long shadows across suddenly vaulted ceilings. He clutched the lanyard like a lifeline, pulse hammering against his throat. The temporal device buried in the slide projector had woken; the Spire was claiming its newest fragment. Disorientation crashed over him in waves, equal parts terror and a perverse, guilty thrill that this time the chaos might finally be bigger than his own mistakes.",
+          "characters_present": [
+            "char_marcus"
+          ],
+          "emotional_beat": "Nervous anticipation fracturing into uncanny dread and buried guilt"
+        },
+        {
+          "scene_id": "sc_ch01_02",
+          "title": "Recognition Across Bleeding Timelines",
+          "location_id": "loc_modern_atrium",
+          "prose": "Sophia Reyes materialized at his elbow as the walls finished their slow metamorphosis into archways. She wore the same charcoal suit yet her eyes carried centuries of sharp recognition. \"You sold me out once in this life,\" she said quietly, voice cutting through the rising chant. \"Don't do it again in the next one.\" Marcus flinched. The marble beneath their feet had become uneven flagstones; the projector still droned corporate platitudes while torchlight licked the edges of her face.\n\n\"Sophia, what the hell is happening?\" he whispered. She glanced at the transforming atrium, then back at him with a mixture of resentment and reluctant pity. \"The Spire remembers its own. Every soul here is a reincarnated fragment of the same damned office. Harlan's been harvesting us since the first crusade.\" Her fingers brushed his sleeve, an electric spark of shared memory flashing behind his eyes: medieval ledgers, 1960s acid trips, endless contracts signed in blood and ink. Marcus tasted copper. The guilt he had buried for two years now clawed upward, raw and accusing.\n\nAround them, the remaining modern hires flickered between cubicle drones and courtiers. Sophia's no-nonsense corporate cadence softened into something older, poetic. \"You feel it too, don't you? The pull to repeat the same betrayal.\" Marcus swallowed hard, lanyard slick with sweat. He wanted to run, to apologize, to demand answers, but the atrium's hum was deepening into a growl. The first culture shock was complete; he stood exposed in the bleeding overlap of eras, his oldest wound now walking beside him wearing Sophia's face.",
+          "characters_present": [
+            "char_marcus",
+            "char_sophia"
+          ],
+          "emotional_beat": "Resurfacing guilt colliding with wary, reluctant alliance"
+        },
+        {
+          "scene_id": "sc_ch01_03",
+          "title": "Iron Summons and Manifest Chains",
+          "location_id": "loc_modern_atrium",
+          "prose": "The atrium heaved one final time and resolved into the Iron Throne Hall. Harlan Voss sat enthroned on black iron, crown of circuit-board and bone resting on silver hair. Vivian Slate stood at his right in silk that clung like liquid shadow, her smile clinical and hungry. \"Sign the contract, Hale,\" Harlan intoned, voice cold corporate authority wrapped in liturgical cadence. \"Every soul has a price, and I've been collecting interest since the first crusade. Your colleague's career was merely the down payment.\"\n\nChains erupted from the flagstones, iron links warm and slick as they snaked toward Marcus's ankles. He danced backward, heart slamming. The lanyard flared hot against his chest. Vivian's silken menace cut the air: \"Run, little broker. I do enjoy the chase... almost as much as the branding.\" Harlan leaned forward, eyes ancient and transactional. \"Sign and the guilt ends. Refuse and we peel the timeline from your bones.\"\n\nMarcus's sarcastic armor cracked. The modern fluorescent memory of his betrayal overlaid the medieval hall like a double exposure. He felt the weight of every reincarnated life pressing down, the Spire's rule that time was cyclical and alterations bled. The chains tightened, one link brushing his calf with possessive heat. Culture shock roared in his ears: torch smoke, server ozone, the metallic taste of fear. He refused to reach for the offered quill. Instead he searched for an anachronism, anything modern that might fracture the ritual. The decision formed like a fault line: refuse the contract and risk everything, or exploit the bleed to escape. Adrenaline and moral vertigo warred inside him as the chains rose higher.",
+          "characters_present": [
+            "char_marcus",
+            "char_harlan",
+            "char_vivian"
+          ],
+          "emotional_beat": "Acute panic and moral standoff under visceral threat"
+        },
+        {
+          "scene_id": "sc_ch01_04",
+          "title": "The Scribe's Forbidden Whisper",
+          "location_id": "loc_modern_atrium",
+          "prose": "Isabella Duarte appeared at the edge of the throne dais, quill poised over parchment that shimmered between vellum and tablet screen. She wore the garb of a medieval scribe yet her eyes locked onto Marcus with intimate recognition. While Harlan and Vivian were distracted by the rising chains, she glided forward and whispered against his ear, breath warm and laced with modern profanity. \"Milord plays at god again. In my tongue we call that hubris... or a very small cock. All souls here are reincarnated fragments of the same office, Marcus. The Spire is a prison farm and Harlan is the warden harvesting eternity.\"\n\nHer voice carried formal cadence fractured by timeline bleed. Marcus saw flashes: Isabella in silk chains across centuries, recording ritual fragments while pretending to be property. The revelation detonated inside him. Every coworker, every face that had flickered during the shift, was a shard of the same eternal workforce trapped in Harlan's cycle. His own guilt over Sophia was merely the latest iteration of a betrayal repeated across lives. Isabella pressed a warm fragment of medieval seal into his palm. \"Refuse. Use the anachronism. The brass elevator still answers to the living.\"\n\nThe chains paused, sensing the shift in his resolve. Marcus felt empathy and cunning ignite together, two traits the Spire had tried to keep dormant. Isabella's centuries of learned detachment cracked for a single heartbeat; she chose to help him even though it risked her own survival. The hall warped around the truth she had given him, torchlight strobing with fluorescent ghosts. He understood now why the device had chosen him: because he was the fracture point, the soul still capable of breaking pattern.",
+          "characters_present": [
+            "char_marcus",
+            "char_isabella"
+          ],
+          "emotional_beat": "Shattering revelation and the first stirrings of fractured identity"
+        },
+        {
+          "scene_id": "sc_ch01_05",
+          "title": "Brass Descent and the Refusal Seal",
+          "location_id": "loc_elevator_core",
+          "prose": "Marcus lunged for the brass elevator doors that had manifested where the projector screen once stood. He slapped the corporate lanyard against the sigil-etched panel; the modern plastic fused with Isabella's medieval seal fragment in a shower of sparks. The anachronism rule ignited. The doors hissed open, revealing a shaft where floor numbers smeared across dead languages. Harlan's roar followed him: \"The contract is eternal, Hale!\" Vivian's laughter chased like silk razors. Marcus threw himself inside, chains shattering against the closing doors.\n\nInside the temporal conduit the air tasted of copper and regret. Isabella's final whisper echoed: \"Choose empathy next time.\" He clutched the fused seal-lanyard hybrid, the first artifact fragment secured. The elevator began its descent, walls sweating condensation that formed fleeting faces of every life he had betrayed or might yet save. Marcus's interior voice was raw: \"I refused. For once I refused.\" The Spire's cyclical rule flexed around him, bleeding echoes intensifying, yet the refusal had created a small linear tear. Empathy and cunning both flickered awake inside him, fragile and new.\n\nAs the car dropped toward unknown eras, Marcus tasted the first true fracture of his identity. He was no longer only the man who had sold out a colleague; he was also the man who had chosen the harder path. The elevator dinged in overlapping languages, and the next age rushed up to meet him.",
+          "characters_present": [
+            "char_marcus",
+            "char_isabella"
+          ],
+          "emotional_beat": "Emerging resolve through empathetic refusal and identity fracture"
+        }
+      ],
+      "dialogue_tree": [
+        {
+          "node_id": "node_01",
+          "type": "speaker",
+          "speaker": "narrator",
+          "text": "You push through the revolving doors of the Glass Atrium with your corporate lanyard already digging into your collar. The air hits you first: scorched coffee grounds and the metallic tang of ozone from a thousand humming servers. Marble floors gleam under stuttering fluorescent panels that pulse like failing heart monitors.",
+          "choices": [],
+          "next_node": "node_02"
+        },
+        {
+          "node_id": "node_02",
+          "type": "speaker",
+          "speaker": "narrator",
+          "text": "The orientation slide deck begins on the massive screen. You stand among the new hires, shifting your weight, when the lights dim and surge. A low choral chant threads beneath the keyboard clacks, impossible and ancient. Cubicle partitions ripple, their fabric edges hardening into rough stone.",
+          "choices": [],
+          "next_node": "node_03"
+        },
+        {
+          "node_id": "node_03",
+          "type": "speaker",
+          "speaker": "char_marcus",
+          "text": "(Fantastic. Day one and the building's having a psychotic break. Anybody got a cigarette and a clue?)",
+          "choices": [],
+          "next_node": "node_04"
+        },
+        {
+          "node_id": "node_04",
+          "type": "speaker",
+          "speaker": "narrator",
+          "text": "Around you, coworkers blur at the edges, suits lengthening into embroidered tunics. The fluorescent tubes gutter into torch flames that throw long shadows across suddenly vaulted ceilings. You clutch the lanyard like a lifeline, pulse hammering against your throat. The temporal device buried in the slide projector has woken; the Spire is claiming its newest fragment.",
+          "choices": [],
+          "next_node": "node_05"
+        },
+        {
+          "node_id": "node_05",
+          "type": "speaker",
+          "speaker": "char_sophia",
+          "text": "You sold me out once in this life. Don't do it again in the next one.",
+          "choices": [],
+          "next_node": "node_06"
+        },
+        {
+          "node_id": "node_06",
+          "type": "speaker",
+          "speaker": "char_marcus",
+          "text": "Sophia? What the hell is happening?",
+          "choices": [],
+          "next_node": "node_07"
+        },
+        {
+          "node_id": "node_07",
+          "type": "speaker",
+          "speaker": "char_sophia",
+          "text": "The Spire remembers its own. Every soul here is a reincarnated fragment of the same damned office. Harlan's been harvesting us since the first crusade.",
+          "choices": [],
+          "next_node": "node_08"
+        },
+        {
+          "node_id": "node_08",
+          "type": "speaker",
+          "speaker": "char_sophia",
+          "text": "You feel it too, don't you? The pull to repeat the same betrayal.",
+          "choices": [],
+          "next_node": "node_09"
+        },
+        {
+          "node_id": "node_09",
+          "type": "choice",
+          "speaker": "char_marcus",
+          "text": "",
+          "choices": [
+            {
+              "label": "I... I do. The guilt. I'm sorry, Sophia.",
+              "trait_tag": "Empathy",
+              "flags_set": [],
+              "next_node": "node_10",
+              "condition_flag": null
+            },
+            {
+              "label": "What I feel is irrelevant. How do we get out of here?",
+              "trait_tag": "Cunning",
+              "flags_set": [],
+              "next_node": "node_10",
+              "condition_flag": null
+            },
+            {
+              "label": "Don't lay this on me. That was business. This is... something else.",
+              "trait_tag": null,
+              "flags_set": [],
+              "next_node": "node_10",
+              "condition_flag": null
+            }
+          ],
+          "next_node": null
+        },
+        {
+          "node_id": "node_10",
+          "type": "speaker",
+          "speaker": "narrator",
+          "text": "Before she can answer, the atrium heaves one final time and resolves into the Iron Throne Hall. Harlan Voss sits enthroned on black iron, a crown of circuit-board and bone resting on silver hair. Vivian Slate stands at his right in silk that clings like liquid shadow, her smile clinical and hungry.",
+          "choices": [],
+          "next_node": "node_11"
+        },
+        {
+          "node_id": "node_11",
+          "type": "speaker",
+          "speaker": "char_harlan",
+          "text": "Sign the contract, Hale. Every soul has a price, and I've been collecting interest since the first crusade. Your colleague's career was merely the down payment.",
+          "choices": [],
+          "next_node": "node_12"
+        },
+        {
+          "node_id": "node_12",
+          "type": "speaker",
+          "speaker": "narrator",
+          "text": "Chains erupt from the flagstones, iron links warm and slick as they snake toward your ankles. You dance backward, heart slamming against your ribs.",
+          "choices": [],
+          "next_node": "node_13"
+        },
+        {
+          "node_id": "node_13",
+          "type": "speaker",
+          "speaker": "char_vivian",
+          "text": "Run, little broker. I do enjoy the chase... almost as much as the branding.",
+          "choices": [],
+          "next_node": "node_14"
+        },
+        {
+          "node_id": "node_14",
+          "type": "speaker",
+          "speaker": "char_harlan",
+          "text": "Sign and the guilt ends. Refuse and we peel the timeline from your bones.",
+          "choices": [],
+          "next_node": "node_15"
+        },
+        {
+          "node_id": "node_15",
+          "type": "speaker",
+          "speaker": "narrator",
+          "text": "Isabella Duarte appears at the edge of the throne dais, quill poised over parchment that shimmers between vellum and a tablet screen. While Harlan and Vivian are distracted by the rising chains, she glides forward.",
+          "choices": [],
+          "next_node": "node_16"
+        },
+        {
+          "node_id": "node_16",
+          "type": "speaker",
+          "speaker": "char_isabella",
+          "text": "(Whispering) Milord plays at god again. In my tongue we call that hubris... or a very small cock. The Spire is a prison farm. He's harvesting us. Refuse. Use the anachronism. The brass elevator still answers to the living.",
+          "choices": [],
+          "next_node": "node_17"
+        },
+        {
+          "node_id": "node_17",
+          "type": "speaker",
+          "speaker": "narrator",
+          "text": "She presses a warm fragment of a medieval seal into your palm. The chains pause, sensing a shift in your resolve. You understand now. The choice is yours.",
+          "choices": [],
+          "next_node": "node_18"
+        },
+        {
+          "node_id": "node_18",
+          "type": "choice",
+          "speaker": "char_marcus",
+          "text": "",
+          "choices": [
+            {
+              "label": "[Confront Harlan] \"I'm not your property. Not now, not ever.\"",
+              "trait_tag": "Empathy",
+              "flags_set": [],
+              "next_node": "node_19_empathy",
+              "condition_flag": null
+            },
+            {
+              "label": "[Bargain with Harlan] \"Every soul has a price? Fine. Name yours for letting us go.\"",
+              "trait_tag": "Cunning",
+              "flags_set": [],
+              "next_node": "node_19_cunning",
+              "condition_flag": null
+            },
+            {
+              "label": "[Lunge for the elevator] Use the anachronism. Now.",
+              "trait_tag": null,
+              "flags_set": [],
+              "next_node": "node_20",
+              "condition_flag": null
+            }
+          ],
+          "next_node": null
+        },
+        {
+          "node_id": "node_19_empathy",
+          "type": "speaker",
+          "speaker": "char_harlan",
+          "text": "A noble sentiment. Utterly worthless. The chains don't care for your principles.",
+          "choices": [],
+          "next_node": "node_20"
+        },
+        {
+          "node_id": "node_19_cunning",
+          "type": "speaker",
+          "speaker": "char_harlan",
+          "text": "You think you have leverage? Adorable. The only term is submission.",
+          "choices": [],
+          "next_node": "node_20"
+        },
+        {
+          "node_id": "node_20",
+          "type": "speaker",
+          "speaker": "narrator",
+          "text": "Spurred by defiance or desperation, you lunge for the brass elevator doors that have manifested where the projector screen once stood. You slap the corporate lanyard against the sigil-etched panel; the modern plastic fuses with Isabella's medieval seal in a shower of sparks. The doors hiss open.",
+          "choices": [],
+          "next_node": "node_21"
+        },
+        {
+          "node_id": "node_21",
+          "type": "speaker",
+          "speaker": "char_harlan",
+          "text": "THE CONTRACT IS ETERNAL, HALE!",
+          "choices": [],
+          "next_node": "node_22"
+        },
+        {
+          "node_id": "node_22",
+          "type": "speaker",
+          "speaker": "narrator",
+          "text": "His roar follows you as you throw yourself inside. The chains shatter against the closing doors with the sound of breaking glass.",
+          "choices": [],
+          "next_node": "node_23"
+        },
+        {
+          "node_id": "node_23",
+          "type": "speaker",
+          "speaker": "narrator",
+          "text": "Inside the temporal conduit, the air tastes of copper and regret. You clutch the fused seal-lanyard hybrid, the first artifact fragment secured. Isabella's last words echo in your mind.",
+          "choices": [],
+          "next_node": "node_24"
+        },
+        {
+          "node_id": "node_24",
+          "type": "speaker",
+          "speaker": "char_isabella",
+          "text": "(Echoing) Choose empathy next time...",
+          "choices": [],
+          "next_node": "node_25"
+        },
+        {
+          "node_id": "node_25",
+          "type": "speaker",
+          "speaker": "char_marcus",
+          "text": "(I refused. For once in my goddamn life, I refused.)",
+          "choices": [],
+          "next_node": "node_26"
+        },
+        {
+          "node_id": "node_26",
+          "type": "speaker",
+          "speaker": "narrator",
+          "text": "The elevator begins its descent, walls sweating condensation that forms fleeting faces of every life you had betrayed or might yet save. You are no longer only the man who sold out a colleague; you are also the man who chose the harder path. The elevator dings in overlapping languages, and the next age rushes up to meet you.",
+          "choices": [],
+          "next_node": null
+        }
+      ],
+      "quests": [],
+      "characters_present": [
+        "char_marcus",
+        "char_harlan",
+        "char_sophia",
+        "char_lila",
+        "char_isabella",
+        "char_vivian",
+        "char_nora",
+        "char_elena"
+      ],
+      "critic_score": 86.0,
+      "critic_notes": "Integrate the missing harem manifestation during the shift to Iron Throne Hall to fulfill the contract's culture-shock requirement and heighten the surreal coworker transformation.; Deepen Marcus's pre-refusal internal conflict with a specific flashback beat to the Sophia betrayal, making the moral decision less abrupt and strengthening both character motivation and emotional impact.; Remove or integrate the bracketed section headers into continuous prose to improve pacing and flow; they currently fracture immersion."
+    }
+  },
+  "saved_at": "2026-09-22T22:16:22.945766"
+}

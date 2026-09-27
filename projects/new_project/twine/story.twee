@@ -1,0 +1,114 @@
+:: StoryTitle
+API Test Story
+
+:: StoryData
+{
+  "ifid": "1D879F9A-74E3-5112-AE37-241AFC014ABE",
+  "format": "Harlowe",
+  "format-version": "3.3.8",
+  "start": "Title_Screen",
+  "zoom": 1
+}
+
+:: StoryInit {"position":"20,20","size":"100,100"}
+(set: $flags to (a:))
+(set: $completed_quests to (a:))
+(set: $inventory to (a:))
+(set: $current_chapter to 1)
+
+:: StoryHeader [header] {"position":"140,20","size":"100,100"}
+<div class="qf-status-bar">
+  <span class="qf-badge-title">📖 API Test Story</span>
+  <span class="qf-badge-quests">⚔️ Quests: <b>(count: $completed_quests)</b></span>
+  <span class="qf-links">[[Menu->Codex_Menu]]</span>
+</div>
+---
+
+:: Title_Screen [title] {"position":"300,100","size":"100,100"}
+# API Test Story
+*Mystery* • *Intriguing*
+
+---
+### Begin Experience
+[[▶ Begin Story->Chapter_01_Intro]]
+[[📑 Chapter Jump / Selection->Chapter_Select]]
+[[👥 Dramatis Personae (Cast)->Dramatis_Personae]]
+[[🗺️ World Codex->World_Codex]]
+[[🏆 Quest & Achievement Tracker->Quest_Log]]
+
+:: Codex_Menu [codex] {"position":"100,240","size":"100,100"}
+## 📖 Story Codex & Archives
+Access detailed world intelligence, cast files, and quest progression records.
+
+* [[👥 Cast & Dramatis Personae->Dramatis_Personae]]
+* [[🗺️ Locations & Lore Codex->World_Codex]]
+* [[⚔️ Active & Completed Quests->Quest_Log]]
+* [[🏆 Achievements->Achievements_List]]
+* [[📑 Jump to Specific Chapter->Chapter_Select]]
+* [[🔙 Return to Title Screen->Title_Screen]]
+
+:: Dramatis_Personae [codex] {"position":"260,240","size":"100,100"}
+## 👥 Dramatis Personae (Cast of Characters)
+
+*No character records registered yet.*
+
+---
+[[🔙 Return to Codex Menu->Codex_Menu]] | [[Return to Story->Title_Screen]]
+
+:: World_Codex [codex] {"position":"420,240","size":"100,100"}
+## 🗺️ World Codex & Setting
+
+*No world records registered yet.*
+
+---
+[[🔙 Return to Codex Menu->Codex_Menu]] | [[Return to Story->Title_Screen]]
+
+:: Quest_Log [codex] {"position":"580,240","size":"100,100"}
+## ⚔️ Quest Log & Progression
+
+*No quests recorded in this story spine.*
+
+---
+[[🔙 Return to Codex Menu->Codex_Menu]] | [[Return to Story->Title_Screen]]
+
+:: Achievements_List [codex] {"position":"740,240","size":"100,100"}
+## 🏆 Story Achievements
+
+*No achievements configured for this story.*
+
+---
+[[🔙 Return to Codex Menu->Codex_Menu]] | [[Return to Story->Title_Screen]]
+
+:: Chapter_Select [menu] {"position":"900,240","size":"100,100"}
+## 📑 Chapter Select
+Select any chapter to begin or jump directly into its sequence:
+
+* **[[Chapter 1: The Beginning->Chapter_01_Intro]]**
+
+---
+[[🔙 Return to Title Screen->Title_Screen]]
+
+:: Chapter_01_Intro [chapter ch_01] {"position":"100,420","size":"100,100"}
+(set: $current_chapter to 1)
+## Chapter 1: The Beginning
+
+---
+[[▶ Proceed into Chapter 1->Story_Conclusion]]
+[[📑 Chapter Select->Chapter_Select]]
+
+:: Story_Conclusion [ending] {"position":"500,660","size":"100,100"}
+# API Test Story — Epilogue & Conclusion
+
+You have reached the culmination of your narrative journey!
+
+### Emergent Alignment & Character Traits
+*Your choices have shaped the world and guided your companions.*
+
+### Journey Review
+* Total Quests Completed: **(count: $completed_quests)**
+* [[Review Full Quest & Achievement Log->Quest_Log]]
+* [[Review Story Codex & World Lore->World_Codex]]
+
+---
+[[🔄 Play Again from Title Screen->Title_Screen]]
+[[📑 Revisit Any Chapter->Chapter_Select]]

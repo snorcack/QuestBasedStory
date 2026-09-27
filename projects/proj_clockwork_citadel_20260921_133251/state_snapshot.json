@@ -1,0 +1,662 @@
+{
+  "values": {
+    "story_seed": "A guild engineer uncovers sabotage in the city's chronometer spires.",
+    "story_arc": {
+      "title": "A Neon Grave",
+      "genre": "Cyber-Noir Mystery",
+      "tone": "Gritty, melancholic, suspenseful",
+      "themes": [
+        "Institutional corruption",
+        "The burden of memory",
+        "Redemption through truth"
+      ],
+      "protagonist_sketch": "Detective Elena Cross, an investigator plagued by neural glitches from an unsolved case.",
+      "antagonist_sketch": "Councilman Julian Sterling, a wealthy civic leader who buried his criminal origins.",
+      "central_conflict": "A serial cipher killer targets the syndicate that Cross investigated before her memory was wiped.",
+      "acts": [
+        {
+          "act_number": 1,
+          "title": "The Ghost in the Circuit",
+          "summary": "Cross investigates an impossible murder that points to her erased memories."
+        },
+        {
+          "act_number": 2,
+          "title": "The Sunken Ward",
+          "summary": "Delving into the flooded lower district, Cross confronts Sterling's enforcers."
+        },
+        {
+          "act_number": 3,
+          "title": "The Glass Terminal",
+          "summary": "Cross confronts Sterling with the decrypt key at the city memorial tower."
+        }
+      ],
+      "trait_vocabulary": [
+        {
+          "name": "Cunning",
+          "description": "Deceptive problem solving and electronic intrusion",
+          "color_hex": "#E0A82E"
+        },
+        {
+          "name": "Empathy",
+          "description": "Reading emotional tells and forging loyal human alliances",
+          "color_hex": "#2EA8E0"
+        }
+      ]
+    },
+    "trait_vocabulary": [
+      {
+        "name": "Cunning",
+        "description": "Deceptive problem solving and electronic intrusion",
+        "color_hex": "#E0A82E"
+      },
+      {
+        "name": "Empathy",
+        "description": "Reading emotional tells and forging loyal human alliances",
+        "color_hex": "#2EA8E0"
+      }
+    ],
+    "chapter_contracts": [
+      {
+        "chapter_id": "chapter_01",
+        "order": 1,
+        "title": "Chapter 1: The Trail of Wire",
+        "narrative_scope": "Elena Cross navigates district 1 uncovering evidence against Sterling.",
+        "entry_state": {
+          "location": "loc_district_01",
+          "trait_snapshot": {
+            "Cunning": "none",
+            "Empathy": "none"
+          },
+          "inventory": [
+            "detective_badge",
+            "service_pistol"
+          ],
+          "active_flags": [
+            "ch_01_started"
+          ]
+        },
+        "exit_state": {
+          "location": "loc_district_01_exit",
+          "trait_snapshot": {
+            "Cunning": "none",
+            "Empathy": "none"
+          },
+          "inventory": [
+            "detective_badge",
+            "service_pistol",
+            "clue_fragment_1"
+          ],
+          "active_flags": [
+            "ch_01_completed"
+          ]
+        },
+        "attachment_points": [
+          {
+            "slot_id": "slot_ch01_01",
+            "chapter_id": "chapter_01",
+            "location_id": "loc_district_01",
+            "available_after": "ch_01_started",
+            "expires_after": "ch_01_completed",
+            "npcs_present": [
+              "npc_informant_1"
+            ],
+            "arc_type": "simple",
+            "assigned_quest_id": null
+          }
+        ]
+      },
+      {
+        "chapter_id": "chapter_02",
+        "order": 2,
+        "title": "Chapter 2: The Trail of Wire",
+        "narrative_scope": "Elena Cross navigates district 2 uncovering evidence against Sterling.",
+        "entry_state": {
+          "location": "loc_district_02",
+          "trait_snapshot": {
+            "Cunning": "none",
+            "Empathy": "none"
+          },
+          "inventory": [
+            "detective_badge",
+            "service_pistol"
+          ],
+          "active_flags": [
+            "ch_02_started"
+          ]
+        },
+        "exit_state": {
+          "location": "loc_district_02_exit",
+          "trait_snapshot": {
+            "Cunning": "emerging",
+            "Empathy": "none"
+          },
+          "inventory": [
+            "detective_badge",
+            "service_pistol",
+            "clue_fragment_2"
+          ],
+          "active_flags": [
+            "ch_02_completed"
+          ]
+        },
+        "attachment_points": [
+          {
+            "slot_id": "slot_ch02_01",
+            "chapter_id": "chapter_02",
+            "location_id": "loc_district_02",
+            "available_after": "ch_02_started",
+            "expires_after": "ch_02_completed",
+            "npcs_present": [
+              "npc_informant_2"
+            ],
+            "arc_type": "simple",
+            "assigned_quest_id": null
+          }
+        ]
+      },
+      {
+        "chapter_id": "chapter_03",
+        "order": 3,
+        "title": "Chapter 3: The Trail of Wire",
+        "narrative_scope": "Elena Cross navigates district 3 uncovering evidence against Sterling.",
+        "entry_state": {
+          "location": "loc_district_03",
+          "trait_snapshot": {
+            "Cunning": "none",
+            "Empathy": "none"
+          },
+          "inventory": [
+            "detective_badge",
+            "service_pistol"
+          ],
+          "active_flags": [
+            "ch_03_started"
+          ]
+        },
+        "exit_state": {
+          "location": "loc_district_03_exit",
+          "trait_snapshot": {
+            "Cunning": "emerging",
+            "Empathy": "emerging"
+          },
+          "inventory": [
+            "detective_badge",
+            "service_pistol",
+            "clue_fragment_3"
+          ],
+          "active_flags": [
+            "ch_03_completed"
+          ]
+        },
+        "attachment_points": [
+          {
+            "slot_id": "slot_ch03_01",
+            "chapter_id": "chapter_03",
+            "location_id": "loc_district_03",
+            "available_after": "ch_03_started",
+            "expires_after": "ch_03_completed",
+            "npcs_present": [
+              "npc_informant_3"
+            ],
+            "arc_type": "simple",
+            "assigned_quest_id": null
+          }
+        ]
+      },
+      {
+        "chapter_id": "chapter_04",
+        "order": 4,
+        "title": "Chapter 4: The Trail of Wire",
+        "narrative_scope": "Elena Cross navigates district 4 uncovering evidence against Sterling.",
+        "entry_state": {
+          "location": "loc_district_04",
+          "trait_snapshot": {
+            "Cunning": "none",
+            "Empathy": "none"
+          },
+          "inventory": [
+            "detective_badge",
+            "service_pistol"
+          ],
+          "active_flags": [
+            "ch_04_started"
+          ]
+        },
+        "exit_state": {
+          "location": "loc_district_04_exit",
+          "trait_snapshot": {
+            "Cunning": "emerging",
+            "Empathy": "emerging"
+          },
+          "inventory": [
+            "detective_badge",
+            "service_pistol",
+            "clue_fragment_4"
+          ],
+          "active_flags": [
+            "ch_04_completed"
+          ]
+        },
+        "attachment_points": [
+          {
+            "slot_id": "slot_ch04_01",
+            "chapter_id": "chapter_04",
+            "location_id": "loc_district_04",
+            "available_after": "ch_04_started",
+            "expires_after": "ch_04_completed",
+            "npcs_present": [
+              "npc_informant_4"
+            ],
+            "arc_type": "simple",
+            "assigned_quest_id": null
+          }
+        ]
+      },
+      {
+        "chapter_id": "chapter_05",
+        "order": 5,
+        "title": "Chapter 5: The Trail of Wire",
+        "narrative_scope": "Elena Cross navigates district 5 uncovering evidence against Sterling.",
+        "entry_state": {
+          "location": "loc_district_05",
+          "trait_snapshot": {
+            "Cunning": "none",
+            "Empathy": "none"
+          },
+          "inventory": [
+            "detective_badge",
+            "service_pistol"
+          ],
+          "active_flags": [
+            "ch_05_started"
+          ]
+        },
+        "exit_state": {
+          "location": "loc_district_05_exit",
+          "trait_snapshot": {
+            "Cunning": "emerging",
+            "Empathy": "emerging"
+          },
+          "inventory": [
+            "detective_badge",
+            "service_pistol",
+            "clue_fragment_5"
+          ],
+          "active_flags": [
+            "ch_05_completed"
+          ]
+        },
+        "attachment_points": [
+          {
+            "slot_id": "slot_ch05_01",
+            "chapter_id": "chapter_05",
+            "location_id": "loc_district_05",
+            "available_after": "ch_05_started",
+            "expires_after": "ch_05_completed",
+            "npcs_present": [
+              "npc_informant_5"
+            ],
+            "arc_type": "simple",
+            "assigned_quest_id": null
+          }
+        ]
+      },
+      {
+        "chapter_id": "chapter_06",
+        "order": 6,
+        "title": "Chapter 6: The Trail of Wire",
+        "narrative_scope": "Elena Cross navigates district 6 uncovering evidence against Sterling.",
+        "entry_state": {
+          "location": "loc_district_06",
+          "trait_snapshot": {
+            "Cunning": "none",
+            "Empathy": "none"
+          },
+          "inventory": [
+            "detective_badge",
+            "service_pistol"
+          ],
+          "active_flags": [
+            "ch_06_started"
+          ]
+        },
+        "exit_state": {
+          "location": "loc_district_06_exit",
+          "trait_snapshot": {
+            "Cunning": "emerging",
+            "Empathy": "emerging"
+          },
+          "inventory": [
+            "detective_badge",
+            "service_pistol",
+            "clue_fragment_6"
+          ],
+          "active_flags": [
+            "ch_06_completed"
+          ]
+        },
+        "attachment_points": [
+          {
+            "slot_id": "slot_ch06_01",
+            "chapter_id": "chapter_06",
+            "location_id": "loc_district_06",
+            "available_after": "ch_06_started",
+            "expires_after": "ch_06_completed",
+            "npcs_present": [
+              "npc_informant_6"
+            ],
+            "arc_type": "simple",
+            "assigned_quest_id": null
+          }
+        ]
+      }
+    ],
+    "current_stage": "stage_2_chapter_breakdown",
+    "checkpoint_status": "awaiting_review",
+    "checkpoint_action": "approve",
+    "regeneration_notes": ""
+  },
+  "checkpoint_data": {
+    "stage": "stage_2_chapter_breakdown",
+    "checkpoint": 2,
+    "payload": {
+      "chapter_contracts": [
+        {
+          "chapter_id": "chapter_01",
+          "order": 1,
+          "title": "Chapter 1: The Trail of Wire",
+          "narrative_scope": "Elena Cross navigates district 1 uncovering evidence against Sterling.",
+          "entry_state": {
+            "location": "loc_district_01",
+            "trait_snapshot": {
+              "Cunning": "none",
+              "Empathy": "none"
+            },
+            "inventory": [
+              "detective_badge",
+              "service_pistol"
+            ],
+            "active_flags": [
+              "ch_01_started"
+            ]
+          },
+          "exit_state": {
+            "location": "loc_district_01_exit",
+            "trait_snapshot": {
+              "Cunning": "none",
+              "Empathy": "none"
+            },
+            "inventory": [
+              "detective_badge",
+              "service_pistol",
+              "clue_fragment_1"
+            ],
+            "active_flags": [
+              "ch_01_completed"
+            ]
+          },
+          "attachment_points": [
+            {
+              "slot_id": "slot_ch01_01",
+              "chapter_id": "chapter_01",
+              "location_id": "loc_district_01",
+              "available_after": "ch_01_started",
+              "expires_after": "ch_01_completed",
+              "npcs_present": [
+                "npc_informant_1"
+              ],
+              "arc_type": "simple",
+              "assigned_quest_id": null
+            }
+          ]
+        },
+        {
+          "chapter_id": "chapter_02",
+          "order": 2,
+          "title": "Chapter 2: The Trail of Wire",
+          "narrative_scope": "Elena Cross navigates district 2 uncovering evidence against Sterling.",
+          "entry_state": {
+            "location": "loc_district_02",
+            "trait_snapshot": {
+              "Cunning": "none",
+              "Empathy": "none"
+            },
+            "inventory": [
+              "detective_badge",
+              "service_pistol"
+            ],
+            "active_flags": [
+              "ch_02_started"
+            ]
+          },
+          "exit_state": {
+            "location": "loc_district_02_exit",
+            "trait_snapshot": {
+              "Cunning": "emerging",
+              "Empathy": "none"
+            },
+            "inventory": [
+              "detective_badge",
+              "service_pistol",
+              "clue_fragment_2"
+            ],
+            "active_flags": [
+              "ch_02_completed"
+            ]
+          },
+          "attachment_points": [
+            {
+              "slot_id": "slot_ch02_01",
+              "chapter_id": "chapter_02",
+              "location_id": "loc_district_02",
+              "available_after": "ch_02_started",
+              "expires_after": "ch_02_completed",
+              "npcs_present": [
+                "npc_informant_2"
+              ],
+              "arc_type": "simple",
+              "assigned_quest_id": null
+            }
+          ]
+        },
+        {
+          "chapter_id": "chapter_03",
+          "order": 3,
+          "title": "Chapter 3: The Trail of Wire",
+          "narrative_scope": "Elena Cross navigates district 3 uncovering evidence against Sterling.",
+          "entry_state": {
+            "location": "loc_district_03",
+            "trait_snapshot": {
+              "Cunning": "none",
+              "Empathy": "none"
+            },
+            "inventory": [
+              "detective_badge",
+              "service_pistol"
+            ],
+            "active_flags": [
+              "ch_03_started"
+            ]
+          },
+          "exit_state": {
+            "location": "loc_district_03_exit",
+            "trait_snapshot": {
+              "Cunning": "emerging",
+              "Empathy": "emerging"
+            },
+            "inventory": [
+              "detective_badge",
+              "service_pistol",
+              "clue_fragment_3"
+            ],
+            "active_flags": [
+              "ch_03_completed"
+            ]
+          },
+          "attachment_points": [
+            {
+              "slot_id": "slot_ch03_01",
+              "chapter_id": "chapter_03",
+              "location_id": "loc_district_03",
+              "available_after": "ch_03_started",
+              "expires_after": "ch_03_completed",
+              "npcs_present": [
+                "npc_informant_3"
+              ],
+              "arc_type": "simple",
+              "assigned_quest_id": null
+            }
+          ]
+        },
+        {
+          "chapter_id": "chapter_04",
+          "order": 4,
+          "title": "Chapter 4: The Trail of Wire",
+          "narrative_scope": "Elena Cross navigates district 4 uncovering evidence against Sterling.",
+          "entry_state": {
+            "location": "loc_district_04",
+            "trait_snapshot": {
+              "Cunning": "none",
+              "Empathy": "none"
+            },
+            "inventory": [
+              "detective_badge",
+              "service_pistol"
+            ],
+            "active_flags": [
+              "ch_04_started"
+            ]
+          },
+          "exit_state": {
+            "location": "loc_district_04_exit",
+            "trait_snapshot": {
+              "Cunning": "emerging",
+              "Empathy": "emerging"
+            },
+            "inventory": [
+              "detective_badge",
+              "service_pistol",
+              "clue_fragment_4"
+            ],
+            "active_flags": [
+              "ch_04_completed"
+            ]
+          },
+          "attachment_points": [
+            {
+              "slot_id": "slot_ch04_01",
+              "chapter_id": "chapter_04",
+              "location_id": "loc_district_04",
+              "available_after": "ch_04_started",
+              "expires_after": "ch_04_completed",
+              "npcs_present": [
+                "npc_informant_4"
+              ],
+              "arc_type": "simple",
+              "assigned_quest_id": null
+            }
+          ]
+        },
+        {
+          "chapter_id": "chapter_05",
+          "order": 5,
+          "title": "Chapter 5: The Trail of Wire",
+          "narrative_scope": "Elena Cross navigates district 5 uncovering evidence against Sterling.",
+          "entry_state": {
+            "location": "loc_district_05",
+            "trait_snapshot": {
+              "Cunning": "none",
+              "Empathy": "none"
+            },
+            "inventory": [
+              "detective_badge",
+              "service_pistol"
+            ],
+            "active_flags": [
+              "ch_05_started"
+            ]
+          },
+          "exit_state": {
+            "location": "loc_district_05_exit",
+            "trait_snapshot": {
+              "Cunning": "emerging",
+              "Empathy": "emerging"
+            },
+            "inventory": [
+              "detective_badge",
+              "service_pistol",
+              "clue_fragment_5"
+            ],
+            "active_flags": [
+              "ch_05_completed"
+            ]
+          },
+          "attachment_points": [
+            {
+              "slot_id": "slot_ch05_01",
+              "chapter_id": "chapter_05",
+              "location_id": "loc_district_05",
+              "available_after": "ch_05_started",
+              "expires_after": "ch_05_completed",
+              "npcs_present": [
+                "npc_informant_5"
+              ],
+              "arc_type": "simple",
+              "assigned_quest_id": null
+            }
+          ]
+        },
+        {
+          "chapter_id": "chapter_06",
+          "order": 6,
+          "title": "Chapter 6: The Trail of Wire",
+          "narrative_scope": "Elena Cross navigates district 6 uncovering evidence against Sterling.",
+          "entry_state": {
+            "location": "loc_district_06",
+            "trait_snapshot": {
+              "Cunning": "none",
+              "Empathy": "none"
+            },
+            "inventory": [
+              "detective_badge",
+              "service_pistol"
+            ],
+            "active_flags": [
+              "ch_06_started"
+            ]
+          },
+          "exit_state": {
+            "location": "loc_district_06_exit",
+            "trait_snapshot": {
+              "Cunning": "emerging",
+              "Empathy": "emerging"
+            },
+            "inventory": [
+              "detective_badge",
+              "service_pistol",
+              "clue_fragment_6"
+            ],
+            "active_flags": [
+              "ch_06_completed"
+            ]
+          },
+          "attachment_points": [
+            {
+              "slot_id": "slot_ch06_01",
+              "chapter_id": "chapter_06",
+              "location_id": "loc_district_06",
+              "available_after": "ch_06_started",
+              "expires_after": "ch_06_completed",
+              "npcs_present": [
+                "npc_informant_6"
+              ],
+              "arc_type": "simple",
+              "assigned_quest_id": null
+            }
+          ]
+        }
+      ]
+    }
+  },
+  "saved_at": "2026-09-21T13:32:52.088079"
+}

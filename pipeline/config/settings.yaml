@@ -1,0 +1,21 @@
+app_name: QuestForge
+version: "0.1.0"
+
+pipeline:
+  max_critic_iterations: 3
+  critic_pass_threshold: 75
+  default_chapters_count: 6
+  max_traits_per_story: 2
+
+traits:
+  thresholds:
+    none: 0
+    emerging: 1
+    established: 4
+    dominant: 8
+
+paths:
+  prompts_dir: "pipeline/prompts"
+  lore_store_dir: "chroma_db"
+  game_package_dir: "game_package"
+  checkpoint_dir: ".checkpoints"

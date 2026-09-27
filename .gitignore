@@ -1,0 +1,44 @@
+# Environment and Credentials
+.env
+credentials/
+*.pem
+*.key
+
+# Virtual Environments
+.venv/
+venv/
+ENV/
+env/
+
+# Python Cache & Artifacts
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.pytest_cache/
+.coverage
+htmlcov/
+dist/
+build/
+*.egg-info/
+
+# Chroma / Vector DB storage
+.chroma_data/
+chroma_db/
+chromadb/
+
+# Output Packages
+game_package/
+output/
+exports/
+
+# Node / Designer UI (Phase 5)
+designer/node_modules/
+designer/dist/
+designer/build/
+.npm
+
+# Operating System Files
+.DS_Store
+Thumbs.db
+desktop.ini

@@ -1,0 +1,18 @@
+{
+  "id": "proj_the_dust_of_time_20260923_142234",
+  "title": "The Dust of time",
+  "story_seed": "This is a very lighthearted, humorous, self aware story in the tune of \"Year One\" movie. The characters don't have deep ulterior motives or generations worth of trauma. There will be one character who will behave like they have the universe on the line, this will be played off as a joke as well. \n\nThe protagonist joins a new real estate organization, but gets embroiled in a cult that spans centuries. He mistakenly activates a device that starts shifting the entire building through time. The building changes appearance and purpose based on the time period, but the structure remains the same. The workers in the building stay the reincarnations of current workers. Our player has to find artifacts to fix this  and complete the ritual before the timelines merge and collapse. The story starts normally, then the protagonist moves to each timeline once, then they have to visit each timeline to collect the pieces of the artifact and solve puzzles in hilarious situations. The first timeline is the modern timeline, the second timeline is a medieval timeline where magic is present, the building acts as the palace of A king (currently CEO) with the harem (all employees), the last timeline is the 1960's timeline, just starting with technology, the building is a college dorm, the CEO is the warden and the students are employees again. The characters other than the protagonist may have different names that have same meaning in different timelines. The story will have a crisis where altering something in the past will be key to unlocking the ritual in the future.\n\nA rough chapter outline is as follows - Chapter one is just a regular story, our protagonist joins the organization, works for a little while, meets the staff. He starts dating on of the colleagues. On a dare date, they want to have some privacy in the ceo's room. This starts the crisis. During their action in the office, the protagonist accidently triggers an artifact and plunges the story into chaos. His partner tries to warn and tell him that the device has started to shift timelines, she appears in different characters while completing the dialog. This gives basic exposition to the player about the time mechanic. The initial chapter gives them time to learn the game mechanics and learn the building layout. After that continue the story as you please. The game has one protagonist, 5 main female characters, 3 main male characters, and a mix of npc crowd of male and majorly female cast.",
+  "genre": "Humorous Time-Travel Comedy",
+  "tone": "Lighthearted, self-aware, irreverent, slapstick with romantic and adult-tinged absurdity",
+  "created_at": "2026-09-23T14:22:34.046435",
+  "updated_at": "2026-09-26T13:48:43.423987+00:00",
+  "current_stage": "export_complete",
+  "status": "completed",
+  "chapter_count": 7,
+  "quest_count": 22,
+  "has_export": true,
+  "is_explicit": true,
+  "has_twine_export": true,
+  "twine_twee_file": "projects\\proj_the_dust_of_time_20260923_142234\\twine\\the_timeless_office.twee",
+  "twine_html_file": "projects\\proj_the_dust_of_time_20260923_142234\\twine\\the_timeless_office.html"
+}
