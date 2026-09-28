@@ -375,6 +375,8 @@ export const DebugView: React.FC = () => {
                   className="w-full bg-slate-950 border border-slate-800 rounded-lg px-2.5 py-1.5 text-xs text-slate-200 outline-none focus:border-indigo-500"
                 >
                   <option value="">Default (.env)</option>
+                  <option value="openai">OpenAI / Compatible</option>
+                  <option value="anthropic">Anthropic (Claude)</option>
                   <option value="vertex_ai">Vertex AI</option>
                   <option value="gemini_api">Gemini API</option>
                   <option value="mock">Offline Mock</option>

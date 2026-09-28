@@ -1,44 +1,99 @@
-# Environment and Credentials
+# ==============================================================================
+# QuestForge .gitignore
+# ==============================================================================
+
+# --- Environment and Credentials ---
 .env
+.env.*
+!.env.example
 credentials/
 *.pem
 *.key
+*.cert
+*.crt
 
-# Virtual Environments
+# --- Virtual Environments ---
 .venv/
 venv/
 ENV/
 env/
+venv.bak/
+env.bak/
 
-# Python Cache & Artifacts
+# --- Python Cache & Build Artifacts ---
 __pycache__/
 *.py[cod]
 *$py.class
 *.so
+build/
+dist/
+develop-eggs/
+downloads/
+eggs/
+.eggs/
+*.egg-info/
+*.egg
+.installed.cfg
+
+# --- Testing, Coverage & Linters ---
 .pytest_cache/
 .coverage
+.coverage.*
 htmlcov/
-dist/
-build/
-*.egg-info/
+.tox/
+.nox/
+.hypothesis/
+.mypy_cache/
+.ruff_cache/
 
-# Chroma / Vector DB storage
+# --- Database & Runtime Checkpoints ---
+*.sqlite
+*.sqlite3
+*.sqlite-shm
+*.sqlite-wal
+*.db
+*.db-shm
+*.db-wal
+.checkpoints/
+
+# --- Vector Database & Lore Store ---
 .chroma_data/
 chroma_db/
 chromadb/
 
-# Output Packages
+# --- Game Packages & Output Exports ---
 game_package/
+**/game_package/
 output/
 exports/
+Planning/
 
-# Node / Designer UI (Phase 5)
-designer/node_modules/
+# --- Node / Designer UI (Vite + React) ---
+node_modules/
+**/node_modules/
 designer/dist/
 designer/build/
 .npm
+.vite/
+designer/.vite/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
 
-# Operating System Files
+# --- IDE & Editor Settings ---
+.vscode/
+!.vscode/extensions.json
+.idea/
+*.swp
+*.swo
+*.sublime-project
+*.sublime-workspace
+
+# --- Operating System Files ---
 .DS_Store
 Thumbs.db
+ehthumbs.db
 desktop.ini
+*.tmp
+*.temp

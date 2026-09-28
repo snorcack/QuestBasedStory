@@ -182,9 +182,23 @@ def test_rubric_scoring_and_gates():
 
 
 def test_llm_client_initialization():
-    """Verify LLM client switches configurations between gemini_api and vertex_ai."""
+    """Verify LLM client switches configurations between gemini_api, vertex_ai, openai, and anthropic."""
     client_gemini = LLMClient(backend="gemini_api")
     assert client_gemini.backend == "gemini_api"
 
     client_vertex = LLMClient(backend="vertex_ai")
     assert client_vertex.backend == "vertex_ai"
+
+    client_openai = LLMClient(backend="openai")
+    assert client_openai.backend == "openai"
+    assert hasattr(client_openai, "base_url")
+    assert client_openai.model_name is not None
+
+    client_anthropic = LLMClient(backend="anthropic")
+    assert client_anthropic.backend == "anthropic"
+    assert hasattr(client_anthropic, "base_url")
+    assert client_anthropic.model_name is not None
+
+    diag = client_openai.diagnose()
+    assert diag["backend"] == "openai"
+    assert "base_url" in diag

@@ -4,6 +4,8 @@
 
 The shipped game reads static JSON packages; **no AI model runs at runtime**.
 
+> 📚 **Complete Documentation**: For a comprehensive, tab-by-tab guide covering all 8 designer views, pipeline checkpoints, search tools, playtester, and tips, see **[`DOCUMENTATION.md`](file:///k:/AI/QuestBasedStory/DOCUMENTATION.md)**.
+
 ---
 
 ## System Architecture
@@ -47,6 +49,14 @@ Per-Chapter Authoring Loop (Sequential):
 
 ### 1. Installation
 
+#### Windows (One-Click)
+Double-click `install.bat` or run:
+```cmd
+install.bat
+```
+*(Automatically sets up Python virtual environment `.venv`, installs requirements, initializes `.env`, installs Node modules, and compiles the Designer UI bundle.)*
+
+#### Manual / Cross-Platform
 ```bash
 # Clone or navigate to the repository
 cd QuestBasedStory
@@ -62,7 +72,19 @@ cp .env.example .env
 
 ---
 
-### 2. Option A: Visual Designer UI (React Flow)
+### 2. Launching QuestForge
+
+#### Windows (One-Click)
+Double-click `run.bat` or run:
+```cmd
+run.bat          # Launches unified server and opens http://127.0.0.1:8000
+run.bat dev      # Launches dev server with Vite HMR on http://localhost:5173
+run.bat cli      # Launches interactive terminal reviewer CLI
+```
+
+---
+
+#### Manual Option A: Visual Designer UI (React Flow)
 
 Start the unified backend + frontend server:
 
@@ -81,7 +103,7 @@ Then open your browser at **[http://127.0.0.1:8000](http://127.0.0.1:8000)**.
 
 ---
 
-### 3. Option B: Interactive Terminal Reviewer CLI
+#### Manual Option B: Interactive Terminal Reviewer CLI
 
 To run the entire pipeline directly in your terminal with human checkpoints:
 

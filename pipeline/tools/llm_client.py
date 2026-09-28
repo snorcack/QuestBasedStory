@@ -92,8 +92,22 @@ class LLMClient:
             self.fallback_model = (os.getenv("VERTEX_AI_FALLBACK_MODEL") or "gemini-2.5-flash").strip()
             if not self.project or self.project == "your-gcp-project-id":
                 logger.warning("GOOGLE_CLOUD_PROJECT not configured. Falling back to mock generator if requested.")
+        elif self.backend in ("openai", "openai_compatible", "openapi"):
+            self.api_key = (os.getenv("OPENAI_API_KEY") or "").strip()
+            self.model_name = (os.getenv("OPENAI_MODEL") or "gpt-4o").strip()
+            self.fallback_model = (os.getenv("OPENAI_FALLBACK_MODEL") or "gpt-4o-mini").strip()
+            self.base_url = (os.getenv("OPENAI_BASE_URL") or "https://api.openai.com/v1").strip().rstrip("/")
+            if not self.api_key or self.api_key == "your_openai_api_key_here":
+                logger.warning("OPENAI_API_KEY not configured. Falling back to mock generator if requested.")
+        elif self.backend in ("anthropic", "claude"):
+            self.api_key = (os.getenv("ANTHROPIC_API_KEY") or "").strip()
+            self.model_name = (os.getenv("ANTHROPIC_MODEL") or "claude-3-7-sonnet-20250219").strip()
+            self.fallback_model = (os.getenv("ANTHROPIC_FALLBACK_MODEL") or "claude-3-5-haiku-20241022").strip()
+            self.base_url = (os.getenv("ANTHROPIC_BASE_URL") or "https://api.anthropic.com/v1").strip().rstrip("/")
+            if not self.api_key or self.api_key == "your_anthropic_api_key_here":
+                logger.warning("ANTHROPIC_API_KEY not configured. Falling back to mock generator if requested.")
         else:
-            raise ValueError(f"Unsupported LLM_BACKEND '{self.backend}'. Must be 'gemini_api', 'vertex_ai', or 'mock'.")
+            raise ValueError(f"Unsupported LLM_BACKEND '{self.backend}'. Must be 'gemini_api', 'vertex_ai', 'openai', 'anthropic', or 'mock'.")
 
     def _throttle(self) -> None:
         """Enforce a minimum spacing between consecutive API calls to avoid bursting rate limits."""
@@ -196,6 +210,24 @@ class LLMClient:
                         response = model.generate_content(user_prompt, generation_config=config)
                     return clean_json_text(response.text or "{}")
 
+                elif self.backend in ("openai", "openai_compatible", "openapi"):
+                    if not self.api_key or self.api_key == "your_openai_api_key_here":
+                        if os.getenv("ALLOW_MOCK_FALLBACK", "false").lower() in ("true", "1", "yes"):
+                            return self._generate_mock(user_prompt)
+                        raise RuntimeError("OPENAI_API_KEY not configured. Set your key in .env.")
+                    return self._call_openai(
+                        system_prompt, user_prompt, temperature, max_tokens, json_mode, model_override=current_model
+                    )
+
+                elif self.backend in ("anthropic", "claude"):
+                    if not self.api_key or self.api_key == "your_anthropic_api_key_here":
+                        if os.getenv("ALLOW_MOCK_FALLBACK", "false").lower() in ("true", "1", "yes"):
+                            return self._generate_mock(user_prompt)
+                        raise RuntimeError("ANTHROPIC_API_KEY not configured. Set your key in .env.")
+                    return self._call_anthropic(
+                        system_prompt, user_prompt, temperature, max_tokens, json_mode, model_override=current_model
+                    )
+
             except Exception as e:
                 last_exception = e
                 err_str = str(e).lower()
@@ -284,6 +316,115 @@ class LLMClient:
         data = resp.json()
         return clean_json_text(data["choices"][0]["message"]["content"])
 
+    def _call_openai(
+        self,
+        system_prompt: str,
+        user_prompt: str,
+        temperature: float = 0.7,
+        max_tokens: int = 8192,
+        json_mode: bool = False,
+        model_override: str | None = None,
+    ) -> str:
+        """Call standard OpenAI or OpenAI-compatible endpoint (OpenRouter, Groq, Ollama, DeepSeek, etc.)."""
+        global _http_session
+        import requests
+
+        if _http_session is None:
+            _http_session = requests.Session()
+
+        model_id = model_override or self.model_name
+        base = getattr(self, "base_url", "https://api.openai.com/v1").rstrip("/")
+        if base.endswith("/chat/completions"):
+            url = base
+        else:
+            url = f"{base}/chat/completions"
+
+        headers = {
+            "Content-Type": "application/json",
+            "Authorization": f"Bearer {self.api_key}",
+        }
+        if "openrouter" in base.lower():
+            headers["HTTP-Referer"] = "https://github.com/questforge"
+            headers["X-Title"] = "QuestForge Story Authoring"
+
+        messages = []
+        if system_prompt:
+            messages.append({"role": "system", "content": system_prompt})
+        messages.append({"role": "user", "content": user_prompt})
+
+        payload: dict[str, Any] = {
+            "model": model_id,
+            "messages": messages,
+            "temperature": temperature,
+            "max_tokens": max_tokens,
+        }
+        if json_mode:
+            payload["response_format"] = {"type": "json_object"}
+
+        resp = _http_session.post(url, headers=headers, json=payload, timeout=120)
+        # Fallback if local/custom endpoint does not support json_object in response_format
+        if resp.status_code == 400 and json_mode and "response_format" in resp.text:
+            del payload["response_format"]
+            resp = _http_session.post(url, headers=headers, json=payload, timeout=120)
+
+        if resp.status_code != 200:
+            raise RuntimeError(f"OpenAI / Compatible endpoint error ({resp.status_code}): {resp.text}")
+
+        data = resp.json()
+        content = data["choices"][0]["message"].get("content") or ""
+        return clean_json_text(content)
+
+    def _call_anthropic(
+        self,
+        system_prompt: str,
+        user_prompt: str,
+        temperature: float = 0.7,
+        max_tokens: int = 8192,
+        json_mode: bool = False,
+        model_override: str | None = None,
+    ) -> str:
+        """Call Anthropic Messages API (Claude)."""
+        global _http_session
+        import requests
+
+        if _http_session is None:
+            _http_session = requests.Session()
+
+        model_id = model_override or self.model_name
+        base = getattr(self, "base_url", "https://api.anthropic.com/v1").rstrip("/")
+        if base.endswith("/messages"):
+            url = base
+        else:
+            url = f"{base}/messages"
+
+        headers = {
+            "Content-Type": "application/json",
+            "x-api-key": self.api_key,
+            "anthropic-version": "2023-06-01",
+        }
+
+        sys_text = system_prompt or ""
+        if json_mode and "json" not in sys_text.lower():
+            sys_text = f"{sys_text}\n\nYou must respond strictly with valid JSON. Do not include markdown codeblocks or explanatory commentary.".strip()
+
+        payload: dict[str, Any] = {
+            "model": model_id,
+            "max_tokens": max_tokens,
+            "temperature": temperature,
+            "messages": [{"role": "user", "content": user_prompt}],
+        }
+        if sys_text:
+            payload["system"] = sys_text
+
+        resp = _http_session.post(url, headers=headers, json=payload, timeout=120)
+        if resp.status_code != 200:
+            raise RuntimeError(f"Anthropic API error ({resp.status_code}): {resp.text}")
+
+        data = resp.json()
+        text_blocks = [b.get("text", "") for b in data.get("content", []) if b.get("type") == "text"]
+        content = "".join(text_blocks)
+        return clean_json_text(content)
+
     def diagnose(self) -> dict[str, Any]:
         """Diagnose environment configuration and return status, warnings, and errors."""
         cred_path = os.getenv("GOOGLE_APPLICATION_CREDENTIALS", "")
@@ -293,6 +434,7 @@ class LLMClient:
             "backend": self.backend,
             "model_name": getattr(self, "model_name", "unknown"),
             "fallback_model": getattr(self, "fallback_model", "none"),
+            "base_url": getattr(self, "base_url", ""),
             "project": getattr(self, "project", ""),
             "location": getattr(self, "location", ""),
             "credentials_path": cred_path,
@@ -316,6 +458,12 @@ class LLMClient:
         elif self.backend in ("gemini_api", "gemini"):
             if not self.api_key or self.api_key == "your_gemini_api_key_here":
                 info["warnings"].append("GEMINI_API_KEY is not set or using placeholder key.")
+        elif self.backend in ("openai", "openai_compatible", "openapi"):
+            if not self.api_key or self.api_key == "your_openai_api_key_here":
+                info["warnings"].append("OPENAI_API_KEY is not set or using placeholder key.")
+        elif self.backend in ("anthropic", "claude"):
+            if not self.api_key or self.api_key == "your_anthropic_api_key_here":
+                info["warnings"].append("ANTHROPIC_API_KEY is not set or using placeholder key.")
 
         return info
 
@@ -372,6 +520,36 @@ class LLMClient:
                     "hint": None,
                 }
 
+            if self.backend in ("openai", "openai_compatible", "openapi"):
+                if not self.api_key or self.api_key == "your_openai_api_key_here":
+                    raise ValueError("OPENAI_API_KEY is not configured in .env.")
+                resp = self._call_openai(system_prompt, prompt, temperature, max_tokens, json_mode)
+                latency = round((time.perf_counter() - start_time) * 1000, 1)
+                return {
+                    "success": True,
+                    "response": resp,
+                    "latency_ms": latency,
+                    "backend": self.backend,
+                    "model": self.model_name,
+                    "error": None,
+                    "hint": None,
+                }
+
+            if self.backend in ("anthropic", "claude"):
+                if not self.api_key or self.api_key == "your_anthropic_api_key_here":
+                    raise ValueError("ANTHROPIC_API_KEY is not configured in .env.")
+                resp = self._call_anthropic(system_prompt, prompt, temperature, max_tokens, json_mode)
+                latency = round((time.perf_counter() - start_time) * 1000, 1)
+                return {
+                    "success": True,
+                    "response": resp,
+                    "latency_ms": latency,
+                    "backend": self.backend,
+                    "model": self.model_name,
+                    "error": None,
+                    "hint": None,
+                }
+
             if self.backend in ("vertex_ai", "vertexai"):
                 is_grok = "grok" in self.model_name.lower() or self.model_name.startswith("xai/") or self.model_name.startswith("publishers/xai")
                 if is_grok:
@@ -418,11 +596,15 @@ class LLMClient:
             if "Unsupported region" in err_str or "global" in err_str:
                 hint = "Change GOOGLE_CLOUD_LOCATION in .env to a supported region like 'us-central1'."
             elif "404" in err_str or "Publisher Model" in err_str or "not found" in err_str.lower():
-                hint = f"Model '{self.model_name}' was not found in region '{self.location}'. Check model name spelling or region availability."
+                hint = f"Model '{self.model_name}' was not found in region '{getattr(self, 'location', '')}'. Check model name spelling or region availability."
             elif "credentials" in err_str.lower() or "permission" in err_str.lower() or "403" in err_str:
                 hint = "Authentication failed. Check your GCP service account credentials file and IAM permissions (Vertex AI User)."
             elif "API_KEY_INVALID" in err_str or "API key not valid" in err_str:
                 hint = "Invalid Gemini API Key. Please verify your GEMINI_API_KEY in .env."
+            elif "OPENAI_API_KEY" in err_str or ("openai" in err_str.lower() and ("401" in err_str or "invalid" in err_str.lower())):
+                hint = "Authentication failed. Check your OPENAI_API_KEY in .env."
+            elif "ANTHROPIC_API_KEY" in err_str or ("anthropic" in err_str.lower() and ("401" in err_str or "x-api-key" in err_str.lower())):
+                hint = "Authentication failed. Check your ANTHROPIC_API_KEY in .env."
 
             return {
                 "success": False,
